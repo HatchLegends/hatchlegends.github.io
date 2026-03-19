@@ -1,117 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Hatch Legends</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin:0;
-      background: radial-gradient(circle at top, #1e293b, #020617);
-      color:white;
-      font-family: Arial, sans-serif;
-      text-align:center;
-    }
-
-    .container {
-      padding:80px 20px;
-    }
-
-    h1 {
-      font-size:48px;
-      margin-bottom:10px;
-    }
-
-    .subtitle {
-      color:#94a3b8;
-      font-size:20px;
-      margin-bottom:30px;
-    }
-
-    .description {
-      color:#cbd5f5;
-      max-width:600px;
-      margin:0 auto 40px;
-    }
-
-    .buttons {
-      display:flex;
-      justify-content:center;
-      gap:15px;
-      flex-wrap:wrap;
-    }
-
-    .btn {
-      padding:14px 26px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:0.2s;
-    }
-
-    .play {
-      background: linear-gradient(135deg, #7c3aed, #9333ea);
-      color:white;
-      box-shadow: 0 0 20px rgba(124,58,237,0.6);
-    }
-
-    .discord {
-      background:#5865F2;
-      color:white;
-    }
-
-    .support {
-      background:#0ea5e9;
-      color:white;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    .footer {
-      margin-top:80px;
-      font-size:14px;
-      color:#64748b;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <div class="container">
+<!-- NAV -->
+<header class="navbar">
+  <img src="assets/images/logo.png" class="logo">
+</header>
 
-    <h1>Hatch Legends</h1>
-    
-    <div class="description">
-      Forge your destiny in Hatch Legends — a creature-collection RPG where powerful Aurorians are born from ancient eggs.
-      Master Essence types, build unstoppable teams, and rise through the Codex to uncover legendary beings like Stellaris.
-    </div>
+<!-- HERO -->
+<section class="hero">
 
-    <div class="buttons">
+  <!-- LEFT -->
+  <div class="hero-left">
 
-      <!-- PLAY BUTTON -->
-      <a class="btn play" href="#">
-        ▶ Play Now
-      </a>
+    <h1 class="title">Hatch Legends</h1>
+    <p class="subtitle">Hatch. Evolve. Dominate.</p>
 
-      <!-- DISCORD -->
-      <a class="btn discord" href="https://discord.gg/rBHPUT2kgj" target="_blank">
-        💬 Join Discord
-      </a>
+    <!-- DISCORD LINK -->
+    <a href="https://discord.gg/yN4QGrazZM" target="_blank" class="discord-link">
+      <img src="assets/ui/discord_creature_1024.png" class="discord-creature">
+      <img src="assets/ui/discord_logo_text_purple.png" class="discord-text">
+    </a>
 
-      <!-- SUPPORT -->
-      <a class="btn support" href="mailto:support@hatchlegends.com">
-        ✉ Support
-      </a>
-
-    </div>
-
-    <div class="footer">
-      © 2026 Hatch Legends. All rights reserved.
-    </div>
+    <!-- DONATE -->
+    <a href="https://paypal.com/YOUR_LINK_HERE" target="_blank">
+      <img src="assets/ui/donate_button.png" class="donate-btn">
+    </a>
 
   </div>
+
+  <!-- RIGHT -->
+  <div class="hero-right">
+    <img src="assets/images/solrael.png" class="hero-character">
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="assets/ui/copyright.png">
+</footer>
 
 </body>
 </html>
