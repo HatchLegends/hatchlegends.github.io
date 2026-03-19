@@ -1,192 +1,146 @@
-/* =========================
-   RESET
-========================= */
-* {
+/* RESET */
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
 }
 
+/* BACKGROUND */
 body {
-  overflow: hidden;
-  font-family: Arial, sans-serif;
   background:
-    radial-gradient(circle at 20% 20%, rgba(200,170,255,0.15), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(150,110,255,0.15), transparent 40%),
+    radial-gradient(ellipse at top, rgba(200,170,255,0.15), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(200,170,255,0.15), transparent 60%),
     #020617;
 }
 
-/* =========================
-   LOGO (TOP CENTER)
-========================= */
-.nav {
-  position: absolute;
-  top: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.logo {
-  height: 110px;
-  transition: 0.3s;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 20px rgba(200,170,255,0.6));
-}
-
-/* =========================
-   HERO LAYOUT
-========================= */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-/* CENTER BLOCK */
-.hero-center {
-  text-align: center;
-  z-index: 2;
-}
-
-/* =========================
-   DISCORD BUTTON
-========================= */
-.btn-discord {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 15px;
-  transition: 0.3s;
-}
-
-.btn-discord img:first-child {
-  height: 90px;
-}
-
-.btn-discord img:last-child {
-  height: 55px;
-}
-
-.btn-discord:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 25px rgba(200,170,255,0.8));
-}
-
-/* =========================
-   TEXT
-========================= */
-.subtitle {
-  color: #94a3b8;
-  font-size: 18px;
-}
-
-/* =========================
-   SOLRAEL (RIGHT SIDE)
-========================= */
-.hero-character {
-  position: absolute;
-  right: 80px;
-  bottom: 60px;
-  height: 420px;
-
-  transition: 0.4s;
-}
-
-.hero-character:hover {
-  transform: scale(1.05);
-  filter:
-    drop-shadow(0 0 40px rgba(255,200,120,0.6))
-    drop-shadow(0 0 80px rgba(255,200,120,0.4));
-}
-
-/* =========================
-   DONATE BUTTON (BOTTOM LEFT)
-========================= */
-.btn-donate {
-  position: absolute;
-  left: 60px;
-  bottom: 80px;
-}
-
-.btn-donate img {
-  height: 90px;
-  transition: 0.3s;
-}
-
-.btn-donate img:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 25px rgba(200,170,255,0.8));
-}
-
-/* =========================
-   FOOTER (CENTER BOTTOM)
-========================= */
-.footer {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-}
-
-.footer img {
-  height: 120px;
-  opacity: 0.95;
-}
-
-/* =========================
-   ✨ ADVANCED PARTICLES
-========================= */
-.particles {
+/* PARTICLES */
+#particles {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
 }
 
-/* MULTI LAYER PARTICLES */
-.particles::before,
-.particles::after {
-  content: "";
+/* LAYER FIX */
+.hero,
+.navbar,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* NAVBAR (CENTER TOP) */
+.navbar {
   position: absolute;
-  width: 200%;
-  height: 200%;
-  animation: floatParticles linear infinite;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* LAYER 1 */
-.particles::before {
-  background-image:
-    radial-gradient(3px 3px at 10% 20%, rgba(200,170,255,0.8), transparent),
-    radial-gradient(2px 2px at 30% 80%, rgba(150,110,255,0.7), transparent),
-    radial-gradient(2px 2px at 70% 40%, rgba(200,170,255,0.6), transparent),
-    radial-gradient(2px 2px at 90% 60%, rgba(150,110,255,0.5), transparent);
-
-  animation-duration: 25s;
+.logo {
+  height: 60px;
 }
 
-/* LAYER 2 */
-.particles::after {
-  background-image:
-    radial-gradient(2px 2px at 20% 70%, rgba(255,200,255,0.5), transparent),
-    radial-gradient(2px 2px at 60% 20%, rgba(200,170,255,0.5), transparent),
-    radial-gradient(2px 2px at 80% 80%, rgba(150,110,255,0.5), transparent);
-
-  animation-duration: 40s;
+/* HERO GRID */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  height: 100vh;
+  padding: 0 8vw;
 }
 
-/* FLOAT ANIMATION */
-@keyframes floatParticles {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-300px);
-  }
+/* LEFT SIDE */
+.hero-left {
+  max-width: 500px;
+}
+
+/* TITLE */
+.title {
+  font-size: 64px;
+  margin: 0;
+  background: linear-gradient(
+    to right,
+    rgb(150,110,255),
+    rgb(200,170,255)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SUBTITLE */
+.subtitle {
+  color: #94a3b8;
+  margin: 20px 0 30px;
+}
+
+/* DISCORD BUTTON */
+.discord-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.discord-creature {
+  height: 70px;
+  transition: 0.3s;
+}
+
+.discord-text {
+  height: 40px;
+}
+
+/* DISCORD HOVER */
+.discord-link:hover .discord-creature {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px rgb(200,170,255));
+}
+
+/* DONATE BUTTON (BOTTOM RIGHT FIXED) */
+.donate-btn {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  height: 55px;
+  transition: 0.3s;
+}
+
+.donate-btn:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgb(200,170,255));
+}
+
+/* RIGHT SIDE */
+.hero-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* SOLRAEL */
+.hero-character {
+  height: 70vh;
+  transition: 0.4s ease;
+}
+
+/* 🔥 HOVER GLOW */
+.hero-character:hover {
+  transform: scale(1.05);
+  filter:
+    drop-shadow(0 0 40px rgba(200,170,255,0.7))
+    drop-shadow(0 0 80px rgba(150,110,255,0.4));
+}
+
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.6;
 }
