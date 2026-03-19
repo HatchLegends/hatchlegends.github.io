@@ -1,111 +1,126 @@
-/* RESET */
-body {
+/* =========================
+   RESET & BASE
+========================= */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  overflow-x: hidden;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* BACKGROUND */
 body {
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
   background:
-    radial-gradient(ellipse at top, rgba(200,170,255,0.2), transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(200,170,255,0.2), transparent 50%),
+    radial-gradient(circle at 20% 20%, rgba(200,170,255,0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(150,110,255,0.15), transparent 40%),
     #020617;
 }
 
-/* NAV */
-.navbar {
+/* =========================
+   NAV / LOGO
+========================= */
+.nav {
   position: absolute;
-  top: 20px;
+  top: 24px;
   left: 40px;
+  z-index: 10;
 }
 
 .logo {
-  height: 60px;
+  height: 90px;
+  transition: 0.3s ease;
 }
 
-/* HERO */
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgba(200,170,255,0.5));
+}
+
+/* =========================
+   HERO LAYOUT
+========================= */
 .hero {
   display: flex;
-  height: 100vh;
   align-items: center;
   justify-content: space-between;
+  height: 100vh;
   padding: 60px;
 }
 
-/* LEFT */
+/* LEFT SIDE */
 .hero-left {
   max-width: 500px;
   z-index: 2;
 }
 
-.title {
-  font-size: 64px;
-  background: linear-gradient(
-    to right,
-    rgb(150,110,255),
-    rgb(200,170,255)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .subtitle {
+  font-size: 18px;
   color: #94a3b8;
   margin-bottom: 30px;
 }
 
-/* DISCORD */
-.discord-link {
+/* =========================
+   BUTTONS
+========================= */
+.btn-discord,
+.btn-donate {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 20px;
-  transition: 0.3s;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
 }
 
-.discord-creature {
+.btn-discord img:first-child {
   height: 70px;
-  transition: 0.3s;
 }
 
-.discord-text {
+.btn-discord img:last-child {
   height: 40px;
 }
 
-/* HOVER EFFECT */
-.discord-link:hover .discord-creature {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 20px rgb(200,170,255));
-}
-
-/* DONATE */
-.donate-btn {
+.btn-donate img {
   height: 50px;
-  margin-top: 10px;
-  transition: 0.3s;
 }
 
-.donate-btn:hover {
+/* Hover Effects */
+.btn-discord:hover img:first-child {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(200,170,255,0.7));
+}
+
+.btn-donate:hover img {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 15px rgb(200,170,255));
+  filter: drop-shadow(0 0 15px rgba(200,170,255,0.6));
 }
 
-/* RIGHT */
+/* =========================
+   DONATE TEXT (IMPROVED)
+========================= */
+.donate-text {
+  font-size: 14px;
+  color: #94a3b8;
+  opacity: 0.8;
+  margin-top: 8px;
+  max-width: 260px;
+  line-height: 1.4;
+}
+
+/* =========================
+   HERO RIGHT / CHARACTER
+========================= */
 .hero-right {
-  flex: 1;
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
-/* SOLRAEL */
 .hero-character {
-  max-height: 80vh;
-  transition: 0.4s;
+  max-height: 50vh;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* 🔥 SOLRAEL HOVER MAGIC */
 .hero-character:hover {
   transform: scale(1.05);
   filter:
@@ -113,9 +128,64 @@ body {
     drop-shadow(0 0 60px rgba(150,110,255,0.4));
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 .footer {
   position: absolute;
-  bottom: 20px;
-  left: 40px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.footer img {
+  height: 18px;
+  opacity: 0.5;
+}
+
+/* =========================
+   PARTICLES
+========================= */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particles::before,
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-repeat: repeat;
+  animation: floatParticles 25s linear infinite;
+}
+
+/* Layer 1 */
+.particles::before {
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(200,170,255,0.6), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(150,110,255,0.5), transparent),
+    radial-gradient(2px 2px at 80% 20%, rgba(200,170,255,0.6), transparent);
+}
+
+/* Layer 2 (depth) */
+.particles::after {
+  background-image:
+    radial-gradient(2px 2px at 40% 60%, rgba(200,170,255,0.4), transparent),
+    radial-gradient(2px 2px at 70% 40%, rgba(150,110,255,0.4), transparent);
+  animation-duration: 40s;
+}
+
+/* Animation */
+@keyframes floatParticles {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
 }
