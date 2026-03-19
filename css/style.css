@@ -1,5 +1,5 @@
 /* =========================
-   RESET & BASE
+   RESET
 ========================= */
 * {
   margin: 0;
@@ -8,9 +8,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  color: white;
   overflow: hidden;
+  font-family: Arial, sans-serif;
   background:
     radial-gradient(circle at 20% 20%, rgba(200,170,255,0.15), transparent 40%),
     radial-gradient(circle at 80% 80%, rgba(150,110,255,0.15), transparent 40%),
@@ -18,179 +17,176 @@ body {
 }
 
 /* =========================
-   NAV / LOGO (CENTERED TOP)
+   LOGO (TOP CENTER)
 ========================= */
 .nav {
   position: absolute;
-  top: 20px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
 
 .logo {
-  height: 100px;
-  transition: 0.3s ease;
+  height: 110px;
+  transition: 0.3s;
 }
 
 .logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 15px rgba(200,170,255,0.5));
+  filter: drop-shadow(0 0 20px rgba(200,170,255,0.6));
 }
 
 /* =========================
    HERO LAYOUT
 ========================= */
 .hero {
+  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 100vh;
-  padding: 60px;
+  justify-content: center;
+  position: relative;
 }
 
-/* LEFT SIDE */
-.hero-left {
-  max-width: 500px;
+/* CENTER BLOCK */
+.hero-center {
+  text-align: center;
   z-index: 2;
 }
 
-.subtitle {
-  font-size: 18px;
-  color: #94a3b8;
-  margin-bottom: 30px;
-}
-
 /* =========================
-   BUTTONS
+   DISCORD BUTTON
 ========================= */
-.btn-discord,
-.btn-donate {
+.btn-discord {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   margin-bottom: 15px;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn-discord img:first-child {
-  height: 75px;
+  height: 90px;
 }
 
 .btn-discord img:last-child {
-  height: 45px;
+  height: 55px;
 }
 
-/* BIGGER DONATE BUTTON */
-.btn-donate img {
-  height: 80px;
-}
-
-/* Hover Effects */
-.btn-discord:hover img:first-child {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 20px rgba(200,170,255,0.7));
-}
-
-.btn-donate:hover img {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 20px rgba(200,170,255,0.7));
+.btn-discord:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 25px rgba(200,170,255,0.8));
 }
 
 /* =========================
-   DONATE TEXT
+   TEXT
 ========================= */
-.donate-text {
-  font-size: 14px;
+.subtitle {
   color: #94a3b8;
-  opacity: 0.8;
-  margin-top: 8px;
-  max-width: 260px;
-  line-height: 1.4;
+  font-size: 18px;
 }
 
 /* =========================
-   HERO RIGHT / CHARACTER
+   SOLRAEL (RIGHT SIDE)
 ========================= */
-.hero-right {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex: 1;
-  padding-right: 140px; /* pushes Solrael right */
-}
-
-/* BIGGER SOLRAEL */
 .hero-character {
-  max-height: 40vh;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  position: absolute;
+  right: 80px;
+  bottom: 60px;
+  height: 420px;
+
+  transition: 0.4s;
 }
 
 .hero-character:hover {
   transform: scale(1.05);
   filter:
-    drop-shadow(0 0 30px rgba(200,170,255,0.6))
-    drop-shadow(0 0 60px rgba(150,110,255,0.4));
+    drop-shadow(0 0 40px rgba(255,200,120,0.6))
+    drop-shadow(0 0 80px rgba(255,200,120,0.4));
 }
 
 /* =========================
-   FOOTER (BIGGER COPYRIGHT)
+   DONATE BUTTON (BOTTOM LEFT)
+========================= */
+.btn-donate {
+  position: absolute;
+  left: 60px;
+  bottom: 80px;
+}
+
+.btn-donate img {
+  height: 90px;
+  transition: 0.3s;
+}
+
+.btn-donate img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 25px rgba(200,170,255,0.8));
+}
+
+/* =========================
+   FOOTER (CENTER BOTTOM)
 ========================= */
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   text-align: center;
-  padding-bottom: 15px;
 }
 
 .footer img {
-  height: 110px;
+  height: 120px;
   opacity: 0.95;
 }
 
 /* =========================
-   PARTICLES
+   ✨ ADVANCED PARTICLES
 ========================= */
 .particles {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
 }
 
+/* MULTI LAYER PARTICLES */
 .particles::before,
 .particles::after {
   content: "";
   position: absolute;
   width: 200%;
   height: 200%;
-  background-repeat: repeat;
-  animation: floatParticles 25s linear infinite;
+  animation: floatParticles linear infinite;
 }
 
-/* Layer 1 */
+/* LAYER 1 */
 .particles::before {
   background-image:
-    radial-gradient(2px 2px at 20% 30%, rgba(200,170,255,0.6), transparent),
-    radial-gradient(2px 2px at 60% 70%, rgba(150,110,255,0.5), transparent),
-    radial-gradient(2px 2px at 80% 20%, rgba(200,170,255,0.6), transparent);
+    radial-gradient(3px 3px at 10% 20%, rgba(200,170,255,0.8), transparent),
+    radial-gradient(2px 2px at 30% 80%, rgba(150,110,255,0.7), transparent),
+    radial-gradient(2px 2px at 70% 40%, rgba(200,170,255,0.6), transparent),
+    radial-gradient(2px 2px at 90% 60%, rgba(150,110,255,0.5), transparent);
+
+  animation-duration: 25s;
 }
 
-/* Layer 2 */
+/* LAYER 2 */
 .particles::after {
   background-image:
-    radial-gradient(2px 2px at 40% 60%, rgba(200,170,255,0.4), transparent),
-    radial-gradient(2px 2px at 70% 40%, rgba(150,110,255,0.4), transparent);
+    radial-gradient(2px 2px at 20% 70%, rgba(255,200,255,0.5), transparent),
+    radial-gradient(2px 2px at 60% 20%, rgba(200,170,255,0.5), transparent),
+    radial-gradient(2px 2px at 80% 80%, rgba(150,110,255,0.5), transparent);
+
   animation-duration: 40s;
 }
 
-/* Animation */
+/* FLOAT ANIMATION */
 @keyframes floatParticles {
   from {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-200px);
+    transform: translateY(-300px);
   }
 }
