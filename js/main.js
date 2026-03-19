@@ -12,10 +12,10 @@ class Particle {
     this.y = Math.random() * canvas.height;
 
     this.size = Math.random() * 2 + 0.5;
-    this.speedX = (Math.random() - 0.5) * 0.3;
-    this.speedY = (Math.random() - 0.5) * 0.3;
+    this.speedX = (Math.random() - 0.5) * 0.4;
+    this.speedY = (Math.random() - 0.5) * 0.4;
 
-    this.opacity = Math.random() * 0.5 + 0.2;
+    this.opacity = Math.random() * 0.6 + 0.2;
   }
 
   update() {
@@ -30,15 +30,24 @@ class Particle {
 
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(200,170,255,${this.opacity})`;
+
+    const gradient = ctx.createRadialGradient(
+      this.x, this.y, 0,
+      this.x, this.y, this.size * 4
+    );
+
+    gradient.addColorStop(0, `rgba(200,170,255,${this.opacity})`);
+    gradient.addColorStop(1, "transparent");
+
+    ctx.fillStyle = gradient;
+    ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
     ctx.fill();
   }
 }
 
 function init() {
   particlesArray = [];
-  for (let i = 0; i < 120; i++) {
+  for (let i = 0; i < 140; i++) {
     particlesArray.push(new Particle());
   }
 }
