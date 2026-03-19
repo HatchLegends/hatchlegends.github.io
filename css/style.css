@@ -119,11 +119,10 @@ body {
 /* FOOTER */
 .footer {
   position: fixed;
-  bottom: 5px;
+  bottom: 3px;
   left: 50%;
-  transform: translateX(-50%);
-  transform: translateY(20px);
-  opacity: 0.8;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 1;
   z-index: 2;
 }
 
