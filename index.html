@@ -3,37 +3,116 @@
 <head>
   <title>Hatch Legends</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      background:#0f172a;
+      margin:0;
+      background: radial-gradient(circle at top, #1e293b, #020617);
       color:white;
-      font-family:Arial;
+      font-family: Arial, sans-serif;
       text-align:center;
-      padding:60px;
     }
-    h1 { font-size:42px; margin-bottom:10px; }
-    p { color:#aaa; font-size:18px; }
+
+    .container {
+      padding:80px 20px;
+    }
+
+    h1 {
+      font-size:48px;
+      margin-bottom:10px;
+    }
+
+    .subtitle {
+      color:#94a3b8;
+      font-size:20px;
+      margin-bottom:30px;
+    }
+
+    .description {
+      color:#cbd5f5;
+      max-width:600px;
+      margin:0 auto 40px;
+    }
+
+    .buttons {
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
     .btn {
-      display:inline-block;
-      padding:12px 22px;
-      background:#7c3aed;
-      color:white;
+      padding:14px 26px;
+      border-radius:10px;
       text-decoration:none;
-      border-radius:8px;
-      margin-top:20px;
+      font-weight:bold;
+      transition:0.2s;
+    }
+
+    .play {
+      background: linear-gradient(135deg, #7c3aed, #9333ea);
+      color:white;
+      box-shadow: 0 0 20px rgba(124,58,237,0.6);
+    }
+
+    .discord {
+      background:#5865F2;
+      color:white;
+    }
+
+    .support {
+      background:#0ea5e9;
+      color:white;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top:80px;
+      font-size:14px;
+      color:#64748b;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>🥚 Hatch Legends</h1>
-  <p>Hatch. Battle. Evolve.</p>
+  <div class="container">
 
-  <p>Discover powerful Aurorians like Astrael, Pyrael, and Stellaris.</p>
+    <h1>🥚 Hatch Legends</h1>
+    <div class="subtitle">Hatch. Battle. Evolve.</div>
 
-  <a class="btn" href="mailto:support@hatchlegends.com">
-    Contact Support
-  </a>
+    <div class="description">
+      Discover powerful Aurorians like Astrael, Pyrael, and Stellaris.
+      Build your team, master Essence types, and rise through the Codex.
+    </div>
+
+    <div class="buttons">
+
+      <!-- PLAY BUTTON -->
+      <a class="btn play" href="#">
+        ▶ Play Now
+      </a>
+
+      <!-- DISCORD -->
+      <a class="btn discord" href="https://discord.gg/rBHPUT2kgj" target="_blank">
+        💬 Join Discord
+      </a>
+
+      <!-- SUPPORT -->
+      <a class="btn support" href="mailto:support@hatchlegends.com">
+        ✉ Support
+      </a>
+
+    </div>
+
+    <div class="footer">
+      © 2026 Hatch Legends. All rights reserved.
+    </div>
+
+  </div>
 
 </body>
 </html>
