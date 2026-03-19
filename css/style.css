@@ -141,15 +141,15 @@ body {
 @media (max-width: 768px) {
 
   .logo {
-    height: 65px;
+    height: 90px;
   }
 
   .discord-creature {
-    height: 60px;
+    height: 75px;
   }
 
   .discord-text {
-    height: 45px;
+    height: 55px;
   }
 
   .hero-character {
@@ -159,7 +159,7 @@ body {
   }
 
   .donate-btn {
-    height: 55px;
+    height: 80px;
     left: 15px;
     bottom: 20px;
   }
