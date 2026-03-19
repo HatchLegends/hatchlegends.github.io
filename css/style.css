@@ -48,7 +48,7 @@ body {
 
 /* LOGO */
 .logo {
-  height: 90px;
+  height: 140px;
   filter: drop-shadow(0 0 35px rgba(200,170,255,0.7));
 }
 
@@ -77,8 +77,8 @@ body {
 }
 
 .discord-link:hover .discord-creature {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 35px rgba(200,170,255,1));
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 20px rgba(200,170,255,0.6));
 }
 
 /* SOLRAEL */
@@ -94,10 +94,10 @@ body {
 }
 
 .hero-character:hover {
-  transform: scale(1.1);
+  transform: scale(1.07);
   filter:
-    drop-shadow(0 0 50px rgba(200,170,255,1))
-    drop-shadow(0 0 100px rgba(150,110,255,0.7));
+    drop-shadow(0 0 30px rgba(200,170,255,0.7))
+    drop-shadow(0 0 60px rgba(150,110,255,0.5));
 }
 
 /* DONATE */
@@ -105,7 +105,7 @@ body {
   position: fixed;
   bottom: 40px;
   left: 50px;
-  height: 75px;
+  height: 95px;
   z-index: 2;
 
   transition: 0.3s;
