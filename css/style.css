@@ -18,17 +18,18 @@ body {
 }
 
 /* =========================
-   NAV / LOGO
+   NAV / LOGO (CENTERED TOP)
 ========================= */
 .nav {
   position: absolute;
-  top: 24px;
-  left: 40px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
 }
 
 .logo {
-  height: 90px;
+  height: 100px;
   transition: 0.3s ease;
 }
 
@@ -68,20 +69,21 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   transition: 0.3s ease;
 }
 
 .btn-discord img:first-child {
-  height: 70px;
+  height: 75px;
 }
 
 .btn-discord img:last-child {
-  height: 40px;
+  height: 45px;
 }
 
+/* BIGGER DONATE BUTTON */
 .btn-donate img {
-  height: 50px;
+  height: 80px;
 }
 
 /* Hover Effects */
@@ -91,12 +93,12 @@ body {
 }
 
 .btn-donate:hover img {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 15px rgba(200,170,255,0.6));
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 20px rgba(200,170,255,0.7));
 }
 
 /* =========================
-   DONATE TEXT (IMPROVED)
+   DONATE TEXT
 ========================= */
 .donate-text {
   font-size: 14px;
@@ -112,14 +114,15 @@ body {
 ========================= */
 .hero-right {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex: 1;
-  padding-right: 80px; /* adjust this*/
+  padding-right: 140px; /* pushes Solrael right */
 }
 
+/* BIGGER SOLRAEL */
 .hero-character {
-  max-height: 30vh;
+  max-height: 40vh;
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
@@ -131,19 +134,19 @@ body {
 }
 
 /* =========================
-   FOOTER
+   FOOTER (BIGGER COPYRIGHT)
 ========================= */
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .footer img {
-  height: 70px;
-  opacity: 0.90;
+  height: 110px;
+  opacity: 0.95;
 }
 
 /* =========================
@@ -174,7 +177,7 @@ body {
     radial-gradient(2px 2px at 80% 20%, rgba(200,170,255,0.6), transparent);
 }
 
-/* Layer 2 (depth) */
+/* Layer 2 */
 .particles::after {
   background-image:
     radial-gradient(2px 2px at 40% 60%, rgba(200,170,255,0.4), transparent),
