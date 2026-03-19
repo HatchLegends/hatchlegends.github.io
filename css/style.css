@@ -113,7 +113,9 @@ body {
 .hero-right {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex: 1;
+  padding-right: 80px; /* adjust this*/
 }
 
 .hero-character {
