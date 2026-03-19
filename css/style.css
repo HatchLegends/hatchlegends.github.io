@@ -6,11 +6,11 @@ body {
   overflow: hidden;
 }
 
-/* BACKGROUND (PARALLAX FEEL) */
+/* BACKGROUND */
 body {
   background:
-    radial-gradient(circle at 20% 20%, rgba(200,170,255,0.12), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(150,110,255,0.10), transparent 40%),
+    radial-gradient(circle at top, rgba(200,170,255,0.12), transparent 50%),
+    radial-gradient(circle at bottom, rgba(150,110,255,0.10), transparent 50%),
     #020617;
 }
 
@@ -22,7 +22,6 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none;
 }
 
 /* LAYER FIX */
@@ -43,11 +42,6 @@ body {
 
 .logo {
   height: 60px;
-  transition: 0.4s;
-}
-
-.logo:hover {
-  transform: scale(1.05);
 }
 
 /* HERO GRID */
@@ -56,33 +50,18 @@ body {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   height: 100vh;
-  padding: 0 8vw;
+  padding: 0 10vw;
 }
 
-/* LEFT */
+/* LEFT SIDE */
 .hero-left {
   max-width: 500px;
-}
-
-/* TITLE */
-.title {
-  font-size: 64px;
-  margin: 0;
-  background: linear-gradient(
-    to right,
-    rgb(150,110,255),
-    rgb(200,170,255)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  animation: glowPulse 3s infinite ease-in-out;
 }
 
 /* SUBTITLE */
 .subtitle {
   color: #94a3b8;
-  margin: 20px 0 30px;
+  margin-top: 20px;
 }
 
 /* DISCORD */
@@ -90,8 +69,6 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 20px;
-  text-decoration: none;
 }
 
 .discord-creature {
@@ -103,10 +80,37 @@ body {
   height: 40px;
 }
 
-/* DISCORD HOVER */
+/* HOVER */
 .discord-link:hover .discord-creature {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 25px rgb(200,170,255));
+  filter: drop-shadow(0 0 20px rgb(200,170,255));
+}
+
+/* RIGHT SIDE */
+.hero-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* SOLRAEL */
+.hero-character {
+  height: 70vh;
+  animation: float 4s ease-in-out infinite;
+  transition: 0.4s;
+}
+
+.hero-character:hover {
+  transform: scale(1.05);
+  filter:
+    drop-shadow(0 0 40px rgba(200,170,255,0.8))
+    drop-shadow(0 0 80px rgba(150,110,255,0.5));
+}
+
+/* FLOAT */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
 /* DONATE */
@@ -115,47 +119,6 @@ body {
   right: 40px;
   bottom: 40px;
   height: 55px;
-  transition: 0.3s;
-}
-
-.donate-btn:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 20px rgb(200,170,255));
-}
-
-/* RIGHT */
-.hero-right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* SOLRAEL FLOAT */
-.hero-character {
-  height: 70vh;
-  animation: float 4s ease-in-out infinite;
-  transition: 0.4s;
-}
-
-/* HOVER GLOW */
-.hero-character:hover {
-  transform: scale(1.05);
-  filter:
-    drop-shadow(0 0 40px rgba(200,170,255,0.8))
-    drop-shadow(0 0 90px rgba(150,110,255,0.5));
-}
-
-/* FLOAT ANIMATION */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
-}
-
-/* TEXT GLOW */
-@keyframes glowPulse {
-  0% { filter: drop-shadow(0 0 5px rgba(200,170,255,0.3)); }
-  50% { filter: drop-shadow(0 0 15px rgba(200,170,255,0.6)); }
-  100% { filter: drop-shadow(0 0 5px rgba(200,170,255,0.3)); }
 }
 
 /* FOOTER */
