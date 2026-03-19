@@ -1,0 +1,121 @@
+/* RESET */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+body {
+  background:
+    radial-gradient(ellipse at top, rgba(200,170,255,0.2), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(200,170,255,0.2), transparent 50%),
+    #020617;
+}
+
+/* NAV */
+.navbar {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+}
+
+/* LEFT */
+.hero-left {
+  max-width: 500px;
+  z-index: 2;
+}
+
+.title {
+  font-size: 64px;
+  background: linear-gradient(
+    to right,
+    rgb(150,110,255),
+    rgb(200,170,255)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+/* DISCORD */
+.discord-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.discord-creature {
+  height: 70px;
+  transition: 0.3s;
+}
+
+.discord-text {
+  height: 40px;
+}
+
+/* HOVER EFFECT */
+.discord-link:hover .discord-creature {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px rgb(200,170,255));
+}
+
+/* DONATE */
+.donate-btn {
+  height: 50px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.donate-btn:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgb(200,170,255));
+}
+
+/* RIGHT */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* SOLRAEL */
+.hero-character {
+  max-height: 80vh;
+  transition: 0.4s;
+}
+
+/* 🔥 SOLRAEL HOVER MAGIC */
+.hero-character:hover {
+  transform: scale(1.05);
+  filter:
+    drop-shadow(0 0 30px rgba(200,170,255,0.6))
+    drop-shadow(0 0 60px rgba(150,110,255,0.4));
+}
+
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+}
