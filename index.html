@@ -5,50 +5,53 @@
   <title>Hatch Legends</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- ✨ PARTICLES -->
-  <div class="particles"></div>
+<!-- PARTICLES (IMPORTANT: canvas, NOT div) -->
+<canvas id="particles"></canvas>
 
-  <!-- 🔥 LOGO TOP CENTER -->
-  <header class="nav">
-    <img src="assets/images/logo.png" class="logo">
-  </header>
+<!-- NAV -->
+<header class="navbar">
+  <img src="assets/images/logo.png" class="logo">
+</header>
 
-  <!-- 🚀 HERO -->
-  <main class="hero">
+<!-- HERO -->
+<section class="hero">
 
-    <!-- CENTER CONTENT -->
-    <section class="hero-center">
+  <!-- LEFT -->
+  <div class="hero-left">
 
-      <!-- DISCORD BUTTON -->
-      <a href="https://discord.gg/yN4QGrazZM" target="_blank" class="btn-discord">
-        <img src="assets/ui/discord_creature_1024.png">
-        <img src="assets/ui/discord_logo_text_purple.png">
-      </a>
-
-      <p class="subtitle">Awaken the Aurorians.</p>
-
-    </section>
-
-    <!-- RIGHT CHARACTER -->
-    <img src="assets/images/solrael.png" class="hero-character">
-
-    <!-- DONATE BUTTON (BOTTOM LEFT FLOATING) -->
-    <a href="https://paypal.me/HatchLegends/5EUR" target="_blank" class="btn-donate">
-      <img src="assets/ui/donate_button.png">
+    <a href="https://discord.gg/yN4QGrazZM" target="_blank" class="discord-link">
+      <img src="assets/ui/discord_creature_1024.png" class="discord-creature">
+      <img src="assets/ui/discord_logo_text_purple.png" class="discord-text">
     </a>
 
-  </main>
+    <p class="subtitle">Awaken the Aurorians.</p>
 
-  <!-- 📄 FOOTER -->
-  <footer class="footer">
-    <img src="assets/ui/copyright.png">
-  </footer>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="hero-right">
+    <img src="assets/images/solrael.png" class="hero-character">
+  </div>
+
+</section>
+
+<!-- DONATE -->
+<a href="https://paypal.me/HatchLegends/5EUR" target="_blank">
+  <img src="assets/ui/donate_button.png" class="donate-btn">
+</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="assets/ui/copyright.png">
+</footer>
+
+<!-- JS -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
