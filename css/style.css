@@ -27,43 +27,36 @@ body {
   z-index: 0;
 }
 
-/* LAYERS */
-.navbar,
-.hero,
-.footer,
-.donate-btn,
-.hero-character {
-  position: relative;
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* CENTER STACK */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  gap: 12px;
   z-index: 2;
 }
 
 /* LOGO */
-.navbar {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .logo {
   height: 90px;
   filter: drop-shadow(0 0 35px rgba(200,170,255,0.7));
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* CENTER */
-.center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+/* SUBTITLE */
+.subtitle {
+  font-size: 15px;
+  color: #9ca3af;
+  opacity: 0.8;
 }
 
 /* DISCORD */
@@ -83,18 +76,9 @@ body {
   height: 55px;
 }
 
-/* HOVER */
 .discord-link:hover .discord-creature {
   transform: scale(1.15);
   filter: drop-shadow(0 0 35px rgba(200,170,255,1));
-}
-
-/* SUBTITLE */
-.subtitle {
-  margin-top: 15px;
-  font-size: 15px;
-  color: #9ca3af;
-  opacity: 0.8;
 }
 
 /* SOLRAEL */
@@ -103,6 +87,7 @@ body {
   bottom: 40px;
   right: 50px;
   height: 240px;
+  z-index: 2;
 
   animation: float 4s ease-in-out infinite;
   transition: 0.4s;
@@ -121,6 +106,8 @@ body {
   bottom: 40px;
   left: 50px;
   height: 75px;
+  z-index: 2;
+
   transition: 0.3s;
 }
 
@@ -132,10 +119,15 @@ body {
 /* FOOTER */
 .footer {
   position: fixed;
-  bottom: 12px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.6;
+  z-index: 2;
+}
+
+.footer img {
+  height: 18px;
 }
 
 /* FLOAT */
