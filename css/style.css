@@ -117,7 +117,7 @@ body {
 }
 
 .hero-character {
-  max-height: 50vh;
+  max-height: 30vh;
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
@@ -140,8 +140,8 @@ body {
 }
 
 .footer img {
-  height: 18px;
-  opacity: 0.5;
+  height: 40px;
+  opacity: 0.90;
 }
 
 /* =========================
