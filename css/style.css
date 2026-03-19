@@ -6,11 +6,11 @@ body {
   overflow: hidden;
 }
 
-/* BACKGROUND */
+/* BACKGROUND (PARALLAX FEEL) */
 body {
   background:
-    radial-gradient(ellipse at top, rgba(200,170,255,0.15), transparent 60%),
-    radial-gradient(ellipse at bottom, rgba(200,170,255,0.15), transparent 60%),
+    radial-gradient(circle at 20% 20%, rgba(200,170,255,0.12), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(150,110,255,0.10), transparent 40%),
     #020617;
 }
 
@@ -30,10 +30,10 @@ body {
 .navbar,
 .footer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* NAVBAR (CENTER TOP) */
+/* NAVBAR */
 .navbar {
   position: absolute;
   top: 20px;
@@ -43,6 +43,11 @@ body {
 
 .logo {
   height: 60px;
+  transition: 0.4s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 /* HERO GRID */
@@ -54,7 +59,7 @@ body {
   padding: 0 8vw;
 }
 
-/* LEFT SIDE */
+/* LEFT */
 .hero-left {
   max-width: 500px;
 }
@@ -70,6 +75,8 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  animation: glowPulse 3s infinite ease-in-out;
 }
 
 /* SUBTITLE */
@@ -78,7 +85,7 @@ body {
   margin: 20px 0 30px;
 }
 
-/* DISCORD BUTTON */
+/* DISCORD */
 .discord-link {
   display: flex;
   align-items: center;
@@ -99,10 +106,10 @@ body {
 /* DISCORD HOVER */
 .discord-link:hover .discord-creature {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 20px rgb(200,170,255));
+  filter: drop-shadow(0 0 25px rgb(200,170,255));
 }
 
-/* DONATE BUTTON (BOTTOM RIGHT FIXED) */
+/* DONATE */
 .donate-btn {
   position: fixed;
   right: 40px;
@@ -112,28 +119,43 @@ body {
 }
 
 .donate-btn:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 15px rgb(200,170,255));
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 20px rgb(200,170,255));
 }
 
-/* RIGHT SIDE */
+/* RIGHT */
 .hero-right {
   display: flex;
   justify-content: flex-end;
 }
 
-/* SOLRAEL */
+/* SOLRAEL FLOAT */
 .hero-character {
   height: 70vh;
-  transition: 0.4s ease;
+  animation: float 4s ease-in-out infinite;
+  transition: 0.4s;
 }
 
-/* 🔥 HOVER GLOW */
+/* HOVER GLOW */
 .hero-character:hover {
   transform: scale(1.05);
   filter:
-    drop-shadow(0 0 40px rgba(200,170,255,0.7))
-    drop-shadow(0 0 80px rgba(150,110,255,0.4));
+    drop-shadow(0 0 40px rgba(200,170,255,0.8))
+    drop-shadow(0 0 90px rgba(150,110,255,0.5));
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* TEXT GLOW */
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 5px rgba(200,170,255,0.3)); }
+  50% { filter: drop-shadow(0 0 15px rgba(200,170,255,0.6)); }
+  100% { filter: drop-shadow(0 0 5px rgba(200,170,255,0.3)); }
 }
 
 /* FOOTER */
