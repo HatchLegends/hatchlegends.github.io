@@ -113,16 +113,17 @@ body {
 
 .donate-btn:hover {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 25px rgba(255,200,120,0.7));
+  filter: drop-shadow(0 0 12px rgba(255,200,120,0.7));
 }
 
 /* FOOTER */
 .footer {
   position: fixed;
-  bottom: -15px;
+  bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 1;
+  transform: translateY(20px);
+  opacity: 0.8;
   z-index: 2;
 }
 
