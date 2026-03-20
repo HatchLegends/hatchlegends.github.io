@@ -27,6 +27,90 @@ body {
   z-index: 0;
 }
 
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+/* HAMBURGER */
+.hamburger {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ANIMATION */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(9px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-9px);
+}
+
+/* MENU */
+.menu {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+
+  background: rgba(20, 20, 40, 0.95);
+  backdrop-filter: blur(12px);
+
+  border-radius: 14px;
+  padding: 10px 0;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.menu.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.menu a {
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
 /* HERO */
 .hero {
   height: 100vh;
@@ -34,7 +118,6 @@ body {
   justify-content: center;
 }
 
-/* CENTER STACK */
 .center-content {
   display: flex;
   flex-direction: column;
@@ -48,15 +131,23 @@ body {
 
 /* LOGO */
 .logo {
-  height: 350px;
-  filter: drop-shadow(0 0 35px rgba(200,170,255,0.7));
+  height: 420px;
+  filter: drop-shadow(0 0 12px rgba(255, 174, 0, 0.7));
 }
 
-/* SUBTITLE */
+/* TEXT */
 .subtitle {
-  font-size: 15px;
-  color: #9ca3af;
+  font-size: 17px;
+  color: #ab99db;
   opacity: 0.8;
+  transform: translateY(-80px);
+}
+
+.status {
+  font-size: 15px;
+  color: #ab99db;
+  opacity: 0.8;
+  transform: translateY(-90px);
 }
 
 /* DISCORD */
@@ -64,7 +155,7 @@ body {
   display: flex;
   align-items: center;
   gap: 18px;
-  transition: 0.3s;
+  transform: translate(5%, -107px);
 }
 
 .discord-creature {
@@ -74,93 +165,55 @@ body {
 
 .discord-text {
   height: 55px;
+  transform: translateX(-13%);
 }
 
 .discord-link:hover .discord-creature {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 20px rgba(200,170,255,0.6));
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(100, 23, 241, 0.6));
 }
 
 /* SOLRAEL */
 .hero-character {
   position: fixed;
-  bottom: 40px;
-  right: 50px;
-  height: 240px;
+  bottom: 20px;
+  right: 20px;
+  height: 220px;
   z-index: 2;
-
   animation: float 4s ease-in-out infinite;
-  transition: 0.4s;
-}
-
-.hero-character:hover {
-  transform: scale(1.07);
-  filter:
-    drop-shadow(0 0 30px rgba(200,170,255,0.7))
-    drop-shadow(0 0 60px rgba(150,110,255,0.5));
 }
 
 /* DONATE */
 .donate-btn {
   position: fixed;
-  bottom: 40px;
-  left: 50px;
-  height: 190px;
+  bottom: 10px;
+  left: 30px;
+  height: 220px;
   z-index: 2;
-
   transition: 0.3s;
 }
 
 .donate-btn:hover {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 12px rgba(255,200,120,0.7));
 }
 
 /* FOOTER */
 .footer {
   position: fixed;
-  bottom: 3px;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%) translateY(150px);
-  opacity: 1;
+  transform: translate(-50%, 110px);
   z-index: 2;
+
 }
 
 .footer img {
-  height: 200px;
+  height: 230px; /* adjust if needed */
 }
 
 /* FLOAT */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-16px); }
-  100% { transform: translateY(0px); }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .logo {
-    height: 90px;
-  }
-
-  .discord-creature {
-    height: 75px;
-  }
-
-  .discord-text {
-    height: 55px;
-  }
-
-  .hero-character {
-    height: 160px;
-    right: 15px;
-    bottom: 20px;
-  }
-
-  .donate-btn {
-    height: 80px;
-    left: 15px;
-    bottom: 20px;
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 }
