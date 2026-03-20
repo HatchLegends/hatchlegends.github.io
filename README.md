@@ -43,10 +43,4 @@ Open eggs, discover rare creatures, and build your collection.
 
 ## 🚧 Status
 
-In active development
-
----
-
-<p align="center">
-  <sub>Built for Discord • Designed for collectors</sub>
-</p>
+In active development 03/26
