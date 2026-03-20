@@ -1,3 +1,4 @@
+// ===== PARTICLES =====
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -10,11 +11,9 @@ class Particle {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-
     this.size = Math.random() * 2 + 0.6;
     this.speedX = (Math.random() - 0.5) * 0.3;
     this.speedY = (Math.random() - 0.5) * 0.3;
-
     this.opacity = Math.random() * 0.5 + 0.3;
   }
 
@@ -45,14 +44,14 @@ class Particle {
   }
 }
 
-function init() {
+function initParticles() {
   particlesArray = [];
   for (let i = 0; i < 160; i++) {
     particlesArray.push(new Particle());
   }
 }
 
-function animate() {
+function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   particlesArray.forEach(p => {
@@ -60,14 +59,32 @@ function animate() {
     p.draw();
   });
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateParticles);
 }
 
-init();
-animate();
+initParticles();
+animateParticles();
 
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  init();
+  initParticles();
+});
+
+
+// ===== MENU =====
+const burger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+burger.addEventListener("click", () => {
+  burger.classList.toggle("active");
+  menu.classList.toggle("active");
+});
+
+// close when clicking outside
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !burger.contains(e.target)) {
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+  }
 });
