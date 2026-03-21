@@ -255,13 +255,27 @@ body {
 }
 
 /* SOLRAEL */
-.hero-character {
+.hero-character-link {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  height: 220px;
-  z-index: 2;
+  width: 320px;
+  height: 320px;
+  display: block;
+  z-index: 9999;
+}
+
+.hero-character {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
   animation: float 4s ease-in-out infinite;
+}
+
+.hero-character-link:hover .hero-character {
+  filter: drop-shadow(0 0 8px rgba(255, 174, 0, 0.45));
 }
 
 /* INFO TOGGLE */
@@ -428,6 +442,54 @@ body {
   border-radius: 12px;
 
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+
+.info-img:active {
+  transform: scale(0.98);
+}
+
+.info-img:hover {
+  transform: scale(1.06) translateY(-24px);
+
+  filter:
+    drop-shadow(0 14px 28px rgba(0,0,0,0.5))
+    drop-shadow(0 0 18px rgba(140, 100, 255, 0.25));
+}
+
+img.codex-img {
+  max-width: 120px;
+}
+
+.codex-block {
+  position: relative;
+  min-height: 100px;
+  margin: 6px 0 6px;
+}
+
+.codex-img {
+  position: absolute;
+  top: -6px;
+  right: 6px;
+  width: 120px;
+  max-width: 120px !important;
+  margin: 0;
+  z-index: 1;
+}
+
+.codex-text {
+  padding-right: 110px;
+  margin-top: 6px;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.codex-text p {
+  margin-bottom: 6px;
 }
 /* EGGS */
 
@@ -609,6 +671,44 @@ body {
   color: rgba(255,255,255,0.84);
 }
 
+/* DONATE BUTTON */
+.donate-link {
+  position: fixed;
+  bottom: -90px;
+  left: 30px;
+  width: 320px;
+  height: 320px;
+  display: block;
+  z-index: 10000;
+}
+
+.donate-btn {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+
+  opacity: 0.92;
+  transform: scale(0.96);
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    opacity 0.25s ease;
+
+  will-change: transform, filter, opacity;
+  transform-origin: center center;
+}
+
+.donate-link:hover .donate-btn {
+  transform: scale(1.05);
+  opacity: 1;
+
+  filter:
+    drop-shadow(0 0 3px rgba(255, 210, 120, 0.5))
+    drop-shadow(0 0 8px rgba(255, 210, 120, 0.25));
+}
+
 /* SCROLLBAR */
 .info-panel-content::-webkit-scrollbar {
   width: 8px;
@@ -671,11 +771,12 @@ body {
   font-size: 10px;
 }
 
-  .donate-btn {
-    height: 130px !important;
-    left: 10px;
-    bottom: 10px;
-  }
+  .donate-link {
+  width: 180px;
+  height: 180px;
+  left: 10px;
+  bottom: 0px;
+}
 
   a:hover .donate-btn {
     transform: scale(1.06);
@@ -684,36 +785,8 @@ body {
   .hero-character {
   height: clamp(120px, 22vw, 160px);
   right: 12px;
-  bottom: 12px;
+  bottom: 0px;
 }
-}
-
-.donate-btn {
-  position: fixed;
-  bottom: 10px;
-  left: 30px;
-  height: 220px;
-  z-index: 2;
-
-  opacity: 0.92;
-  transform: scale(0.96);
-
-  transition:
-    transform 0.25s ease,
-    filter 0.25s ease,
-    opacity 0.25s ease;
-
-  will-change: transform, filter, opacity;
-  transform-origin: center center;
-}
-
-a:hover .donate-btn {
-  transform: scale(1.05);
-  opacity: 1;
-
-  filter:
-    drop-shadow(0 0 3px rgba(255, 210, 120, 0.5))
-    drop-shadow(0 0 8px rgba(255, 210, 120, 0.25));
 }
 
 .egg-row {
@@ -723,6 +796,13 @@ a:hover .donate-btn {
 .egg {
   width: 85px;
   height: 85px;
+}
+
+.hero-character-link {
+  width: 160px;
+  height: 160px;
+  right: 12px;
+  bottom: 12px;
 }
 /* FOOTER */
 .footer {
@@ -737,6 +817,7 @@ a:hover .donate-btn {
 .footer img {
   height: 230px; /* adjust if needed */
 }
+
 
 /* FLOAT */
 @keyframes float {

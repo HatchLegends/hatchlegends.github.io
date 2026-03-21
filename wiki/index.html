@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hatch Legends Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- reuse your main CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* Wiki-specific styling */
+    body {
+      overflow: auto;
+    }
+
+    .wiki-container {
+      max-width: 1100px;
+      margin: 120px auto 80px;
+      padding: 0 20px;
+    }
+
+    .wiki-title {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .wiki-subtitle {
+      color: #ab99db;
+      margin-bottom: 40px;
+    }
+
+    .wiki-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .wiki-card {
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(20, 20, 40, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .wiki-card:hover {
+      transform: translateY(-6px);
+      background: rgba(30, 25, 60, 0.9);
+    }
+
+    .wiki-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .wiki-card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="wiki-container">
+  <h1 class="wiki-title">Hatch Legends Wiki</h1>
+  <p class="wiki-subtitle">
+    Explore the world, creatures, systems, and lore of Hatch Legends.
+  </p>
+
+  <div class="wiki-grid">
+
+    <div class="wiki-card">
+      <h3>World</h3>
+      <p>Aetherion, Aether, and the forces shaping reality.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>Eggs</h3>
+      <p>Common, Rare, Epic, and Legendary eggs.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>Essences</h3>
+      <p>Elemental powers that define creatures.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>Creatures</h3>
+      <p>All species, evolutions, and rarity tiers.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>Combat</h3>
+      <p>Build teams, counter enemies, and win.</p>
+    </div>
+
+    <div class="wiki-card">
+      <h3>Codex</h3>
+      <p>Track your collection and progress.</p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
