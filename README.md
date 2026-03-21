@@ -37,7 +37,7 @@
   <img src="assets/images/essence/tide_2_essence_1024.png" width="100">
   <img src="assets/images/essence/verdant_2_essence_1024.png" width="100">
   <img src="assets/images/essence/void_2_essence_1024.png" width="100">
-  <img src="assets/images/essence/volt_2_essence_1024.png" width="65">
+  <img src="assets/images/essence/volt_2_essence_1024.png" width="100">
 </p>
 
 <p align="center">
