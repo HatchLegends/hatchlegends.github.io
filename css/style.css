@@ -561,9 +561,9 @@ body {
   }
 
   .donate-btn {
-    height: clamp(90px, 18vw, 120px);
-    left: 12px;
-    bottom: 12px;
+    height: 90px !important;
+    left: 10px;
+    bottom: 10px;
   }
 
   a:hover .donate-btn {
