@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/images/logo.png" width="220" />
+  <img src="assets/images/logo_full_1024" width="220" />
 </p>
 
 <h1 align="center">Hatch Legends</h1>
