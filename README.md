@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/images/logo_full_1024.PNG" width="220" />
+  <img src="assets/images/logo_full_1024.png" width="220" />
 </p>
 
 <h1 align="center">Hatch Legends</h1>
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/ui/discord_creature_1024.png" width="420" />
+  <img src="assets/ui/discord_creature_1024.png" width="120" />
 </p>
 
 ---
