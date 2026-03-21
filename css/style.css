@@ -559,6 +559,22 @@ body {
     width: calc(100vw - 36px);
     height: 62vh;
   }
+
+  .donate-btn {
+    height: clamp(90px, 18vw, 120px);
+    left: 12px;
+    bottom: 12px;
+  }
+
+  a:hover .donate-btn {
+    transform: scale(1.06);
+  }
+
+  .hero-character {
+  height: clamp(120px, 22vw, 160px);
+  right: 12px;
+  bottom: 12px;
+}
 }
 
 /* DONATE */
