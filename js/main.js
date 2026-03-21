@@ -71,24 +71,6 @@ window.addEventListener("resize", () => {
   initParticles();
 });
 
-
-// ===== MENU =====
-const burger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
-
-burger.addEventListener("click", () => {
-  burger.classList.toggle("active");
-  menu.classList.toggle("active");
-});
-
-// close when clicking outside
-document.addEventListener("click", (e) => {
-  if (!menu.contains(e.target) && !burger.contains(e.target)) {
-    menu.classList.remove("active");
-    burger.classList.remove("active");
-  }
-});
-
 // ===== MAGNETIC CREATURES =====
 const solrael = document.querySelector(".hero-character");
 const discordCreature = document.querySelector(".discord-creature");
@@ -180,31 +162,79 @@ setupMagnet(solrael, {
   floatSpeed: 0.002,
 });
 
-// ===== INFO PANEL =====
+// ===== MENU + INFO PANEL =====
+const burger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const menuOverviewBtn = document.getElementById("menuOverviewBtn");
+
 const infoToggle = document.getElementById("infoToggle");
 const infoPanel = document.getElementById("infoPanel");
 const infoClose = document.getElementById("infoClose");
 
-if (infoToggle && infoPanel && infoClose) {
-  infoToggle.addEventListener("click", () => {
-    infoPanel.classList.add("active");
-  });
-
-  infoClose.addEventListener("click", () => {
-    infoPanel.classList.remove("active");
-  });
-
-  document.addEventListener("click", (e) => {
-    const clickedInsidePanel = infoPanel.contains(e.target);
-    const clickedToggle = infoToggle.contains(e.target);
-
-    if (!clickedInsidePanel && !clickedToggle) {
-      infoPanel.classList.remove("active");
-    }
+if (burger && menu) {
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    menu.classList.toggle("active");
   });
 }
 
-// Discord creature: smaller, cuter, snappier
+document.addEventListener("click", (e) => {
+  const clickedBurger = burger && burger.contains(e.target);
+  const clickedMenu = menu && menu.contains(e.target);
+  const clickedToggle = infoToggle && infoToggle.contains(e.target);
+  const clickedPanel = infoPanel && infoPanel.contains(e.target);
+  const clickedMenuButton = menuOverviewBtn && menuOverviewBtn.contains(e.target);
+
+  if (menu && burger && !clickedBurger && !clickedMenu) {
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+  }
+
+  if (infoPanel && !clickedToggle && !clickedPanel && !clickedMenuButton) {
+    infoPanel.classList.remove("active");
+  }
+});
+
+if (menuOverviewBtn && infoPanel && menu && burger) {
+  menuOverviewBtn.addEventListener("click", () => {
+    infoPanel.classList.add("active");
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+  });
+}
+
+if (infoToggle && infoPanel) {
+  infoToggle.addEventListener("click", () => {
+    infoPanel.classList.add("active");
+  });
+}
+
+if (infoClose && infoPanel) {
+  infoClose.addEventListener("click", () => {
+    infoPanel.classList.remove("active");
+  });
+}
+
+// ===== INFO LABEL (ONE-TIME FADE) =====
+const infoLabel = document.getElementById("infoLabel");
+
+// hide instantly if already clicked before
+if (localStorage.getItem("infoOpened")) {
+  if (infoLabel) infoLabel.classList.add("hidden");
+}
+
+// on first click → fade out + remember
+if (infoToggle && infoLabel) {
+  infoToggle.addEventListener("click", () => {
+  setTimeout(() => {
+    infoLabel.classList.add("hidden");
+  }, 200);
+
+  localStorage.setItem("infoOpened", "true");
+});
+}
+
+//* Discord creature *//
 setupMagnet(discordCreature, {
   distance: 220,
   strength: 0.2,
