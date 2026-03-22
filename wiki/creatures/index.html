@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creature Entry | Codex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .entry-page {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin: 110px auto 80px;
+    }
+
+    .entry-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .entry-back,
+    .entry-nav-btn,
+    .variant-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      background: rgba(20,20,40,0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+      cursor: pointer;
+    }
+
+    .entry-back:hover,
+    .entry-nav-btn:hover,
+    .variant-toggle:hover {
+      transform: translateY(-2px);
+      background: rgba(30,25,60,0.9);
+      border-color: rgba(180,140,255,0.22);
+    }
+
+    .variant-toggle.active {
+      background: rgba(180,140,255,0.14);
+      border-color: rgba(180,140,255,0.26);
+    }
+
+    .entry-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .entry-hero {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 28px;
+      padding: 28px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(180,140,255,0.16), transparent 34%),
+        rgba(10,14,30,0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.34),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+      margin-bottom: 18px;
+    }
+
+    .entry-portrait-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .entry-portrait {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle, rgba(180,140,255,0.15), transparent 60%),
+        rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      min-height: 340px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .entry-portrait-img {
+      width: min(88%, 340px);
+      height: min(88%, 340px);
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 14px 30px rgba(0,0,0,0.28));
+    }
+
+    .entry-variant-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .entry-id {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ab99db;
+      margin-bottom: 8px;
+    }
+
+    .entry-name {
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 0.98;
+      margin-bottom: 10px;
+    }
+
+    .entry-tags {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.88);
+    }
+
+    .tag-essence-ember { color: #ffd6d6; background: rgba(255,70,70,0.18); border-color: rgba(255,90,90,0.34); }
+    .tag-essence-tide { color: #d8ecff; background: rgba(60,130,255,0.18); border-color: rgba(90,150,255,0.34); }
+    .tag-essence-verdant { color: #dcffe7; background: rgba(60,180,90,0.18); border-color: rgba(90,210,120,0.34); }
+    .tag-essence-volt { color: #fff6c7; background: rgba(255,210,60,0.18); border-color: rgba(255,220,90,0.34); }
+    .tag-essence-void { color: #eddcff; background: rgba(140,70,255,0.18); border-color: rgba(165,100,255,0.34); }
+    .tag-essence-radiant { color: #ffe5cc; background: rgba(255,140,40,0.18); border-color: rgba(255,165,70,0.34); }
+
+    .tag-rarity-common { color: #eadcc7; background: rgba(140,115,85,0.18); border-color: rgba(170,140,105,0.30); }
+    .tag-rarity-rare { color: #dcecff; background: rgba(70,130,255,0.18); border-color: rgba(100,155,255,0.34); }
+    .tag-rarity-epic { color: #efd8ff; background: rgba(155,80,255,0.18); border-color: rgba(180,105,255,0.34); }
+    .tag-rarity-legendary { color: #ffe7c7; background: rgba(255,145,40,0.18); border-color: rgba(255,170,70,0.34); }
+
+    .entry-desc {
+      font-size: 15px;
+      line-height: 1.82;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+
+    .entry-quickstats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .quickstat {
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .quickstat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #ab99db;
+      margin-bottom: 5px;
+    }
+
+    .quickstat-value {
+      font-size: 15px;
+      color: white;
+    }
+
+    .entry-helper {
+      font-size: 13px;
+      color: rgba(255,255,255,0.66);
+      line-height: 1.7;
+    }
+
+    .entry-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .entry-panel {
+      padding: 22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(180,140,255,0.10), transparent 42%),
+        rgba(14,18,34,0.9);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .entry-panel h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .stats-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 78px 48px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .stat-name {
+      font-size: 13px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .stat-number {
+      font-size: 13px;
+      color: #d7c4ff;
+      text-align: right;
+    }
+
+    .stat-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(180,140,255,0.8), rgba(255,210,120,0.8));
+    }
+
+    .source-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .source-item {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .source-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ab99db;
+      margin-bottom: 6px;
+    }
+
+    .source-value {
+      font-size: 15px;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .source-sub {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .variant-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .variant-preview {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+
+    .variant-preview-art {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .variant-preview-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .variant-preview-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #ab99db;
+      margin-bottom: 5px;
+    }
+
+    .variant-preview-name {
+      font-size: 16px;
+      color: white;
+    }
+
+    .evolution-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .variant-chain-panel {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .variant-chain-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #ab99db;
+      margin-bottom: 14px;
+    }
+
+    .evo-chain {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 18px;
+    }
+
+    .evo-node {
+      padding: 16px 14px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at top, rgba(180,140,255,0.10), transparent 45%),
+        rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      min-height: 240px;
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .evo-node.current {
+      border-color: rgba(180,140,255,0.24);
+    }
+
+    .evo-art {
+      width: 164px;
+      height: 164px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .evo-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .evo-id {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ab99db;
+    }
+
+    .evo-name {
+      font-size: 17px;
+      color: white;
+    }
+
+    .evo-stage {
+      font-size: 13px;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .evo-arrow {
+      font-size: 24px;
+      color: rgba(255,255,255,0.26);
+      text-align: center;
+    }
+
+    .entry-note {
+      margin-top: 22px;
+      text-align: center;
+      color: rgba(255,255,255,0.56);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1100px) {
+      .evolution-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .entry-hero,
+      .entry-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-quickstats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .entry-page {
+        width: calc(100% - 24px);
+        margin-top: 88px;
+        margin-bottom: 56px;
+      }
+
+      .entry-topbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .entry-nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .entry-hero {
+        padding: 18px;
+        border-radius: 22px;
+        gap: 18px;
+      }
+
+      .entry-portrait {
+        min-height: 240px;
+      }
+
+      .entry-quickstats,
+      .variant-preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-panel {
+        padding: 18px;
+      }
+
+      .evo-chain {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <nav class="navbar">
+    <div class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="menu" id="menu">
+      <a href="/">Home</a>
+      <a href="/wiki">Wiki</a>
+      <a href="/wiki/codex.html">Codex</a>
+    </div>
+  </nav>
+
+  <main class="entry-page">
+    <div class="entry-topbar">
+      <a href="../codex.html" class="entry-back">← Back to Codex</a>
+
+      <div class="entry-nav">
+        <a href="#" id="prevEntry" class="entry-nav-btn">← Previous Entry</a>
+        <a href="#" id="nextEntry" class="entry-nav-btn">Next Entry →</a>
+      </div>
+    </div>
+
+    <section class="entry-hero">
+      <div class="entry-portrait-stack">
+        <div class="entry-portrait">
+          <img id="portraitImage" class="entry-portrait-img" alt="Creature portrait">
+        </div>
+
+        <div class="entry-variant-bar">
+          <button id="normalToggle" class="variant-toggle active" type="button">Normal Preview</button>
+          <button id="shinyToggle" class="variant-toggle" type="button">Shiny Preview ✨</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="entry-id" id="entryId">#001</div>
+        <h1 class="entry-name" id="entryName">Creature</h1>
+
+        <div class="entry-tags">
+          <span class="tag" id="entryEssence">Verdant Essence</span>
+          <span class="tag" id="entryRarity">Common</span>
+          <span class="tag" id="entryStage">Base Form</span>
+        </div>
+
+        <p class="entry-desc" id="entryDescription">No creature description yet.</p>
+
+        <div class="entry-quickstats">
+          <div class="quickstat">
+          <div class="quickstat-label">Ability</div>
+         <div class="quickstat-value" id="entryAbility">Unknown</div>
+         </div>
+
+          <div class="quickstat">
+            <div class="quickstat-label">Stage</div>
+            <div class="quickstat-value" id="entryStageStat">Base Form</div>
+          </div>
+
+          <div class="quickstat">
+            <div class="quickstat-label">Rarity</div>
+            <div class="quickstat-value" id="entryRarityStat">Common</div>
+          </div>
+
+          <div class="quickstat">
+            <div class="quickstat-label">Variant Assets</div>
+            <div class="quickstat-value" id="entryVariantStatus">Normal + Shiny</div>
+          </div>
+        </div>
+
+        <p class="entry-helper">
+          The Codex grid uses the normal sprite only. This page is where the species expands into both sprite variants and both evolution track previews.
+        </p>
+      </div>
+    </section>
+
+    <section class="entry-grid">
+      <div class="entry-panel">
+        <h3>Base Stats</h3>
+
+        <div class="stats-list">
+          <div class="stat-row">
+            <div class="stat-name">Attack</div>
+            <div class="stat-number" id="attackValue">0</div>
+            <div class="stat-bar"><div class="stat-fill" id="attackBar"></div></div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-name">HP</div>
+            <div class="stat-number" id="hpValue">0</div>
+            <div class="stat-bar"><div class="stat-fill" id="hpBar"></div></div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-name">Defense</div>
+            <div class="stat-number" id="defenseValue">0</div>
+            <div class="stat-bar"><div class="stat-fill" id="defenseBar"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry-panel">
+        <h3>Drop Source</h3>
+
+        <div class="source-card">
+          <div class="source-item">
+            <div class="source-label">Primary Source</div>
+            <div class="source-value" id="dropSource">Unknown</div>
+            <div class="source-sub">Current documented source for this creature entry.</div>
+          </div>
+
+          <div class="source-item">
+            <div class="source-label">Availability</div>
+            <div class="source-value" id="dropPool">Unknown</div>
+            <div class="source-sub">Update this with hatch pool, event source, or evolution requirement when ready.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="entry-panel" style="margin-top: 18px;">
+      <h3>Evolution Compare</h3>
+
+      <div class="evolution-compare">
+        <div class="variant-chain-panel">
+          <div class="variant-chain-title">Normal Evolution Line</div>
+          <div class="evo-chain" id="normalEvoChain"></div>
+        </div>
+
+        <div class="variant-chain-panel">
+          <div class="variant-chain-title">Shiny Evolution Line ✨</div>
+          <div class="evo-chain" id="shinyEvoChain"></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="entry-note">
+      One species entry, two sprite variants. This is the cleanest setup for expanding your wiki later without doubling IDs or pages.
+    </p>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script src="data.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const currentId = params.get("id") || "001";
+    const creature = getCreatureById(currentId);
+    let activeVariant = "normal";
+
+    function slugify(value) {
+      return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "-");
+    }
+
+    function normalizeEssence(value) {
+      if (slugify(value) === "nature") return "verdant";
+      return slugify(value);
+    }
+
+    function applyTagPlate(element, prefix, value) {
+      const normalized = prefix === "essence" ? normalizeEssence(value) : slugify(value);
+
+      element.classList.remove(
+        "tag-essence-ember",
+        "tag-essence-tide",
+        "tag-essence-verdant",
+        "tag-essence-volt",
+        "tag-essence-void",
+        "tag-essence-radiant",
+        "tag-rarity-common",
+        "tag-rarity-rare",
+        "tag-rarity-epic",
+        "tag-rarity-legendary"
+      );
+
+      element.classList.add(`tag-${prefix}-${normalized}`);
+    }
+
+    function setImageWithFallback(img, primarySrc, fallbackSrc) {
+      img.onerror = function () {
+        if (img.src.endsWith(fallbackSrc)) return;
+        img.src = fallbackSrc;
+      };
+      img.src = primarySrc || fallbackSrc;
+    }
+
+    function renderEvoChain(targetId, variant, currentCreature) {
+      const container = document.getElementById(targetId);
+      container.innerHTML = "";
+
+      currentCreature.evoChain.forEach((evo, index) => {
+        const linkedCreature = getCreatureById(evo.id);
+        const node = document.createElement("div");
+        node.className = "evo-node" + (evo.id === currentCreature.id ? " current" : "");
+
+        const evoPortrait = linkedCreature
+          ? getPortraitPath(linkedCreature, variant)
+          : CREATURE_PLACEHOLDER;
+
+        node.innerHTML = `
+          <div class="evo-art">
+            <img src="${evoPortrait}" alt="${evo.name}" onerror="this.src='${CREATURE_PLACEHOLDER}'">
+          </div>
+          <div class="evo-id">#${evo.id}</div>
+          <div class="evo-name">${evo.name}</div>
+          <div class="evo-stage">${evo.id === currentCreature.id ? "Current Form" : "Linked Form"}</div>
+        `;
+
+        container.appendChild(node);
+
+        if (index < currentCreature.evoChain.length - 1) {
+          const arrow = document.createElement("div");
+          arrow.className = "evo-arrow";
+          arrow.textContent = "↓";
+          container.appendChild(arrow);
+        }
+      });
+    }
+
+    function renderHeroVariant() {
+      const portraitImg = document.getElementById("portraitImage");
+      portraitImg.alt = `${creature.name} ${activeVariant}`;
+      setImageWithFallback(
+        portraitImg,
+        getPortraitPath(creature, activeVariant),
+        CREATURE_PLACEHOLDER
+      );
+
+      document.getElementById("normalToggle").classList.toggle("active", activeVariant === "normal");
+      document.getElementById("shinyToggle").classList.toggle("active", activeVariant === "shiny");
+    }
+
+    if (!creature) {
+      document.title = "Creature Not Found | Codex";
+      document.getElementById("entryName").textContent = "Creature Not Found";
+    } else {
+      document.title = `${creature.name} | Codex`;
+
+      document.getElementById("entryId").textContent = `#${creature.id}`;
+      document.getElementById("entryName").textContent = creature.name;
+      document.getElementById("entryEssence").textContent = `${creature.essence} Essence`;
+      document.getElementById("entryRarity").textContent = creature.rarity;
+      document.getElementById("entryStage").textContent = creature.stage;
+      document.getElementById("entryDescription").textContent = creature.description;
+      document.getElementById("entryAbility").textContent = creature.ability;
+      document.getElementById("entryStageStat").textContent = creature.stage;
+      document.getElementById("entryRarityStat").textContent = creature.rarity;
+      document.getElementById("dropSource").textContent = creature.dropSource;
+      document.getElementById("dropPool").textContent = creature.dropPool;
+      document.getElementById("entryVariantStatus").textContent = "Normal + Shiny";
+
+      applyTagPlate(document.getElementById("entryEssence"), "essence", creature.essence);
+      applyTagPlate(document.getElementById("entryRarity"), "rarity", creature.rarity);
+
+      const attack = creature.stats?.attack ?? 0;
+      const hp = creature.stats?.hp ?? 0;
+      const defense = creature.stats?.defense ?? 0;
+
+      document.getElementById("attackValue").textContent = attack;
+      document.getElementById("hpValue").textContent = hp;
+      document.getElementById("defenseValue").textContent = defense;
+
+      document.getElementById("attackBar").style.width = `${Math.max(0, Math.min(100, attack))}%`;
+      document.getElementById("hpBar").style.width = `${Math.max(0, Math.min(100, hp))}%`;
+      document.getElementById("defenseBar").style.width = `${Math.max(0, Math.min(100, defense))}%`;
+
+      renderHeroVariant();
+      renderEvoChain("normalEvoChain", "normal", creature);
+      renderEvoChain("shinyEvoChain", "shiny", creature);
+
+      document.getElementById("normalToggle").addEventListener("click", () => {
+        activeVariant = "normal";
+        renderHeroVariant();
+      });
+
+      document.getElementById("shinyToggle").addEventListener("click", () => {
+        activeVariant = "shiny";
+        renderHeroVariant();
+      });
+
+      const prevBtn = document.getElementById("prevEntry");
+      const nextBtn = document.getElementById("nextEntry");
+
+      if (creature.prev) {
+        prevBtn.href = `index.html?id=${creature.prev}`;
+      } else {
+        prevBtn.style.opacity = "0.4";
+        prevBtn.style.pointerEvents = "none";
+      }
+
+      if (creature.next) {
+        nextBtn.href = `index.html?id=${creature.next}`;
+      } else {
+        nextBtn.style.opacity = "0.4";
+        nextBtn.style.pointerEvents = "none";
+      }
+    }
+  </script>
+</body>
+</html>

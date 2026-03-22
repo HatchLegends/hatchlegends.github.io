@@ -1,11 +1,14 @@
 // ===== PARTICLES =====
 const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const ctx = canvas ? canvas.getContext("2d") : null;
 
 let particlesArray = [];
+
+function resizeCanvas() {
+  if (!canvas) return;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
 
 class Particle {
   constructor() {
@@ -45,6 +48,7 @@ class Particle {
 }
 
 function initParticles() {
+  if (!canvas || !ctx) return;
   particlesArray = [];
   for (let i = 0; i < 160; i++) {
     particlesArray.push(new Particle());
@@ -52,30 +56,36 @@ function initParticles() {
 }
 
 function animateParticles() {
+  if (!canvas || !ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  particlesArray.forEach(p => {
-    p.update();
-    p.draw();
+  particlesArray.forEach((particle) => {
+    particle.update();
+    particle.draw();
   });
 
   requestAnimationFrame(animateParticles);
 }
 
-initParticles();
-animateParticles();
-
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+if (canvas && ctx) {
+  resizeCanvas();
   initParticles();
-});
+  animateParticles();
+
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    initParticles();
+  });
+}
 
 // ===== MAGNETIC CREATURES =====
 const solrael = document.querySelector(".hero-character");
 const discordCreature = document.querySelector(".discord-creature");
 
-const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+const mouse = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2,
+};
 
 window.addEventListener("mousemove", (e) => {
   mouse.x = e.clientX;
@@ -116,7 +126,6 @@ function setupMagnet(el, options = {}) {
 
     if (dist < distance) {
       const pull = 1 - dist / distance;
-
       targetX = Math.max(-maxOffset, Math.min(maxOffset, dx * strength * pull));
       targetY = Math.max(-maxOffset, Math.min(maxOffset, dy * strength * pull));
       targetScale = scaleHover;
@@ -150,7 +159,6 @@ function setupMagnet(el, options = {}) {
   requestAnimationFrame(animate);
 }
 
-// Solrael: stronger, slower, more magical
 setupMagnet(solrael, {
   distance: 320,
   strength: 0.16,
@@ -162,6 +170,15 @@ setupMagnet(solrael, {
   floatSpeed: 0.002,
 });
 
+setupMagnet(discordCreature, {
+  distance: 220,
+  strength: 0.2,
+  maxOffset: 28,
+  scaleHover: 1.08,
+  rotationStrength: 0.05,
+  floating: false,
+});
+
 // ===== MENU + INFO PANEL =====
 const burger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
@@ -170,11 +187,58 @@ const menuOverviewBtn = document.getElementById("menuOverviewBtn");
 const infoToggle = document.getElementById("infoToggle");
 const infoPanel = document.getElementById("infoPanel");
 const infoClose = document.getElementById("infoClose");
+const infoLabel = document.getElementById("infoLabel");
+
+function openInfoPanel() {
+  if (!infoPanel) return;
+  infoPanel.classList.add("active");
+  infoPanel.setAttribute("aria-hidden", "false");
+}
+
+function closeInfoPanel() {
+  if (!infoPanel) return;
+  infoPanel.classList.remove("active");
+  infoPanel.setAttribute("aria-hidden", "true");
+}
+
+function closeMenu() {
+  if (!menu || !burger) return;
+  menu.classList.remove("active");
+  burger.classList.remove("active");
+  burger.setAttribute("aria-expanded", "false");
+}
 
 if (burger && menu) {
   burger.addEventListener("click", () => {
-    burger.classList.toggle("active");
-    menu.classList.toggle("active");
+    const isActive = menu.classList.toggle("active");
+    burger.classList.toggle("active", isActive);
+    burger.setAttribute("aria-expanded", String(isActive));
+  });
+}
+
+if (menuOverviewBtn) {
+  menuOverviewBtn.addEventListener("click", () => {
+    openInfoPanel();
+    closeMenu();
+  });
+}
+
+if (infoToggle) {
+  infoToggle.addEventListener("click", () => {
+    openInfoPanel();
+
+    if (infoLabel && !localStorage.getItem("infoOpened")) {
+      setTimeout(() => {
+        infoLabel.classList.add("hidden");
+      }, 200);
+      localStorage.setItem("infoOpened", "true");
+    }
+  });
+}
+
+if (infoClose) {
+  infoClose.addEventListener("click", () => {
+    closeInfoPanel();
   });
 }
 
@@ -186,60 +250,22 @@ document.addEventListener("click", (e) => {
   const clickedMenuButton = menuOverviewBtn && menuOverviewBtn.contains(e.target);
 
   if (menu && burger && !clickedBurger && !clickedMenu) {
-    menu.classList.remove("active");
-    burger.classList.remove("active");
+    closeMenu();
   }
 
   if (infoPanel && !clickedToggle && !clickedPanel && !clickedMenuButton) {
-    infoPanel.classList.remove("active");
+    closeInfoPanel();
   }
 });
 
-if (menuOverviewBtn && infoPanel && menu && burger) {
-  menuOverviewBtn.addEventListener("click", () => {
-    infoPanel.classList.add("active");
-    menu.classList.remove("active");
-    burger.classList.remove("active");
-  });
-}
-
-if (infoToggle && infoPanel) {
-  infoToggle.addEventListener("click", () => {
-    infoPanel.classList.add("active");
-  });
-}
-
-if (infoClose && infoPanel) {
-  infoClose.addEventListener("click", () => {
-    infoPanel.classList.remove("active");
-  });
-}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeMenu();
+    closeInfoPanel();
+  }
+});
 
 // ===== INFO LABEL (ONE-TIME FADE) =====
-const infoLabel = document.getElementById("infoLabel");
-
-// hide instantly if already clicked before
-if (localStorage.getItem("infoOpened")) {
-  if (infoLabel) infoLabel.classList.add("hidden");
+if (localStorage.getItem("infoOpened") && infoLabel) {
+  infoLabel.classList.add("hidden");
 }
-
-// on first click → fade out + remember
-if (infoToggle && infoLabel) {
-  infoToggle.addEventListener("click", () => {
-  setTimeout(() => {
-    infoLabel.classList.add("hidden");
-  }, 200);
-
-  localStorage.setItem("infoOpened", "true");
-});
-}
-
-//* Discord creature *//
-setupMagnet(discordCreature, {
-  distance: 220,
-  strength: 0.2,
-  maxOffset: 28,
-  scaleHover: 1.08,
-  rotationStrength: 0.05,
-  floating: false,
-});

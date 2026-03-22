@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Codex | Hatch Legends Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .codex-page {
+      position: relative;
+      z-index: 2;
+      width: min(1240px, calc(100% - 40px));
+      margin: 110px auto 80px;
+    }
+
+    .codex-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
+
+    .codex-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      background: rgba(20,20,40,0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .codex-back:hover {
+      transform: translateY(-2px);
+      background: rgba(30,25,60,0.88);
+      border-color: rgba(180,140,255,0.22);
+    }
+
+    .codex-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 34px 34px 28px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(180,140,255,0.18), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(255,190,90,0.10), transparent 30%),
+        rgba(10,14,30,0.84);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.42),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+      margin-bottom: 22px;
+    }
+
+    .codex-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .codex-kicker {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ab99db;
+      margin-bottom: 10px;
+    }
+
+    .codex-title {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 0.95;
+      margin-bottom: 14px;
+      color: white;
+    }
+
+    .codex-subtitle {
+      max-width: 720px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.84);
+      margin-bottom: 22px;
+    }
+
+    .codex-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .codex-btn,
+    .codex-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.22s ease, filter 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .codex-btn {
+      color: #0b1020;
+      background: linear-gradient(180deg, #f2d58a 0%, #dca648 100%);
+      box-shadow: 0 10px 22px rgba(220,166,72,0.22);
+    }
+
+    .codex-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+
+    .codex-btn-secondary {
+      color: white;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .codex-btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(180,140,255,0.22);
+    }
+
+    .codex-feature {
+      position: relative;
+      min-height: 250px;
+      padding: 22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top, rgba(180,140,255,0.16), transparent 55%),
+        rgba(18,22,42,0.92);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .codex-feature-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #d7c4ff;
+      margin-bottom: 10px;
+    }
+
+    .codex-feature h2 {
+      font-size: 24px;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .codex-feature p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+      max-width: 320px;
+    }
+
+    .codex-feature-glow {
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(180,140,255,0.22) 0%, rgba(180,140,255,0.06) 38%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .codex-feature-icon {
+      position: absolute;
+      right: 18px;
+      bottom: 14px;
+      width: 128px;
+      height: 128px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.35));
+      pointer-events: none;
+    }
+
+    .codex-toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .codex-search,
+    .codex-filters {
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top left, rgba(180,140,255,0.10), transparent 42%),
+        rgba(14,18,34,0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .codex-search {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      color: rgba(255,255,255,0.62);
+      min-height: 62px;
+    }
+
+    .codex-search input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .codex-search input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .codex-filters {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .filter-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .filter-pill:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(180,140,255,0.18);
+    }
+
+    .filter-pill.active {
+      color: white;
+      background: rgba(180,140,255,0.14);
+      border-color: rgba(180,140,255,0.24);
+    }
+
+    .codex-stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .stat-card {
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at top, rgba(180,140,255,0.12), transparent 45%),
+        rgba(14,18,34,0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ab99db;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .stat-subtext {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .codex-section {
+      margin-top: 18px;
+    }
+
+    .codex-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .codex-section-header h3 {
+      font-size: 24px;
+      color: white;
+    }
+
+    .codex-section-header p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.72);
+      max-width: 680px;
+    }
+
+    .codex-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .creature-card {
+  position: relative;
+  display: block;
+
+  min-height: unset;
+  padding: 16px;
+
+  border-radius: 22px;
+  text-decoration: none;
+  color: inherit;
+
+  background:
+    radial-gradient(circle at top, rgba(180,140,255,0.10), transparent 42%),
+    rgba(14,18,34,0.92);
+
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.24);
+
+  /* 🔥 upgraded transition */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  will-change: transform; /* smoother hover */
+}
+
+    .creature-card:hover {
+    transform: translateY(-8px) scale(1.04); /* 👈 POP effect */
+
+    border-color: rgba(180,140,255,0.35);
+
+    background:
+      radial-gradient(circle at top, rgba(180,140,255,0.22), transparent 42%),
+      rgba(18,22,42,1);
+
+    box-shadow:
+      0 20px 40px rgba(0,0,0,0.35),
+      0 0 20px rgba(180,140,255,0.18); /* glow */
+    }
+
+    .creature-portrait-img {
+  transition: transform 0.25s ease;
+}
+
+.creature-card:hover .creature-portrait-img {
+  transform: scale(1.28);
+}
+
+    .creature-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .creature-id {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ab99db;
+    }
+
+    .creature-badges {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .creature-rarity,
+    .creature-essence,
+    .creature-stage {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.84);
+      white-space: nowrap;
+    }
+
+    .rarity-common { color: #eadcc7; background: rgba(140,115,85,0.18); border-color: rgba(170,140,105,0.30); }
+    .rarity-rare { color: #dcecff; background: rgba(70,130,255,0.18); border-color: rgba(100,155,255,0.34); }
+    .rarity-epic { color: #efd8ff; background: rgba(155,80,255,0.18); border-color: rgba(180,105,255,0.34); }
+    .rarity-legendary { color: #ffe7c7; background: rgba(255,145,40,0.18); border-color: rgba(255,170,70,0.34); }
+
+    .essence-ember { color: #ffd6d6; background: rgba(255,70,70,0.18); border-color: rgba(255,90,90,0.34); }
+    .essence-tide { color: #d8ecff; background: rgba(60,130,255,0.18); border-color: rgba(90,150,255,0.34); }
+    .essence-verdant { color: #dcffe7; background: rgba(60,180,90,0.18); border-color: rgba(90,210,120,0.34); }
+    .essence-volt { color: #fff6c7; background: rgba(255,210,60,0.18); border-color: rgba(255,220,90,0.34); }
+    .essence-void { color: #eddcff; background: rgba(140,70,255,0.18); border-color: rgba(165,100,255,0.34); }
+    .essence-radiant { color: #ffe5cc; background: rgba(255,140,40,0.18); border-color: rgba(255,165,70,0.34); }
+
+    .creature-portrait {
+  position: relative;
+  height: 136px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at center, rgba(180,140,255,0.10), transparent 58%),
+    rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  overflow: visible; /* lets creature pop outside box */
+  z-index: 1;
+}
+
+    .creature-portrait-img {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.28));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  position: relative;
+  z-index: 2;
+}
+
+    .creature-name {
+      font-size: 22px;
+      line-height: 1.05;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .creature-type {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #ab99db;
+      margin-bottom: 4px;
+    }
+
+    .creature-desc {
+      font-size: 13px;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .creature-arrow {
+    position: absolute;
+    right: 18px;
+    top: 85%;
+    transform: translateY(-50%); /* centers vertically */
+    font-size: 22px;
+    color: rgba(255,255,255,0.30);
+    transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    .creature-card:hover .creature-portrait-img {
+  transform: scale(1.90) translateY(4px);
+  filter:
+    drop-shadow(0 18px 34px rgba(0,0,0,0.34))
+    drop-shadow(0 0 20px rgba(180,140,255,0.24));
+}
+
+    .codex-note {
+      margin-top: 26px;
+      text-align: center;
+      color: rgba(255,255,255,0.58);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1100px) {
+      .codex-hero-grid,
+      .codex-toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .codex-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .codex-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .codex-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .codex-page {
+        width: calc(100% - 24px);
+        margin-top: 88px;
+        margin-bottom: 56px;
+      }
+
+      .codex-hero {
+        padding: 22px 18px 18px;
+        border-radius: 22px;
+      }
+
+      .codex-title {
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+
+      .codex-subtitle {
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+
+      .codex-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .codex-btn,
+      .codex-btn-secondary {
+        width: 100%;
+      }
+
+      .codex-feature {
+        min-height: 200px;
+        padding: 18px;
+      }
+
+      .codex-feature h2 {
+        font-size: 22px;
+      }
+
+      .codex-feature-icon {
+        width: 104px;
+        height: 104px;
+        right: 10px;
+        bottom: 10px;
+      }
+
+      .codex-search {
+        min-height: 56px;
+        padding: 14px 16px;
+      }
+
+      .codex-filters {
+        justify-content: flex-start;
+      }
+
+      .codex-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .codex-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .creature-card {
+        min-height: auto;   /* or just DELETE the line */
+        padding: 16px;
+      } 
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <nav class="navbar">
+    <div class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="menu" id="menu">
+      <a href="/">Home</a>
+      <a href="/wiki">Wiki</a>
+      <a href="/wiki/codex.html">Codex</a>
+      <a href="https://discord.gg/yN4QGrazZM" target="_blank" rel="noopener noreferrer">Discord</a>
+    </div>
+  </nav>
+
+  <main class="codex-page">
+    <div class="codex-topbar">
+      <a href="/wiki" class="codex-back">← Back to Wiki</a>
+    </div>
+
+    <section class="codex-hero">
+      <div class="codex-hero-grid">
+        <div>
+          <p class="codex-kicker">Creature Archive</p>
+          <h1 class="codex-title">The Codex</h1>
+          <p class="codex-subtitle">
+            One species per entry. Normal sprites drive the Codex grid, while each full creature page can expand into both normal and shiny assets without duplicating IDs.
+          </p>
+
+          <div class="codex-actions">
+            <a href="creatures/index.html?id=001" class="codex-btn">Open First Entry</a>
+            <a href="/wiki" class="codex-btn-secondary">Return to Archive Hub</a>
+          </div>
+        </div>
+
+        <div class="codex-feature">
+          <div>
+            <p class="codex-feature-label">Scalable Setup</p>
+            <h2>Species + Variants</h2>
+            <p>
+              This layout is built for clean expansion later: more species, more forms, more filters, and shiny support without turning your archive into duplicate entries.
+            </p>
+          </div>
+
+          <div class="codex-feature-glow"></div>
+          <img src="../assets/images/codex_1024.png" alt="Codex" class="codex-feature-icon">
+        </div>
+      </div>
+    </section>
+
+    <section class="codex-toolbar">
+      <div class="codex-search">
+        <span>⌕</span>
+        <input id="searchInput" type="text" placeholder="Search creatures, rarity, essence, stage, or entry number...">
+      </div>
+
+      <div class="codex-filters">
+        <button class="filter-pill active" data-filter="all" type="button">All</button>
+        <button class="filter-pill" data-filter="common" type="button">Common</button>
+        <button class="filter-pill" data-filter="rare" type="button">Rare</button>
+        <button class="filter-pill" data-filter="epic" type="button">Epic</button>
+        <button class="filter-pill" data-filter="legendary" type="button">Legendary</button>
+      </div>
+    </section>
+
+    <section class="codex-stats">
+      <div class="stat-card">
+        <div class="stat-label">Total Species</div>
+        <div class="stat-value" id="totalEntries">000</div>
+        <div class="stat-subtext">Species slots currently indexed in the Codex.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">3-Stage Lines</div>
+        <div class="stat-value" id="threeStageLines">000</div>
+        <div class="stat-subtext">Lines that evolve across three connected stages.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Standalone</div>
+        <div class="stat-value" id="singleStageEntries">000</div>
+        <div class="stat-subtext">Single-stage creatures with no additional forms.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Shiny Ready</div>
+        <div class="stat-value" id="shinyReadyEntries">000</div>
+        <div class="stat-subtext">Entries already wired to load shiny sprite paths.</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Showing</div>
+        <div class="stat-value" id="showingEntries">000</div>
+        <div class="stat-subtext">Cards currently visible after filtering.</div>
+      </div>
+    </section>
+
+    <section class="codex-section">
+      <div class="codex-section-header">
+        <div>
+          <h3>Creature Index</h3>
+        </div>
+        <p>
+          The Codex intentionally shows only the normal sprite for each species. Open any entry to see the paired shiny setup and both evolution tracks.
+        </p>
+      </div>
+
+      <div class="codex-grid" id="codexGrid"></div>
+    </section>
+
+    <p class="codex-note">
+      Add or edit creatures once in <code>data.js</code>. This page and the entry page both pull from the same structure.
+    </p>
+  </main>
+
+  <script src="../js/main.js"></script>
+  <script src="creatures/data.js"></script>
+  <script>
+    const codexGrid = document.getElementById("codexGrid");
+    const searchInput = document.getElementById("searchInput");
+    const filterButtons = document.querySelectorAll(".filter-pill");
+
+    let activeFilter = "all";
+
+    function slugify(value) {
+      return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "-");
+    }
+
+    function normalizeEssence(value) {
+      if (slugify(value) === "nature") return "verdant";
+      return slugify(value);
+    }
+
+    function getEssenceClass(essence) {
+      const value = normalizeEssence(essence);
+      if (value === "ember") return "essence-ember";
+      if (value === "tide") return "essence-tide";
+      if (value === "verdant") return "essence-verdant";
+      if (value === "volt") return "essence-volt";
+      if (value === "void") return "essence-void";
+      if (value === "radiant") return "essence-radiant";
+      return "";
+    }
+
+    function getRarityClass(rarity) {
+      const value = slugify(rarity);
+      if (value === "common") return "rarity-common";
+      if (value === "rare") return "rarity-rare";
+      if (value === "epic") return "rarity-epic";
+      if (value === "legendary") return "rarity-legendary";
+      return "";
+    }
+
+    function getCreatureList() {
+      return Object.values(CREATURES).sort((a, b) => a.id.localeCompare(b.id));
+    }
+
+    function matchesFilter(creature) {
+      if (activeFilter === "all") return true;
+      return slugify(creature.rarity) === activeFilter;
+    }
+
+    function matchesSearch(creature, term) {
+      if (!term) return true;
+      const haystack = [
+        creature.id,
+        creature.name,
+        creature.rarity,
+        creature.essence,
+        creature.stage,
+        creature.type,
+        creature.description
+      ].join(" ").toLowerCase();
+
+      return haystack.includes(term.toLowerCase());
+    }
+
+    function sortCreatures(list) {
+      return [...list].sort((a, b) => a.id.localeCompare(b.id));
+    }
+
+    function renderCodex() {
+      const creatures = getCreatureList();
+      const term = searchInput.value.trim();
+
+      const filtered = sortCreatures(
+        creatures.filter(creature => matchesFilter(creature) && matchesSearch(creature, term))
+      );
+
+      codexGrid.innerHTML = "";
+
+      filtered.forEach(creature => {
+        const card = document.createElement("a");
+        card.className = "creature-card";
+        card.href = `creatures/index.html?id=${creature.id}`;
+
+        const rarityClass = getRarityClass(creature.rarity);
+        const essenceClass = getEssenceClass(creature.essence);
+        const portrait = getCodexPortraitPath(creature);
+
+        card.innerHTML = `
+       <div class="creature-top">
+       <span class="creature-id">#${creature.id}</span>
+
+       <div class="creature-badges">
+       <span class="creature-stage">${creature.stage}</span>
+       <span class="creature-essence ${essenceClass}">${creature.essence}</span>
+       <span class="creature-rarity ${rarityClass}">${creature.rarity}</span>
+     </div>
+   </div>
+
+  <div class="creature-portrait">
+     <img
+      class="creature-portrait-img"
+      src="${portrait}"
+      alt="${creature.name}"
+      onerror="this.src='${CREATURE_PLACEHOLDER}'"
+    >
+  </div>
+
+  <h4 class="creature-name">${creature.name}</h4>
+<span class="creature-arrow">→</span>
+`;
+
+        codexGrid.appendChild(card);
+      });
+
+      const total = creatures.length;
+      const threeStageIds = new Set(
+        creatures
+          .filter(c => Array.isArray(c.evoChain) && c.evoChain.length === 3)
+          .map(c => c.evoChain[0].id)
+      );
+
+      const singleStage = creatures.filter(c => Array.isArray(c.evoChain) && c.evoChain.length === 1).length;
+      const shinyReady = creatures.filter(c => !!c.assets?.shiny?.portrait).length;
+
+      document.getElementById("totalEntries").textContent = String(total).padStart(3, "0");
+      document.getElementById("threeStageLines").textContent = String(threeStageIds.size).padStart(3, "0");
+      document.getElementById("singleStageEntries").textContent = String(singleStage).padStart(3, "0");
+      document.getElementById("shinyReadyEntries").textContent = String(shinyReady).padStart(3, "0");
+      document.getElementById("showingEntries").textContent = String(filtered.length).padStart(3, "0");
+    }
+
+    searchInput.addEventListener("input", renderCodex);
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        renderCodex();
+      });
+    });
+
+    renderCodex();
+  </script>
+</body>
+</html>

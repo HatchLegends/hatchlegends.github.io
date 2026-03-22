@@ -4,106 +4,623 @@
   <meta charset="UTF-8">
   <title>Hatch Legends Wiki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- reuse your main CSS -->
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    /* Wiki-specific styling */
     body {
-      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
-    .wiki-container {
-      max-width: 1100px;
-      margin: 120px auto 80px;
-      padding: 0 20px;
+    .wiki-page {
+      position: relative;
+      z-index: 2;
+      width: min(1200px, calc(100% - 40px));
+      margin: 110px auto 80px;
     }
 
-    .wiki-title {
-      font-size: 42px;
+    .wiki-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .wiki-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      background: rgba(20, 20, 40, 0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .wiki-back:hover {
+      transform: translateY(-2px);
+      background: rgba(30, 25, 60, 0.88);
+      border-color: rgba(180,140,255,0.22);
+    }
+
+    .wiki-kicker {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ab99db;
       margin-bottom: 10px;
     }
 
+    .wiki-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 34px 34px 30px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(180,140,255,0.18), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(255,190,90,0.10), transparent 32%),
+        rgba(10, 14, 30, 0.84);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.42),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+      margin-bottom: 26px;
+    }
+
+    .wiki-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .wiki-title {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 0.95;
+      margin-bottom: 14px;
+      color: white;
+    }
+
     .wiki-subtitle {
-      color: #ab99db;
-      margin-bottom: 40px;
+      max-width: 720px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.84);
+      margin-bottom: 24px;
+    }
+
+    .wiki-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .wiki-btn,
+    .wiki-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.22s ease, filter 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .wiki-btn {
+      color: #0b1020;
+      background: linear-gradient(180deg, #f2d58a 0%, #dca648 100%);
+      box-shadow: 0 10px 22px rgba(220,166,72,0.22);
+    }
+
+    .wiki-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+
+    .wiki-btn-secondary {
+      color: white;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .wiki-btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(180,140,255,0.22);
+    }
+
+    .wiki-feature {
+      position: relative;
+      min-height: 260px;
+      padding: 20px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top, rgba(180,140,255,0.16), transparent 55%),
+        rgba(18, 22, 42, 0.92);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .wiki-feature-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #d7c4ff;
+      margin-bottom: 10px;
+    }
+
+    .wiki-feature h2 {
+      font-size: 24px;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .wiki-feature p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+      max-width: 320px;
+    }
+
+    .wiki-feature-glow {
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(180,140,255,0.22) 0%, rgba(180,140,255,0.06) 38%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .wiki-feature-icon {
+      position: absolute;
+      right: 18px;
+      bottom: 14px;
+      width: 128px;
+      height: 128px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.35));
+      pointer-events: none;
+    }
+
+    .wiki-section {
+      margin-top: 18px;
+      margin-bottom: 30px;
+    }
+
+    .wiki-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .wiki-section-header h3 {
+      font-size: 24px;
+      color: white;
+    }
+
+    .wiki-section-header p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      max-width: 620px;
+      line-height: 1.7;
     }
 
     .wiki-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .wiki-card {
-      padding: 20px;
-      border-radius: 16px;
-      background: rgba(20, 20, 40, 0.7);
-      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      display: block;
+      min-height: 190px;
+      padding: 22px 22px 20px;
+      border-radius: 22px;
+      text-decoration: none;
+      color: white;
+      background:
+        radial-gradient(circle at top right, rgba(180,140,255,0.12), transparent 35%),
+        rgba(16, 20, 38, 0.88);
       border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.25s ease;
-      cursor: pointer;
+      backdrop-filter: blur(12px);
+      box-shadow:
+        0 14px 34px rgba(0,0,0,0.24),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .wiki-card:hover {
       transform: translateY(-6px);
-      background: rgba(30, 25, 60, 0.9);
+      border-color: rgba(180,140,255,0.22);
+      background:
+        radial-gradient(circle at top right, rgba(180,140,255,0.18), transparent 38%),
+        rgba(24, 28, 54, 0.95);
+      box-shadow:
+        0 18px 44px rgba(0,0,0,0.32),
+        inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
-    .wiki-card h3 {
-      margin-bottom: 6px;
+    .wiki-card-kicker {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ab99db;
+      margin-bottom: 10px;
+    }
+
+    .wiki-card h4 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      line-height: 1.08;
     }
 
     .wiki-card p {
       font-size: 14px;
-      opacity: 0.8;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.8);
+      max-width: 90%;
+    }
+
+    .wiki-card-arrow {
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      font-size: 22px;
+      color: rgba(255,255,255,0.34);
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    .wiki-card:hover .wiki-card-arrow {
+      transform: translateX(4px);
+      color: rgba(255,255,255,0.72);
+    }
+
+    .wiki-spotlight {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 8px;
+    }
+
+    .wiki-panel {
+      border-radius: 22px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(180,140,255,0.12), transparent 42%),
+        rgba(14, 18, 34, 0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .wiki-panel h4 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .wiki-panel p {
+      font-size: 14px;
+      line-height: 1.78;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .wiki-mini-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .wiki-mini-item {
+      display: block;
+      padding: 16px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: white;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .wiki-mini-item:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(180,140,255,0.18);
+    }
+
+    .wiki-mini-item strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .wiki-mini-item span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .wiki-footer-note {
+      margin-top: 26px;
+      text-align: center;
+      color: rgba(255,255,255,0.58);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px) {
+      .wiki-hero-grid,
+      .wiki-spotlight {
+        grid-template-columns: 1fr;
+      }
+
+      .wiki-feature {
+        min-height: 220px;
+      }
+
+      .wiki-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .wiki-page {
+        width: calc(100% - 24px);
+        margin-top: 88px;
+        margin-bottom: 56px;
+      }
+
+      .wiki-topbar {
+        margin-bottom: 20px;
+      }
+
+      .wiki-hero {
+        padding: 22px 18px 18px;
+        border-radius: 22px;
+      }
+
+      .wiki-title {
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+
+      .wiki-subtitle {
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+
+      .wiki-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .wiki-btn,
+      .wiki-btn-secondary {
+        width: 100%;
+      }
+
+      .wiki-feature {
+        min-height: 200px;
+        padding: 18px;
+      }
+
+      .wiki-feature h2 {
+        font-size: 22px;
+      }
+
+      .wiki-feature-icon {
+        width: 104px;
+        height: 104px;
+        right: 10px;
+        bottom: 10px;
+      }
+
+      .wiki-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .wiki-card {
+        min-height: 168px;
+        padding: 18px;
+      }
+
+      .wiki-card h4 {
+        font-size: 20px;
+      }
+
+      .wiki-section-header h3 {
+        font-size: 22px;
+      }
+
+      .wiki-panel {
+        padding: 18px;
+      }
+
+      .wiki-panel h4 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<div class="wiki-container">
-  <h1 class="wiki-title">Hatch Legends Wiki</h1>
-  <p class="wiki-subtitle">
-    Explore the world, creatures, systems, and lore of Hatch Legends.
-  </p>
+  <canvas id="particles"></canvas>
 
-  <div class="wiki-grid">
-
-    <div class="wiki-card">
-      <h3>World</h3>
-      <p>Aetherion, Aether, and the forces shaping reality.</p>
+  <nav class="navbar">
+    <div class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
-    <div class="wiki-card">
-      <h3>Eggs</h3>
-      <p>Common, Rare, Epic, and Legendary eggs.</p>
+    <div class="menu" id="menu">
+      <a href="/">Home</a>
+      <a href="/wiki">Wiki</a>
+      <a href="https://discord.gg/yN4QGrazZM" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href="https://github.com/HatchLegends/hatchlegends.github.io" target="_blank" rel="noopener noreferrer">Github</a>
+    </div>
+  </nav>
+
+  <main class="wiki-page">
+    <div class="wiki-topbar">
+      <a href="/" class="wiki-back">← Back to Home</a>
     </div>
 
-    <div class="wiki-card">
-      <h3>Essences</h3>
-      <p>Elemental powers that define creatures.</p>
-    </div>
+    <section class="wiki-hero">
+      <div class="wiki-hero-grid">
+        <div>
+          <p class="wiki-kicker">Official Knowledge Archive</p>
+          <h1 class="wiki-title">Hatch Legends Wiki</h1>
+          <p class="wiki-subtitle">
+            Explore the world, systems, creatures, and core mechanics of Hatch Legends.
+            From rare eggs and powerful Essences to lore, combat, and collection progress,
+            this is the central archive for the universe of Aetherion.
+          </p>
 
-    <div class="wiki-card">
-      <h3>Creatures</h3>
-      <p>All species, evolutions, and rarity tiers.</p>
-    </div>
+          <div class="wiki-actions">
+            <a href="codex.html" class="wiki-btn">Open Codex</a>
+            <a href="world.html" class="wiki-btn-secondary">Explore the World</a>
+          </div>
+        </div>
 
-    <div class="wiki-card">
-      <h3>Combat</h3>
-      <p>Build teams, counter enemies, and win.</p>
-    </div>
+        <div class="wiki-feature">
+          <div>
+            <p class="wiki-feature-label">Featured Archive</p>
+            <h2>The Codex</h2>
+            <p>
+              Track discovered creatures, rarity, progression, and future entries as the Hatch Legends world expands.
+            </p>
+          </div>
 
-    <div class="wiki-card">
-      <h3>Codex</h3>
-      <p>Track your collection and progress.</p>
-    </div>
+          <div class="wiki-feature-glow"></div>
+          <img src="../assets/images/codex_1024.png" alt="Codex" class="wiki-feature-icon">
+        </div>
+      </div>
+    </section>
 
-  </div>
-</div>
+    <section class="wiki-section">
+      <div class="wiki-section-header">
+        <div>
+          <h3>Browse the Archive</h3>
+        </div>
+        <p>
+          Start with the major systems and world foundations. Each section is built to expand as new creatures,
+          features, lore, and progression systems are added.
+        </p>
+      </div>
 
+      <div class="wiki-grid">
+        <a href="world.html" class="wiki-card">
+          <p class="wiki-card-kicker">Lore</p>
+          <h4>World</h4>
+          <p>Aetherion, Aether, balance, cosmic forces, and the deeper structure behind the universe.</p>
+          <span class="wiki-card-arrow">→</span>
+        </a>
+
+        <a href="eggs.html" class="wiki-card">
+          <p class="wiki-card-kicker">Collection</p>
+          <h4>Eggs</h4>
+          <p>Learn how Common, Rare, Epic, and Legendary eggs fit into progression and discovery.</p>
+          <span class="wiki-card-arrow">→</span>
+        </a>
+
+        <a href="essences.html" class="wiki-card">
+          <p class="wiki-card-kicker">Combat</p>
+          <h4>Essences</h4>
+          <p>Understand the elemental identities that shape strengths, counters, roles, and battle strategy.</p>
+          <span class="wiki-card-arrow">→</span>
+        </a>
+
+        <a href="combat.html" class="wiki-card">
+          <p class="wiki-card-kicker">Systems</p>
+          <h4>Combat</h4>
+          <p>Master team building, synergy, matchup control, and the tactical layer behind battles.</p>
+          <span class="wiki-card-arrow">→</span>
+        </a>
+
+        <a href="codex.html" class="wiki-card">
+          <p class="wiki-card-kicker">Archive</p>
+          <h4>Codex</h4>
+          <p>Browse your growing bestiary of creatures and unlock deeper knowledge as the collection expands.</p>
+          <span class="wiki-card-arrow">→</span>
+        </a>
+
+        <a href="creatures/001-sprouty.html" class="wiki-card">
+          <p class="wiki-card-kicker">Entry</p>
+          <h4>First Creature Entry</h4>
+          <p>Jump directly into your first structured creature page and start building the codex properly.</p>
+          <span class="wiki-card-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="wiki-section">
+      <div class="wiki-section-header">
+        <div>
+          <h3>Featured Pages</h3>
+        </div>
+        <p>
+          Good starting points for players who want to understand how Hatch Legends is structured.
+        </p>
+      </div>
+
+      <div class="wiki-spotlight">
+        <div class="wiki-panel">
+          <h4>Start with the foundations</h4>
+          <p>
+            Hatch Legends is built around discovery, progression, and mastery. Rare eggs lead to creatures,
+            creatures align with Essences, Essences shape combat, and the Codex ties the full collection
+            together. The wiki should feel like a premium in-game archive — clean, expandable, and easy to explore.
+          </p>
+        </div>
+
+        <div class="wiki-mini-list">
+          <a href="world.html" class="wiki-mini-item">
+            <strong>World Overview</strong>
+            <span>Read the foundations of Aetherion and the forces that shape the setting.</span>
+          </a>
+
+          <a href="eggs.html" class="wiki-mini-item">
+            <strong>Egg Tiers</strong>
+            <span>See how rarity and creature potential connect to each egg type.</span>
+          </a>
+
+          <a href="codex.html" class="wiki-mini-item">
+            <strong>Codex Index</strong>
+            <span>Open the growing creature archive and use it as the core collection hub.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <p class="wiki-footer-note">
+      This archive is expanding alongside the game. More creature entries, systems, lore pages,
+      and progression details will continue to be added.
+    </p>
+  </main>
+
+  <script src="../js/main.js"></script>
 </body>
 </html>
