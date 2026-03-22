@@ -293,6 +293,87 @@ CREATURES["006"] = createCreature({
   ]
 });
 
+CREATURES["007"] = createCreature({
+  id: "007",
+  name: "Bubblet",
+  rarity: "Common",
+  essence: "Tide",
+  ability: "Tidal Dominion",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "A tiny being born from pure water essence, Bubblet drifts and bounces with carefree energy. Its body is soft and fluid, constantly shifting to match its playful mood. Though small and harmless, it stores surprising resilience—absorbing impacts like a droplet and springing back without a trace. Its sparkling surface reflects light like a calm tide, hinting at the greater power it may one day awaken.",
+  dropSource: "Common Egg",
+  dropPool: "Standard Hatch Pool",
+  portrait: "../../assets/images/creatures/007_bubblet.png",
+  shinyPortrait: "../../assets/images/creatures/007_bubblet_shiny.png",
+
+  prev: "006",
+  next: "008",
+
+  evoChain: [
+    { id: "007", name: "Bubblet" },
+    { id: "008", name: "Tideroo" },
+    { id: "009", name: "Abyssail" }
+  ]
+});
+
+CREATURES["008"] = createCreature({
+  id: "008",
+  name: "Tideroo",
+  rarity: "Common",
+  essence: "Tide",
+  ability: "Tidal Dominion",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "Tideroo gains control over its fluid body, reshaping itself to absorb impacts and redirect force. It moves with a rhythmic bounce, building momentum with every motion.",
+  dropSource: "Evolve from #007",
+  dropPool: "Not directly hatchable",
+  portrait: "../../assets/images/creatures/008_tideroo.png",
+  shinyPortrait: "../../assets/images/creatures/008_tideroo_shiny.png",
+
+  prev: "007",
+  next: "009",
+
+  evoChain: [
+    { id: "007", name: "Bubblet" },
+    { id: "008", name: "Tideroo" },
+    { id: "009", name: "Abyssail" }
+  ]
+});
+
+CREATURES["009"] = createCreature({
+  id: "009",
+  name: "Abyssail",
+  rarity: "Rare",
+  essence: "Tide",
+  ability: "Tidal Dominion",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "Abyssail embodies the full force of deep-water pressure. Its body flows with immense density, capable of crushing force or shifting into powerful tidal surges at will.",
+  dropSource: "Evolve from #008",
+  dropPool: "Not directly hatchable",
+  portrait: "../../assets/images/creatures/009_abyssail.png",
+  shinyPortrait: "../../assets/images/creatures/009_abyssail_shiny.png",
+
+  prev: "008",
+  next: "010",
+
+  evoChain: [
+    { id: "007", name: "Bubblet" },
+    { id: "008", name: "Tideroo" },
+    { id: "009", name: "Abyssail" }
+  ]
+});
+
 CREATURES["094"] = createCreature({
   id: "094",
   name: "Solrael",
