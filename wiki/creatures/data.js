@@ -374,6 +374,87 @@ CREATURES["009"] = createCreature({
   ]
 });
 
+CREATURES["010"] = createCreature({
+  id: "010",
+  name: "Pebblit",
+  rarity: "Common",
+  essence: "Ember",
+  ability: "Molten Core",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "A small, heat-born creature with faint magma veins running beneath its rocky shell. Though soft and harmless in appearance, Pebblit stores warmth deep inside, slowly building the energy needed to evolve.",
+  dropSource: "Common Egg",
+  dropPool: "Standard Hatch Pool",
+  portrait: "../../assets/images/creatures/010_pebblit.png",
+  shinyPortrait: "../../assets/images/creatures/010_pebblit_shiny.png",
+
+  prev: "009",
+  next: "011",
+
+  evoChain: [
+    { id: "010", name: "Pebblit" },
+    { id: "011", name: "Cragmite" },
+    { id: "012", name: "Magmarock" }
+  ]
+});
+
+CREATURES["011"] = createCreature({
+  id: "011",
+  name: "Cragmite",
+  rarity: "Common",
+  essence: "Ember",
+  ability: "Molten core",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "",
+  dropSource: "Evolve from #010",
+  dropPool: "Not directly hatchable",
+  portrait: "../../assets/images/creatures/011_cragmite.png",
+  shinyPortrait: "../../assets/images/creatures/011_cragmite_shiny.png",
+
+  prev: "010",
+  next: "012",
+
+  evoChain: [
+    { id: "010", name: "Pebblit" },
+    { id: "011", name: "Cragmite" },
+    { id: "012", name: "Magmarock" }
+  ]
+});
+
+CREATURES["012"] = createCreature({
+  id: "012",
+  name: "Magmarock",
+  rarity: "Rare",
+  essence: "Ember",
+  ability: "Molten Core",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "Magmarock is a living furnace of compressed earth and flame. Its body radiates immense internal pressure, with a blazing core at its center capable of unleashing powerful eruptions. Despite its power, it remains steady and unshakable, like a walking volcano.",
+  dropSource: "Evolve from #011",
+  dropPool: "Not directly hatchable",
+  portrait: "../../assets/images/creatures/012_magmarock.png",
+  shinyPortrait: "../../assets/images/creatures/012_magmarock_shiny.png",
+
+  prev: "011",
+  next: "013",
+
+  evoChain: [
+    { id: "010", name: "Pebblit" },
+    { id: "011", name: "Cragmite" },
+    { id: "012", name: "Magmarock" }
+  ]
+});
+
 CREATURES["094"] = createCreature({
   id: "094",
   name: "Solrael",
@@ -416,3 +497,37 @@ function getCodexPortraitPath(creature) {
   if (!creature) return CREATURE_PLACEHOLDER;
   return creature.assets?.normal?.portrait || CREATURE_PLACEHOLDER;
 }
+
+/* 
+==============================
+CREATURE TEMPLATE (COPY THIS)
+==============================
+
+CREATURES["0"] = createCreature({
+  id: "0",
+  name: "",
+  rarity: "Common",
+  essence: "",
+  ability: "",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "",
+  dropSource: "Evolve from #0",
+  dropPool: "Not directly hatchable",
+  portrait: "../../assets/images/creatures/0.png",
+  shinyPortrait: "../../assets/images/creatures/00_shiny.png",
+
+  prev: "0",
+  next: "0",
+
+  evoChain: [
+    { id: "0", name: "" },
+    { id: "0", name: "" },
+    { id: "0", name: "" }
+  ]
+});
+
+*/
