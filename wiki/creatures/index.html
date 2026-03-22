@@ -437,6 +437,30 @@
       line-height: 1.7;
     }
 
+   .global-footer {
+  position: fixed;
+  bottom: -100px;
+  left: 94%;
+  transform: translateX(-50%);
+
+  z-index: 999; 
+
+  pointer-events: auto;
+}
+
+.global-footer img {
+  width: 320px;
+  height: auto;
+
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.global-footer:hover img {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
     @media (max-width: 1100px) {
       .evolution-compare {
         grid-template-columns: 1fr;
@@ -495,6 +519,12 @@
         justify-content: center;
       }
     }
+
+    body::after {
+  content: "";
+  display: block;
+  height: 20px;
+}
   </style>
 </head>
 <body>
@@ -552,7 +582,7 @@
           <div class="quickstat">
           <div class="quickstat-label">Ability</div>
          <div class="quickstat-value" id="entryAbility">Unknown</div>
-         </div>
+        </div>
 
           <div class="quickstat">
             <div class="quickstat-label">Stage</div>
@@ -569,11 +599,6 @@
             <div class="quickstat-value" id="entryVariantStatus">Normal + Shiny</div>
           </div>
         </div>
-
-        <p class="entry-helper">
-          The Codex grid uses the normal sprite only. This page is where the species expands into both sprite variants and both evolution track previews.
-        </p>
-      </div>
     </section>
 
     <section class="entry-grid">
@@ -635,10 +660,6 @@
         </div>
       </div>
     </section>
-
-    <p class="entry-note">
-      One species entry, two sprite variants. This is the cleanest setup for expanding your wiki later without doubling IDs or pages.
-    </p>
   </main>
 
   <script src="../../js/main.js"></script>
@@ -800,5 +821,9 @@
       }
     }
   </script>
+
+  <div class="global-footer">
+  <img src="/assets/ui/copyright_mark.png" alt="Hatch Legends">
+ </div>
 </body>
 </html>

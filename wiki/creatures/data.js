@@ -244,13 +244,15 @@ CREATURES["094"] = createCreature({
   name: "Solrael",
   rarity: "Legendary",
   essence: "Radiant",
-  ability: "Solar",
+  ability: "Solar Ascendance",
 
   attack: 42,
   hp: 35,
   defense: 30,
 
-  description: "A radiant standalone creature.",
+  description: `A radiant being formed from concentrated solar energy.
+Solrael exists in a constant state of ascension, growing brighter and more powerful with every moment it remains in the world.
+Its presence alone bends light, and when its power peaks, it releases a surge capable of overwhelming everything around it.`,
 
   dropSource: "Legendary Egg",
   dropPool: "Celestial Pool",
