@@ -234,8 +234,62 @@ CREATURES["004"] = createCreature({
 
   evoChain: [
     { id: "004", name: "Emberbit" },
-    { id: "005", name: "IDK" },
-    { id: "006", name: "IDK" }
+    { id: "005", name: "Flarebit" },
+    { id: "006", name: "Infernox" }
+  ]
+});
+
+CREATURES["005"] = createCreature({
+  id: "005",
+  name: "Flarebit",
+  rarity: "Common",
+  essence: "Ember",
+  ability: "Kindle",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "Flarebit’s core glows with unstable energy, releasing bursts of warmth that grow stronger with excitement.",
+  dropSource: "Evolve from #004",
+  dropPool: "Not directly hatchable",
+  portrait: "../../assets/images/creatures/005_flarebit.png",
+  shinyPortrait: "../../assets/images/creatures/005_flarebit_shiny.png",
+
+  prev: "004",
+  next: "006",
+
+  evoChain: [
+    { id: "004", name: "Emberbit" },
+    { id: "005", name: "Flarebit" },
+    { id: "006", name: "Infernox" }
+  ]
+});
+
+CREATURES["006"] = createCreature({
+  id: "006",
+  name: "Infernox",
+  rarity: "Rare",
+  essence: "Ember",
+  ability: "Kindle",
+
+  attack: 0,
+  hp: 0,
+  defense: 0,
+
+  description: "A fully awakened infernal force. Infernox channels immense internal heat into controlled bursts of destruction, overwhelming anything that dares challenge it.",
+  dropSource: "Evolve from #005",
+  dropPool: "Not directly hatchable",
+  portrait: "../../assets/images/creatures/006_infernox.png",
+  shinyPortrait: "../../assets/images/creatures/006_infernox_shiny.png",
+
+  prev: "005",
+  next: "007",
+
+  evoChain: [
+    { id: "004", name: "Emberbit" },
+    { id: "005", name: "Flarebit" },
+    { id: "006", name: "Infernox" }
   ]
 });
 
