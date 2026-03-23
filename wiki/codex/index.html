@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Codex | Hatch Legends Wiki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../css/style.css">
 
   <style>
     body {
@@ -48,152 +48,329 @@
       border-color: rgba(180,140,255,0.22);
     }
 
-    .codex-hero {
-      position: relative;
-      overflow: hidden;
-      padding: 34px 34px 28px;
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at top right, rgba(180,140,255,0.18), transparent 34%),
-        radial-gradient(circle at bottom left, rgba(255,190,90,0.10), transparent 30%),
-        rgba(10,14,30,0.84);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(16px);
-      box-shadow:
-        0 20px 50px rgba(0,0,0,0.42),
-        inset 0 1px 0 rgba(255,255,255,0.04);
-      margin-bottom: 22px;
-    }
+   .codex-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(180,140,255,0.14), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(255,190,90,0.06), transparent 24%),
+    linear-gradient(90deg, rgba(8,12,30,0.97), rgba(7,10,24,0.95));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.34),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
+  margin-bottom: 18px;
+  overflow: visible;
+}
 
-    .codex-hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-      gap: 24px;
-      align-items: center;
-    }
+.codex-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(420px, 540px);
+  gap: 22px;
+  align-items: center;
+}
 
-    .codex-kicker {
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #ab99db;
-      margin-bottom: 10px;
-    }
+.codex-hero-copy {
+  max-width: 560px;
+}
 
-    .codex-title {
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 0.95;
-      margin-bottom: 14px;
-      color: white;
-    }
+.codex-kicker {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ab99db;
+}
 
-    .codex-subtitle {
-      max-width: 720px;
-      font-size: 16px;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.84);
-      margin-bottom: 22px;
-    }
+.codex-title {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 60px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  color: #ffffff;
+}
 
-    .codex-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+.codex-hero-text {
+  margin: 12px 0 0;
+  max-width: 500px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.80);
+}
 
-    .codex-btn,
-    .codex-btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.22s ease, filter 0.22s ease, background 0.22s ease, border-color 0.22s ease;
-    }
+.codex-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
 
-    .codex-btn {
-      color: #0b1020;
-      background: linear-gradient(180deg, #f2d58a 0%, #dca648 100%);
-      box-shadow: 0 10px 22px rgba(220,166,72,0.22);
-    }
+.codex-btn,
+.codex-btn-secondary {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
 
-    .codex-btn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.03);
-    }
+.codex-btn {
+  color: #111318;
+  background: linear-gradient(180deg, #ffd978 0%, #f0c45b 100%);
+  box-shadow:
+    0 12px 24px rgba(240,196,91,0.20),
+    inset 0 1px 0 rgba(255,255,255,0.30);
+}
 
-    .codex-btn-secondary {
-      color: white;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+.codex-btn:hover {
+  transform: translateY(-2px);
+}
 
-    .codex-btn-secondary:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(180,140,255,0.22);
-    }
+.codex-btn-secondary {
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
-    .codex-feature {
-      position: relative;
-      min-height: 250px;
-      padding: 22px;
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at top, rgba(180,140,255,0.16), transparent 55%),
-        rgba(18,22,42,0.92);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-    }
+.codex-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(180,140,255,0.18);
+}
 
-    .codex-feature-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #d7c4ff;
-      margin-bottom: 10px;
-    }
+.codex-mini-card {
+  width: 100%;
+  min-height: 140px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(160,130,255,0.13), transparent 40%),
+    rgba(18,22,46,0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 18px 34px rgba(0,0,0,0.20),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
 
-    .codex-feature h2 {
-      font-size: 24px;
-      line-height: 1.05;
-      margin-bottom: 12px;
-    }
+.codex-feature-label {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c5b5ef;
+}
 
-    .codex-feature p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.82);
-      max-width: 320px;
-    }
+.codex-species-value,
+.codex-mini-value {
+  font-size: clamp(52px, 5vw, 70px);
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
 
-    .codex-feature-glow {
-      position: absolute;
-      right: -20px;
-      bottom: -10px;
-      width: 220px;
-      height: 220px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(180,140,255,0.22) 0%, rgba(180,140,255,0.06) 38%, transparent 70%);
-      pointer-events: none;
-    }
+.codex-species-text,
+.codex-mini-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.74);
+  max-width: 170px;
+}
 
-    .codex-feature-icon {
-      position: absolute;
-      right: 18px;
-      bottom: 14px;
-      width: 128px;
-      height: 128px;
-      object-fit: contain;
-      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.35));
-      pointer-events: none;
-    }
+.codex-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.codex-btn,
+.codex-btn-secondary {
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.codex-btn {
+  color: #111318;
+  background: linear-gradient(180deg, #ffd978 0%, #f0c45b 100%);
+  box-shadow:
+    0 12px 24px rgba(240,196,91,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.32);
+}
+
+.codex-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 30px rgba(240,196,91,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.36);
+}
+
+.codex-btn-secondary {
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+.codex-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(180,140,255,0.18);
+}
+
+.codex-feature-label {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c5b5ef;
+}
+
+.codex-species-value {
+  font-size: clamp(48px, 6vw, 74px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.codex-species-text {
+  max-width: 220px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.74);
+  margin: 0;
+}
+
+.codex-hero-side {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 20px;
+  overflow: visible;
+}
+
+.codex-book-slot {
+  position: relative;
+  width: 120px;
+  height: 210px;
+  overflow: visible; 
+  justify-self: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.codex-book-floating {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 220px;
+  max-width: none;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center center;
+  transition: transform 0.28s ease, filter 0.28s ease;
+  z-index: 2;
+
+  /* base shadow */
+  filter:
+    drop-shadow(0 18px 28px rgba(0,0,0,0.34))
+    drop-shadow(0 0 0 rgba(120,160,255,0));
+}
+
+.codex-hero-side:hover .codex-book-floating {
+  transform: translate(-50%, -50%) translateY(-8px) scale(1.44) rotate(-4deg);
+  z-index: 20;
+
+  /* glow */
+  filter:
+    drop-shadow(0 6px 4px rgba(0,0,0,0.45))
+    drop-shadow(0 0 6px rgba(120,160,255,0.45))
+    drop-shadow(0 0 10px rgba(120,160,255,0.28));
+}
+
+.codex-species-card {
+  justify-self: end;
+  max-width: 200px;
+}
+.codex-mini-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 210px;
+  padding: 22px 22px 20px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(160,130,255,0.13), transparent 40%),
+    rgba(18,22,46,0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 18px 34px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.codex-feature-label {
+  margin: 0 0 010px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c5b5ef;
+}
+
+.codex-species-value {
+  font-size: clamp(54px, 6vw, 82px);
+  line-height: 0.92;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: white;
+  margin: 0 0 10px;
+}
+
+.codex-mini-value {
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.codex-mini-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.76);
+  max-width: 180px;
+}
+
+.codex-species-text {
+  max-width: 190px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.76);
+}
 
     .codex-toolbar {
       display: grid;
@@ -265,45 +442,6 @@
       color: white;
       background: rgba(180,140,255,0.14);
       border-color: rgba(180,140,255,0.24);
-    }
-
-    .codex-stats {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .stat-card {
-      padding: 18px 18px 16px;
-      border-radius: 20px;
-      background:
-        radial-gradient(circle at top, rgba(180,140,255,0.12), transparent 45%),
-        rgba(14,18,34,0.88);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.22);
-    }
-
-    .stat-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #ab99db;
-      margin-bottom: 10px;
-    }
-
-    .stat-value {
-      font-size: clamp(26px, 4vw, 38px);
-      line-height: 1;
-      margin-bottom: 8px;
-      color: white;
-    }
-
-    .stat-subtext {
-      font-size: 13px;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.68);
     }
 
     .codex-section {
@@ -515,19 +653,15 @@
     }
 
     @media (max-width: 1100px) {
-      .codex-hero-grid,
-      .codex-toolbar {
-        grid-template-columns: 1fr;
-      }
+  .codex-hero-grid,
+  .codex-toolbar {
+    grid-template-columns: 1fr;
+  }
 
-      .codex-stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .codex-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
+  .codex-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 
     @media (max-width: 820px) {
       .codex-grid {
@@ -567,22 +701,6 @@
         width: 100%;
       }
 
-      .codex-feature {
-        min-height: 200px;
-        padding: 18px;
-      }
-
-      .codex-feature h2 {
-        font-size: 22px;
-      }
-
-      .codex-feature-icon {
-        width: 104px;
-        height: 104px;
-        right: 10px;
-        bottom: 10px;
-      }
-
       .codex-search {
         min-height: 56px;
         padding: 14px 16px;
@@ -592,20 +710,17 @@
         justify-content: flex-start;
       }
 
-      .codex-stats {
-        grid-template-columns: 1fr;
-      }
-
       .codex-grid {
         grid-template-columns: 1fr;
         gap: 14px;
       }
 
       .creature-card {
-        min-height: auto;   /* or just DELETE the line */
+        min-height: auto;  
         padding: 16px;
       } 
     }
+
   </style>
 </head>
 <body>
@@ -621,7 +736,7 @@
     <div class="menu" id="menu">
       <a href="/">Home</a>
       <a href="/wiki">Wiki</a>
-      <a href="/wiki/codex.html">Codex</a>
+      <a href="/wiki/codex/">Codex</a>
       <a href="https://discord.gg/yN4QGrazZM" target="_blank" rel="noopener noreferrer">Discord</a>
     </div>
   </nav>
@@ -631,35 +746,40 @@
       <a href="/wiki" class="codex-back">← Back to Wiki</a>
     </div>
 
-    <section class="codex-hero">
-      <div class="codex-hero-grid">
-        <div>
-          <p class="codex-kicker">Creature Archive</p>
-          <h1 class="codex-title">The Codex</h1>
-          <p class="codex-subtitle">
-            One species per entry. Normal sprites drive the Codex grid, while each full creature page can expand into both normal and shiny assets without duplicating IDs.
-          </p>
+  <section class="codex-hero">
+  <div class="codex-hero-grid">
+    <div class="codex-hero-copy">
+      <p class="codex-kicker">Creature Archive</p>
+      <h1 class="codex-title">The Codex</h1>
 
-          <div class="codex-actions">
-            <a href="creatures/index.html?id=001" class="codex-btn">Open First Entry</a>
-            <a href="/wiki" class="codex-btn-secondary">Return to Archive Hub</a>
-          </div>
-        </div>
+      <p class="codex-hero-text">
+        Browse every creature in the Hatch Legends archive.
+        Open any entry to view its full profile, evolution line, and sprite set.
+      </p>
 
-        <div class="codex-feature">
-          <div>
-            <p class="codex-feature-label">Scalable Setup</p>
-            <h2>Species + Variants</h2>
-            <p>
-              This layout is built for clean expansion later: more species, more forms, more filters, and shiny support without turning your archive into duplicate entries.
-            </p>
-          </div>
-
-          <div class="codex-feature-glow"></div>
-          <img src="../assets/images/codex_1024.png" alt="Codex" class="codex-feature-icon">
-        </div>
+      <div class="codex-actions">
+        <a href="creature.html?id=001" class="codex-btn">Open First Entry</a>
+        <a href="/wiki" class="codex-btn-secondary">Return to Archive Hub</a>
       </div>
-    </section>
+    </div>
+
+
+   <div class="codex-hero-side">
+
+  <div class="codex-book-slot">
+  <img src="../../assets/images/codex_1024.png" alt="Codex" class="codex-book-floating">
+</div>
+
+  <div class="codex-mini-card codex-species-card">
+    <p class="codex-feature-label">Total Species</p>
+    <div class="codex-species-value" id="totalEntriesHero">000</div>
+    <p class="codex-species-text">
+      Creatures currently in the codex
+    </p>
+  </div>
+</div>
+
+</section>
 
     <section class="codex-toolbar">
       <div class="codex-search">
@@ -676,46 +796,14 @@
       </div>
     </section>
 
-    <section class="codex-stats">
-      <div class="stat-card">
-        <div class="stat-label">Total Species</div>
-        <div class="stat-value" id="totalEntries">000</div>
-        <div class="stat-subtext">Species slots currently indexed in the Codex.</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-label">3-Stage Lines</div>
-        <div class="stat-value" id="threeStageLines">000</div>
-        <div class="stat-subtext">Lines that evolve across three connected stages.</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-label">Standalone</div>
-        <div class="stat-value" id="singleStageEntries">000</div>
-        <div class="stat-subtext">Single-stage creatures with no additional forms.</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-label">Shiny Ready</div>
-        <div class="stat-value" id="shinyReadyEntries">000</div>
-        <div class="stat-subtext">Entries already wired to load shiny sprite paths.</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-label">Showing</div>
-        <div class="stat-value" id="showingEntries">000</div>
-        <div class="stat-subtext">Cards currently visible after filtering.</div>
-      </div>
-    </section>
-
     <section class="codex-section">
       <div class="codex-section-header">
         <div>
           <h3>Creature Index</h3>
         </div>
         <p>
-          The Codex intentionally shows only the normal sprite for each species. Open any entry to see the paired shiny setup and both evolution tracks.
-        </p>
+  Search by name, entry number, rarity, essence, or stage to jump directly to any documented creature.
+</p>
       </div>
 
       <div class="codex-grid" id="codexGrid"></div>
@@ -726,8 +814,8 @@
     </p>
   </main>
 
-  <script src="../js/main.js"></script>
-  <script src="creatures/data.js"></script>
+  <script src="../../js/main.js"></script>
+  <script src="data.js"></script>
   <script>
     const codexGrid = document.getElementById("codexGrid");
     const searchInput = document.getElementById("searchInput");
@@ -808,7 +896,7 @@
       filtered.forEach(creature => {
         const card = document.createElement("a");
         card.className = "creature-card";
-        card.href = `creatures/index.html?id=${creature.id}`;
+        card.href = `creature.html?id=${creature.id}`;
 
         const rarityClass = getRarityClass(creature.rarity);
         const essenceClass = getEssenceClass(creature.essence);
@@ -842,22 +930,9 @@
       });
 
       const total = creatures.length;
-      const threeStageIds = new Set(
-        creatures
-          .filter(c => Array.isArray(c.evoChain) && c.evoChain.length === 3)
-          .map(c => c.evoChain[0].id)
-      );
 
-      const singleStage = creatures.filter(c => Array.isArray(c.evoChain) && c.evoChain.length === 1).length;
-      const shinyReady = creatures.filter(c => !!c.assets?.shiny?.portrait).length;
-
-      document.getElementById("totalEntries").textContent = String(total).padStart(3, "0");
-      document.getElementById("threeStageLines").textContent = String(threeStageIds.size).padStart(3, "0");
-      document.getElementById("singleStageEntries").textContent = String(singleStage).padStart(3, "0");
-      document.getElementById("shinyReadyEntries").textContent = String(shinyReady).padStart(3, "0");
-      document.getElementById("showingEntries").textContent = String(filtered.length).padStart(3, "0");
+      document.getElementById("totalEntriesHero").textContent = String(total).padStart(3, "0");
     }
-
     searchInput.addEventListener("input", renderCodex);
 
     filterButtons.forEach(button => {

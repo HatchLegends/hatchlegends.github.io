@@ -574,13 +574,13 @@
     <div class="menu" id="menu">
       <a href="/">Home</a>
       <a href="/wiki">Wiki</a>
-      <a href="/wiki/codex.html">Codex</a>
+      <a href="/wiki/codex/">Codex</a>
     </div>
   </nav>
 
   <main class="entry-page">
     <div class="entry-topbar">
-      <a href="../codex.html" class="entry-back">← Back to Codex</a>
+      <a href="./" class="entry-back">← Back to Codex</a>
 
       <div class="entry-nav">
         <a href="#" id="prevEntry" class="entry-nav-btn">← Previous Entry</a>
@@ -841,14 +841,14 @@
       const nextBtn = document.getElementById("nextEntry");
 
       if (creature.prev) {
-        prevBtn.href = `index.html?id=${creature.prev}`;
+        prevBtn.href = `creature.html?id=${creature.prev}`;
       } else {
         prevBtn.style.opacity = "0.4";
         prevBtn.style.pointerEvents = "none";
       }
 
       if (creature.next) {
-        nextBtn.href = `index.html?id=${creature.next}`;
+        nextBtn.href = `creature.html?id=${creature.next}`;
       } else {
         nextBtn.style.opacity = "0.4";
         nextBtn.style.pointerEvents = "none";

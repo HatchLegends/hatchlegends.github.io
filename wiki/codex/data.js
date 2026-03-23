@@ -1,4 +1,4 @@
-const CREATURE_PLACEHOLDER = "../../assets/images/creatures/creature_placeholder_1024.png";
+const CREATURE_PLACEHOLDER = "../../../assets/images/creatures/creature_placeholder_1024.png";
 
 /* =========================
    HELPERS
@@ -145,8 +145,8 @@ CREATURES["001"] = createCreature({
   description: "Sprouty is a calm creature tied to natural energy.",
   dropSource: "Common Egg",
   dropPool: "Standard Hatch Pool",
-  portrait: "../../assets/images/creatures/001_sprouty.png",
-  shinyPortrait: "../../assets/images/creatures/001_sprouty_shiny.png",
+  portrait: "../../../assets/images/creatures/001_sprouty.png",
+  shinyPortrait: "../../../assets/images/creatures/001_sprouty_shiny.png",
 
   prev: null,
   next: "002",
@@ -172,8 +172,8 @@ CREATURES["002"] = createCreature({
   description: "Bloomjaw has begun to mature, channeling stronger natural energy through its body. Its leafy crown expands and hardens, while its form becomes more defined and resilient. It’s more active than its earlier stage, using its growing power to defend itself and assert its place in the wild.",
   dropSource: "Evolve from #001",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/002_bloomjaw.png",
-  shinyPortrait: "../../assets/images/creatures/002_bloomjaw_shiny.png",
+  portrait: "../../../assets/images/creatures/002_bloomjaw.png",
+  shinyPortrait: "../../../assets/images/creatures/002_bloomjaw_shiny.png",
 
   prev: "001",
   next: "003",
@@ -199,8 +199,8 @@ CREATURES["003"] = createCreature({
   description: "Verdanox represents the full realization of its natural potential. Its body is reinforced with dense, life-infused structure, and its presence radiates controlled, overwhelming vitality. Every movement carries strength, and the energy it stores can reshape the environment around it. What began as a fragile sprout has become a dominant force of growth.",
   dropSource: "Evolve from #002",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/003_verdanox.png",
-  shinyPortrait: "../../assets/images/creatures/003_verdanox_shiny.png",
+  portrait: ".././../assets/images/creatures/003_verdanox.png",
+  shinyPortrait: "../../../assets/images/creatures/003_verdanox_shiny.png",
 
   prev: "002",
   next: "004",
@@ -226,8 +226,8 @@ CREATURES["004"] = createCreature({
   description: "Emberbit slowly builds heat over time, increasing its power the longer it remains active.",
   dropSource: "Common Egg",
   dropPool: "Standard Hatch Pool",
-  portrait: "../../assets/images/creatures/004_emberbit.png",
-  shinyPortrait: "../../assets/images/creatures/004_emberbit_shiny.png",
+  portrait: "../../../assets/images/creatures/004_emberbit.png",
+  shinyPortrait: "../../../assets/images/creatures/004_emberbit_shiny.png",
 
   prev: "003",
   next: "005",
@@ -253,8 +253,8 @@ CREATURES["005"] = createCreature({
   description: "Flarebit’s core glows with unstable energy, releasing bursts of warmth that grow stronger with excitement.",
   dropSource: "Evolve from #004",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/005_flarebit.png",
-  shinyPortrait: "../../assets/images/creatures/005_flarebit_shiny.png",
+  portrait: "../../../assets/images/creatures/005_flarebit.png",
+  shinyPortrait: "../../../assets/images/creatures/005_flarebit_shiny.png",
 
   prev: "004",
   next: "006",
@@ -280,8 +280,8 @@ CREATURES["006"] = createCreature({
   description: "A fully awakened infernal force. Infernox channels immense internal heat into controlled bursts of destruction, overwhelming anything that dares challenge it.",
   dropSource: "Evolve from #005",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/006_infernox.png",
-  shinyPortrait: "../../assets/images/creatures/006_infernox_shiny.png",
+  portrait: "../../../assets/images/creatures/006_infernox.png",
+  shinyPortrait: "../../../assets/images/creatures/006_infernox_shiny.png",
 
   prev: "005",
   next: "007",
@@ -307,8 +307,8 @@ CREATURES["007"] = createCreature({
   description: "A tiny being born from pure water essence, Bubblet drifts and bounces with carefree energy. Its body is soft and fluid, constantly shifting to match its playful mood. Though small and harmless, it stores surprising resilience—absorbing impacts like a droplet and springing back without a trace. Its sparkling surface reflects light like a calm tide, hinting at the greater power it may one day awaken.",
   dropSource: "Common Egg",
   dropPool: "Standard Hatch Pool",
-  portrait: "../../assets/images/creatures/007_bubblet.png",
-  shinyPortrait: "../../assets/images/creatures/007_bubblet_shiny.png",
+  portrait: "../../../assets/images/creatures/007_bubblet.png",
+  shinyPortrait: "../../../assets/images/creatures/007_bubblet_shiny.png",
 
   prev: "006",
   next: "008",
@@ -334,8 +334,8 @@ CREATURES["008"] = createCreature({
   description: "Tideroo gains control over its fluid body, reshaping itself to absorb impacts and redirect force. It moves with a rhythmic bounce, building momentum with every motion.",
   dropSource: "Evolve from #007",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/008_tideroo.png",
-  shinyPortrait: "../../assets/images/creatures/008_tideroo_shiny.png",
+  portrait: "../../../assets/images/creatures/008_tideroo.png",
+  shinyPortrait: "../../../assets/images/creatures/008_tideroo_shiny.png",
 
   prev: "007",
   next: "009",
@@ -361,8 +361,8 @@ CREATURES["009"] = createCreature({
   description: "Abyssail embodies the full force of deep-water pressure. Its body flows with immense density, capable of crushing force or shifting into powerful tidal surges at will.",
   dropSource: "Evolve from #008",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/009_abyssail.png",
-  shinyPortrait: "../../assets/images/creatures/009_abyssail_shiny.png",
+  portrait: "../../../assets/images/creatures/009_abyssail.png",
+  shinyPortrait: "../../../assets/images/creatures/009_abyssail_shiny.png",
 
   prev: "008",
   next: "010",
@@ -388,8 +388,8 @@ CREATURES["010"] = createCreature({
   description: "A small, heat-born creature with faint magma veins running beneath its rocky shell. Though soft and harmless in appearance, Pebblit stores warmth deep inside, slowly building the energy needed to evolve.",
   dropSource: "Common Egg",
   dropPool: "Standard Hatch Pool",
-  portrait: "../../assets/images/creatures/010_pebblit.png",
-  shinyPortrait: "../../assets/images/creatures/010_pebblit_shiny.png",
+  portrait: "../../../assets/images/creatures/010_pebblit.png",
+  shinyPortrait: "../../../assets/images/creatures/010_pebblit_shiny.png",
 
   prev: "009",
   next: "011",
@@ -415,8 +415,8 @@ CREATURES["011"] = createCreature({
   description: "",
   dropSource: "Evolve from #010",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/011_cragmite.png",
-  shinyPortrait: "../../assets/images/creatures/011_cragmite_shiny.png",
+  portrait: "../../../assets/images/creatures/011_cragmite.png",
+  shinyPortrait: "../../../assets/images/creatures/011_cragmite_shiny.png",
 
   prev: "010",
   next: "012",
@@ -442,8 +442,8 @@ CREATURES["012"] = createCreature({
   description: "Magmarock is a living furnace of compressed earth and flame. Its body radiates immense internal pressure, with a blazing core at its center capable of unleashing powerful eruptions. Despite its power, it remains steady and unshakable, like a walking volcano.",
   dropSource: "Evolve from #011",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/012_magmarock.png",
-  shinyPortrait: "../../assets/images/creatures/012_magmarock_shiny.png",
+  portrait: "../../../assets/images/creatures/012_magmarock.png",
+  shinyPortrait: "../../../assets/images/creatures/012_magmarock_shiny.png",
 
   prev: "011",
   next: "013",
@@ -473,8 +473,8 @@ Its presence alone bends light, and when its power peaks, it releases a surge ca
   dropSource: "Legendary Egg",
   dropPool: "Celestial Pool",
 
-  portrait: "../../assets/images/creatures/094_solrael.png",
-  shinyPortrait: "../../assets/images/creatures/094_solrael_shiny.png",
+  portrait: "../../../assets/images/creatures/094_solrael.png",
+  shinyPortrait: "../../../assets/images/creatures/094_solrael_shiny.png",
 
   prev: "093",
   next: "095",
@@ -517,8 +517,8 @@ CREATURES["0"] = createCreature({
   description: "",
   dropSource: "Evolve from #0",
   dropPool: "Not directly hatchable",
-  portrait: "../../assets/images/creatures/0.png",
-  shinyPortrait: "../../assets/images/creatures/00_shiny.png",
+  portrait: "../../../assets/images/creatures/0.png",
+  shinyPortrait: "../../../assets/images/creatures/00_shiny.png",
 
   prev: "0",
   next: "0",
