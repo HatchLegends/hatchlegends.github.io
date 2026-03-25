@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Hatch Legends Wiki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/djji1l7ti/image/upload/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/djji1l7ti/image/upload/favicon-32x32.png">
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
@@ -19,6 +21,17 @@
       margin: 110px auto 80px;
     }
 
+    .wiki-brand {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      pointer-events: auto;
+    }
+
     .wiki-topbar {
       display: flex;
       justify-content: space-between;
@@ -26,6 +39,13 @@
       gap: 16px;
       margin-bottom: 28px;
       flex-wrap: wrap;
+    }
+
+    .wiki-brand img {
+      width: min(170px, 48vw);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.28));
     }
 
     .wiki-back {
@@ -391,6 +411,16 @@
         margin-bottom: 56px;
       }
 
+      .wiki-brand {
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .wiki-brand img {
+        width: min(170px, 42vw);
+      }
+
       .wiki-topbar {
         margin-bottom: 20px;
       }
@@ -483,6 +513,10 @@
     </div>
   </nav>
 
+  <a href="/" class="wiki-brand" aria-label="Hatch Legends Home">
+    <img src="https://res.cloudinary.com/djji1l7ti/image/upload/logo_full_1024.png" alt="Hatch Legends">
+  </a>
+
   <main class="wiki-page">
     <div class="wiki-topbar">
       <a href="/" class="wiki-back">← Back to Home</a>
@@ -515,7 +549,7 @@
           </div>
 
           <div class="wiki-feature-glow"></div>
-          <img src="../assets/images/codex_1024.png" alt="Codex" class="wiki-feature-icon">
+          <img src="../assets/images/codex_1024.png" data-cld-folder="ui_elements" data-cld-id="codex_1024.png" alt="Codex" class="wiki-feature-icon">
         </div>
       </div>
     </section>
@@ -621,6 +655,10 @@
     </p>
   </main>
 
+  <script src="../js/cloudinary.js"></script>
+  <script>
+    window.HL_CLOUDINARY.apply();
+  </script>
   <script src="../js/main.js"></script>
 </body>
 </html>

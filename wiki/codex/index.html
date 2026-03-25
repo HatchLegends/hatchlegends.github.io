@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Codex | Hatch Legends Wiki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/djji1l7ti/image/upload/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/djji1l7ti/image/upload/favicon-32x32.png">
   <link rel="stylesheet" href="../../css/style.css">
 
   <style>
@@ -19,6 +21,17 @@
       margin: 110px auto 80px;
     }
 
+    .codex-brand {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      pointer-events: auto;
+    }
+
     .codex-topbar {
       display: flex;
       justify-content: space-between;
@@ -26,6 +39,13 @@
       gap: 16px;
       margin-bottom: 26px;
       flex-wrap: wrap;
+    }
+
+    .codex-brand img {
+      width: min(170px, 48vw);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.28));
     }
 
     .codex-back {
@@ -676,6 +696,16 @@
         margin-bottom: 56px;
       }
 
+      .codex-brand {
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .codex-brand img {
+        width: min(170px, 42vw);
+      }
+
       .codex-hero {
         padding: 22px 18px 18px;
         border-radius: 22px;
@@ -741,6 +771,10 @@
     </div>
   </nav>
 
+  <a href="/wiki" class="codex-brand" aria-label="Hatch Legends Wiki">
+    <img src="https://res.cloudinary.com/djji1l7ti/image/upload/logo_full_1024.png" alt="Hatch Legends">
+  </a>
+
   <main class="codex-page">
     <div class="codex-topbar">
       <a href="/wiki" class="codex-back">← Back to Wiki</a>
@@ -767,7 +801,7 @@
    <div class="codex-hero-side">
 
   <div class="codex-book-slot">
-  <img src="../../assets/images/codex_1024.png" alt="Codex" class="codex-book-floating">
+  <img src="../../assets/images/codex_1024.png" data-cld-folder="ui_elements" data-cld-id="codex_1024.png" alt="Codex" class="codex-book-floating">
 </div>
 
   <div class="codex-mini-card codex-species-card">
@@ -814,6 +848,10 @@
     </p>
   </main>
 
+  <script src="../../js/cloudinary.js"></script>
+  <script>
+    window.HL_CLOUDINARY.apply();
+  </script>
   <script src="../../js/main.js"></script>
   <script src="data.js"></script>
   <script>
@@ -917,6 +955,8 @@
      <img
       class="creature-portrait-img"
       src="${portrait}"
+      loading="lazy"
+      decoding="async"
       alt="${creature.name}"
       onerror="this.src='${CREATURE_PLACEHOLDER}'"
     >
