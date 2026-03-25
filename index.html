@@ -10,6 +10,22 @@
 </head>
 <body>
 
+  <style>
+    .site-legal-footer {
+      top: auto;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+      gap: 8px;
+    }
+
+    .site-legal-link {
+      min-height: 30px;
+      padding: 0 12px;
+      font-size: 10px;
+    }
+  </style>
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
@@ -182,10 +198,14 @@
     <img src="assets/ui/donate_button.png" data-cld-folder="ui_elements" data-cld-id="donate_button.png" class="donate-btn" alt="Donate">
   </a>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <img src="assets/ui/copyright.png" data-cld-folder="ui_elements" data-cld-id="copyright.png" alt="Copyright">
-  </footer>
+  <div class="global-footer">
+    <img src="https://res.cloudinary.com/djji1l7ti/image/upload/copyright_mark.png" alt="Hatch Legends">
+  </div>
+
+  <div class="site-legal-footer">
+    <a href="/privacy.html" class="site-legal-link">Privacy</a>
+    <a href="/terms.html" class="site-legal-link">Terms</a>
+  </div>
 
   <script src="js/cloudinary.js"></script>
   <script>

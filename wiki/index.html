@@ -389,6 +389,26 @@
       line-height: 1.7;
     }
 
+    .global-footer {
+      position: fixed;
+      right: -2px;
+      bottom: -90px;
+      z-index: 999;
+      pointer-events: auto;
+    }
+
+    .global-footer img {
+      width: 300px;
+      height: auto;
+      opacity: 0.5;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .global-footer:hover img {
+      opacity: 1;
+      transform: scale(1.18);
+    }
+
     @media (max-width: 980px) {
       .wiki-hero-grid,
       .wiki-spotlight {
@@ -660,5 +680,14 @@
     window.HL_CLOUDINARY.apply();
   </script>
   <script src="../js/main.js"></script>
+
+  <div class="global-footer">
+    <img src="https://res.cloudinary.com/djji1l7ti/image/upload/copyright_mark.png" alt="Hatch Legends">
+  </div>
+
+  <div class="site-legal-footer">
+    <a href="/privacy.html" class="site-legal-link">Privacy</a>
+    <a href="/terms.html" class="site-legal-link">Terms</a>
+  </div>
 </body>
 </html>
