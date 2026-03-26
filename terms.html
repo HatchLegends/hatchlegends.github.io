@@ -34,23 +34,13 @@
     .global-footer img { width: 300px; height: auto; opacity: 0.5; transition: opacity 0.3s ease, transform 0.3s ease; }
     .global-footer:hover img { opacity: 1; transform: scale(1.18); }
     @media (max-width: 900px) { .legal-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 700px) {
-      .legal-page { width: calc(100% - 24px); margin-top: 88px; margin-bottom: 56px; }
-      .legal-brand img { width: min(170px, 42vw); }
-      .legal-topbar { margin-bottom: 20px; }
-      .legal-hero { padding: 22px 18px 18px; border-radius: 22px; }
-      .legal-title { line-height: 1.02; }
-      .legal-subtitle { font-size: 14px; }
-      .legal-card { padding: 18px; border-radius: 20px; }
-    }
+    @media (max-width: 700px) { .legal-page { width: calc(100% - 24px); margin-top: 88px; margin-bottom: 56px; } .legal-brand img { width: min(170px, 42vw); } .legal-topbar { margin-bottom: 20px; } .legal-hero { padding: 22px 18px 18px; border-radius: 22px; } .legal-title { line-height: 1.02; } .legal-subtitle { font-size: 14px; } .legal-card { padding: 18px; border-radius: 20px; } }
   </style>
 </head>
 <body>
   <canvas id="particles"></canvas>
   <nav class="navbar">
-    <div class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></div>
     <div class="menu" id="menu">
       <a href="/">Home</a>
       <a href="/wiki">Wiki</a>
@@ -60,24 +50,18 @@
       <a href="https://discord.gg/yN4QGrazZM" target="_blank" rel="noopener noreferrer">Discord</a>
     </div>
   </nav>
-
-  <a href="/" class="legal-brand" aria-label="Hatch Legends Home">
-    <img src="https://res.cloudinary.com/djji1l7ti/image/upload/logo_full_1024.png" alt="Hatch Legends">
-  </a>
-
+  <a href="/" class="legal-brand" aria-label="Hatch Legends Home"><img src="https://res.cloudinary.com/djji1l7ti/image/upload/logo_full_1024.png" alt="Hatch Legends"></a>
   <main class="legal-page">
     <div class="legal-topbar">
       <a href="/" class="legal-back" onclick="if (window.history.length > 1) { window.history.back(); return false; }">← Back</a>
       <a href="/privacy.html" class="legal-link">View Privacy</a>
     </div>
-
     <section class="legal-hero">
       <p class="legal-kicker">Official Website Policy</p>
       <h1 class="legal-title">Terms of Service</h1>
       <p class="legal-subtitle">The rules for using the Hatch Legends website and related informational content.</p>
       <div class="legal-meta">Last updated: March 2026</div>
     </section>
-
     <section class="legal-grid">
       <article class="legal-card"><div class="legal-card-number">1</div><h2>Acceptance of Terms</h2><p>By accessing or using this website, you agree to these Terms of Service.</p><p>If you do not agree, you should not use the website.</p></article>
       <article class="legal-card"><div class="legal-card-number">2</div><h2>About the Website</h2><p>Hatch Legends is an independent game project and informational website.</p><p>All content is provided for general information, entertainment, and development preview purposes.</p></article>
@@ -93,10 +77,8 @@
       <article class="legal-card"><div class="legal-card-number">12</div><h2>Governing Law</h2><p>These Terms are governed by applicable laws in your jurisdiction.</p></article>
       <article class="legal-card legal-card-wide"><div class="legal-card-number">13</div><h2>Contact</h2><p>For any questions regarding these Terms:</p><p><a href="mailto:support@hatchlegends.com" class="legal-link">support@hatchlegends.com</a></p></article>
     </section>
-
     <p class="legal-note">These terms are written to stay readable while still protecting the Hatch Legends website and project materials.</p>
   </main>
-
   <script src="js/cloudinary.js"></script>
   <script>window.HL_CLOUDINARY.apply();</script>
   <script src="js/main.js"></script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Systems | Hatch Legends Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/djji1l7ti/image/upload/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/djji1l7ti/image/upload/favicon-32x32.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { overflow-x: hidden; overflow-y: auto; }
+    .systems-page { position: relative; z-index: 2; width: min(1240px, calc(100% - 40px)); margin: 110px auto 80px; }
+    .systems-brand { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); z-index: 9999; display: inline-flex; align-items: center; pointer-events: auto; }
+    .systems-brand img { width: min(170px, 48vw); height: auto; display: block; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.28)); }
+    .systems-topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+    .systems-back, .systems-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 12px 16px; border-radius: 14px; text-decoration: none; color: white; background: rgba(20, 20, 40, 0.72); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px); transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease; }
+    .systems-back:hover, .systems-link:hover { transform: translateY(-2px); background: rgba(30, 25, 60, 0.88); border-color: rgba(180,140,255,0.22); }
+    .systems-hero { position: relative; overflow: hidden; padding: 28px; border-radius: 26px; background: radial-gradient(circle at top right, rgba(180,140,255,0.16), transparent 34%), rgba(10, 14, 30, 0.9); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(16px); box-shadow: 0 22px 54px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.04); margin-bottom: 24px; }
+    .systems-kicker { margin: 0 0 12px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #ab99db; }
+    .systems-title { margin: 0 0 14px; font-size: clamp(38px, 6vw, 62px); line-height: 0.96; color: white; }
+    .systems-subtitle { max-width: 840px; margin: 0; font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.84); }
+    .systems-hero-grid, .systems-grid { display: grid; gap: 18px; }
+    .systems-hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr); margin-top: 24px; }
+    .systems-summary, .systems-architecture, .system-card { padding: 22px; border-radius: 22px; background: radial-gradient(circle at top right, rgba(180,140,255,0.14), transparent 36%), rgba(16, 20, 38, 0.92); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 16px 34px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.03); }
+    .systems-summary h2, .systems-architecture h2 { font-size: 24px; margin-bottom: 10px; color: white; }
+    .systems-summary p, .systems-architecture p, .systems-architecture li, .system-card p { font-size: 14px; line-height: 1.74; color: rgba(255,255,255,0.8); }
+    .systems-architecture ul { margin: 14px 0 0; padding-left: 18px; }
+    .systems-section { margin-bottom: 28px; }
+    .systems-section-header { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+    .systems-section-header h2 { font-size: 26px; color: white; }
+    .systems-section-header p { max-width: 720px; color: rgba(255,255,255,0.72); font-size: 14px; line-height: 1.72; }
+    .systems-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .system-card { min-height: 208px; }
+    .system-card-kicker { margin-bottom: 10px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #d7c4ff; }
+    .system-card h3 { font-size: 24px; line-height: 1.06; margin-bottom: 12px; color: white; }
+    .system-list { display: grid; gap: 8px; }
+    .system-list li { list-style: none; position: relative; padding-left: 16px; font-size: 13px; line-height: 1.62; color: rgba(255,255,255,0.8); }
+    .system-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 999px; background: linear-gradient(180deg, #f2d58a 0%, #b67cff 100%); box-shadow: 0 0 12px rgba(180,140,255,0.28); }
+    .systems-footer-note { margin-top: 24px; text-align: center; color: rgba(255,255,255,0.58); font-size: 13px; line-height: 1.72; }
+    .global-footer { position: fixed; right: -2px; bottom: -90px; z-index: 999; pointer-events: auto; }
+    .global-footer img { width: 300px; height: auto; opacity: 0.5; transition: opacity 0.3s ease, transform 0.3s ease; }
+    .global-footer:hover img { opacity: 1; transform: scale(1.18); }
+    @media (max-width: 980px) { .systems-hero-grid, .systems-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .systems-page { width: calc(100% - 24px); margin-top: 88px; margin-bottom: 56px; } .systems-brand img { width: min(170px, 42vw); } .systems-hero, .systems-summary, .systems-architecture, .system-card { padding: 20px 18px; border-radius: 22px; } .systems-title { line-height: 1.02; } }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <nav class="navbar">
+    <div class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></div>
+    <div class="menu" id="menu">
+      <a href="/">Home</a>
+      <a href="/wiki">Wiki</a>
+      <a href="/wiki/roadmap.html">Roadmap</a>
+      <a href="/wiki/codex/">Codex</a>
+      <a href="https://discord.gg/yN4QGrazZM" target="_blank" rel="noopener noreferrer">Discord</a>
+    </div>
+  </nav>
+  <a href="/" class="systems-brand" aria-label="Hatch Legends Home"><img src="https://res.cloudinary.com/djji1l7ti/image/upload/logo_full_1024.png" alt="Hatch Legends"></a>
+  <main class="systems-page">
+    <div class="systems-topbar">
+      <a href="/wiki" class="systems-back">← Back to Wiki</a>
+      <a href="/wiki/roadmap.html" class="systems-link">Open Roadmap</a>
+    </div>
+    <section class="systems-hero">
+      <p class="systems-kicker">Internal Design Archive</p>
+      <h1 class="systems-title">All Core Systems</h1>
+      <p class="systems-subtitle">This page organizes the current Hatch Legends systems plan into a clean public-facing archive. It covers the logic, player progression, economy, safety layers, and future gameplay systems that shape the project behind the scenes.</p>
+      <div class="systems-hero-grid">
+        <div class="systems-summary"><h2>How the game is structured</h2><p>Hatch Legends is designed in layers. Core systems handle randomness, rewards, validation, and safety. Player systems manage collection and progression. Gameplay systems drive hunting and hatching. Economy, engagement, and advanced systems then expand the experience into something deeper and more replayable.</p></div>
+        <div class="systems-architecture"><h2>Project architecture</h2><ul><li><strong>Bot layer:</strong> Discord-facing commands and interaction handling</li><li><strong>Core:</strong> pure game logic like loop flow, RNG, rewards, and balance</li><li><strong>Systems:</strong> gameplay, player, economy, safety, infrastructure, and admin modules</li><li><strong>Data layer:</strong> creatures, eggs, essences, levels, shop, and idle configs</li><li><strong>Database:</strong> users, inventory, creatures, codex, and repositories</li></ul></div>
+      </div>
+    </section>
+    <section class="systems-section">
+      <div class="systems-section-header">
+        <h2>System Categories</h2>
+        <p>These categories come directly from the internal systems breakdown and show how the game's logic is separated into maintainable pieces.</p>
+      </div>
+      <div class="systems-grid">
+        <article class="system-card"><p class="system-card-kicker">Game Logic</p><h3>Core Systems</h3><p>The safety and rule layer that keeps the whole game reliable.</p><ul class="system-list"><li>RNG System</li><li>Pity System</li><li>Reward System</li><li>Transaction System</li><li>Action Lock System</li><li>Idempotency System</li><li>Validation System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Collection</p><h3>Player Systems</h3><p>The systems that store progress and define creature growth.</p><ul class="system-list"><li>Inventory System</li><li>Creature System</li><li>Codex System</li><li>Progression System</li><li>XP System</li><li>Evolution System</li><li>Duplicate System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Gameplay</p><h3>Hunt &amp; Hatch</h3><p>The central loop that powers the game's earliest playable state.</p><ul class="system-list"><li>Hunt System</li><li>Hatch System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Retention</p><h3>Engagement Systems</h3><p>Daily return loops, activity gates, and first-time player flow.</p><ul class="system-list"><li>Daily System</li><li>Idle System</li><li>Cooldown System</li><li>Onboarding System</li><li>Streak System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Economy</p><h3>Economy Systems</h3><p>The reward pacing and monetization-adjacent structure of the game.</p><ul class="system-list"><li>Currency System</li><li>Shop System</li><li>Incubator System</li><li>Reward Scaling System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Advanced Play</p><h3>PvE / PvP Systems</h3><p>Long-term goals, competitive layers, and replayable live content.</p><ul class="system-list"><li>Arena System</li><li>Trials System</li><li>Event System</li><li>Leaderboard System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Reliability</p><h3>Infrastructure Systems</h3><p>The invisible layer that keeps updates, recovery, and telemetry sane.</p><ul class="system-list"><li>Logging System</li><li>Analytics System</li><li>Backup System</li><li>Migration System</li><li>Version System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Developer Tools</p><h3>Admin Systems</h3><p>Internal tooling for testing, resets, balancing, and support.</p><ul class="system-list"><li>Admin Commands</li><li>Debug System</li><li>Reset System</li></ul></article>
+        <article class="system-card"><p class="system-card-kicker">Design Direction</p><h3>Why this matters</h3><p>The systems plan shows that Hatch Legends is not just a creature list. It is being shaped as a layered game: collection, progression, economy, safety, live events, and long-form replayability all working together.</p></article>
+      </div>
+    </section>
+    <p class="systems-footer-note">This systems index is based on the current internal design archive and can grow into deeper per-system pages later.</p>
+  </main>
+  <script src="../js/cloudinary.js"></script>
+  <script>window.HL_CLOUDINARY.apply();</script>
+  <script src="../js/main.js"></script>
+  <div class="global-footer"><img src="https://res.cloudinary.com/djji1l7ti/image/upload/copyright_mark.png" alt="Hatch Legends"></div>
+  <div class="site-legal-footer"><a href="/privacy.html" class="site-legal-link">Privacy</a><a href="/terms.html" class="site-legal-link">Terms</a></div>
+</body>
+</html>

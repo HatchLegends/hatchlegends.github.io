@@ -185,15 +185,15 @@ body {
   position: fixed;
   top: 5px;
   left: 5px;
-  width: 88px;
-  height: 88px;
+  width: 96px;
+  height: 96px;
   z-index: 1200;
   animation: infoFloat 4.2s ease-in-out infinite;
 }
 
 .info-label {
   position: absolute;
-  top: 79px;
+  top: 86px;
   left: 54%;
   transform: translateX(-50%);
   font-size: 12px;
@@ -214,8 +214,8 @@ body {
   position: fixed;
   top: 5px;
   left: 5px;
-  width: 88px;
-  height: 88px;
+  width: 96px;
+  height: 96px;
   z-index: 1200;
   display: flex;
   align-items: center;
@@ -253,8 +253,8 @@ body {
 .info-panel {
   position: fixed;
   top: 15px;
-  left: 81px;
-  width: 460px;
+  left: 90px;
+  width: 490px;
   max-width: calc(100vw - 48px);
   height: min(78vh, 680px);
   z-index: 1190;
@@ -299,7 +299,7 @@ body {
 
 .info-kicker {
   margin-bottom: 6px;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #ab99db;
@@ -307,7 +307,7 @@ body {
 }
 
 .info-panel-header h2 {
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
   color: white;
 }
@@ -660,7 +660,7 @@ body {
 }
 
 .site-legal-footer {
-  position: fixed;
+  position: absolute;
   top: 12px;
   left: 16px;
   transform: none;
@@ -752,15 +752,15 @@ body {
   .info-wrapper {
     top: 12px;
     left: 12px;
-    width: 70px;
-    height: 70px;
+    width: 76px;
+    height: 76px;
   }
 
   .info-toggle {
     top: 12px;
     left: 12px;
-    width: 64px;
-    height: 64px;
+    width: 70px;
+    height: 70px;
   }
 
   .info-label {
@@ -771,8 +771,8 @@ body {
 
   .info-panel {
     top: 60px;
-    left: 18px;
-    width: calc(100vw - 36px);
+    left: 16px;
+    width: calc(100vw - 32px);
     height: 62vh;
   }
 
@@ -826,6 +826,7 @@ body {
   }
 
   .site-legal-footer {
+    position: absolute;
     top: 10px;
     left: 10px;
     gap: 8px;
