@@ -16,6 +16,7 @@ body {
   font-family: Arial, sans-serif;
   color: white;
   overflow: hidden;
+  overscroll-behavior-x: none;
   background:
     radial-gradient(circle at top, rgba(180, 140, 255, 0.18), transparent 60%),
     radial-gradient(circle at bottom, rgba(120, 90, 255, 0.15), transparent 60%),
@@ -743,7 +744,7 @@ body {
 
   .logo {
       height: auto;
-      width: min(88vw, 420px);
+      width: min(44vw, 210px);
     }
 
   .ios-soon-banner {
@@ -760,12 +761,34 @@ body {
   }
 
   .status {
-    font-size: 13px;
-    transform: translateY(-62px);
-    text-align: center;
+      font-size: 13px;
+      transform: translateY(-62px);
+      text-align: center;
+    }
+
+  .global-footer {
+    pointer-events: none;
   }
 
-  .discord-link {
+  .global-footer img {
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  .global-footer:hover img {
+    opacity: 1;
+    transform: none;
+  }
+
+  .landing-page .global-footer {
+    position: absolute;
+    top: -80px;
+    right: 50px;
+    bottom: auto;
+    left: auto;
+  }
+
+    .discord-link {
     gap: 12px;
     transform: translate(0, -64px);
   }
