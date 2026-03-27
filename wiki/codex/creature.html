@@ -202,12 +202,13 @@
     .tag-essence-verdant { color: #dcffe7; background: rgba(60,180,90,0.18); border-color: rgba(90,210,120,0.34); }
     .tag-essence-volt { color: #fff6c7; background: rgba(255,210,60,0.18); border-color: rgba(255,220,90,0.34); }
     .tag-essence-void { color: #eddcff; background: rgba(140,70,255,0.18); border-color: rgba(165,100,255,0.34); }
-    .tag-essence-radiant { color: #ffe5cc; background: rgba(255,140,40,0.18); border-color: rgba(255,165,70,0.34); }
+    .tag-essence-radiant { color: #d9fff9; background: rgba(40,215,200,0.18); border-color: rgba(80,235,220,0.34); }
 
     .tag-rarity-common { color: #eadcc7; background: rgba(140,115,85,0.18); border-color: rgba(170,140,105,0.30); }
     .tag-rarity-rare { color: #dcecff; background: rgba(70,130,255,0.18); border-color: rgba(100,155,255,0.34); }
     .tag-rarity-epic { color: #efd8ff; background: rgba(155,80,255,0.18); border-color: rgba(180,105,255,0.34); }
     .tag-rarity-legendary { color: #ffe7c7; background: rgba(255,145,40,0.18); border-color: rgba(255,170,70,0.34); }
+    .tag-rarity-mythical { color: #ffd8d8; background: rgba(235,70,70,0.20); border-color: rgba(255,95,95,0.38); }
 
     .entry-desc {
       font-size: 15px;
@@ -825,7 +826,8 @@
         "tag-rarity-common",
         "tag-rarity-rare",
         "tag-rarity-epic",
-        "tag-rarity-legendary"
+        "tag-rarity-legendary",
+        "tag-rarity-mythical"
       );
 
       element.classList.add(`tag-${prefix}-${normalized}`);
@@ -954,8 +956,7 @@
       if (creature.next) {
         nextBtn.href = `creature.html?id=${creature.next}`;
       } else {
-        nextBtn.style.opacity = "0.4";
-        nextBtn.style.pointerEvents = "none";
+        nextBtn.href = "./";
       }
     }
   </script>

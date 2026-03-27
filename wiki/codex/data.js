@@ -135,17 +135,17 @@ function createCreature(id) {
 const CREATURE_MANUAL_DATA = {
   "001": createManualEntry({
     name: "Sprouty",
-    rarity: "Common",
-    essence: "Verdant",
-    ability: "Growth",
+    rarity: "",
+    essence: "",
+    ability: "",
 
-    attack: 8,
-    hp: 12,
-    defense: 6,
+    attack: 0,
+    hp: 0,
+    defense: 0,
 
-    description: "Sprouty is a calm creature tied to natural energy.",
-    dropSource: "Common Egg",
-    dropPool: "Standard Hatch Pool",
+    description: "",
+    dropSource: "",
+    dropPool: "",
 
     assetKey: "001_sprouty",
     shinyAssetKey: "001_sprouty_shiny"
@@ -224,7 +224,7 @@ const CREATURE_MANUAL_DATA = {
   }),
 
   "006": createManualEntry({
-    name: "",
+    name: "Infernox",
     rarity: "",
     essence: "",
     ability: "",
@@ -237,12 +237,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #005",
     dropPool: "Not directly hatchable",
 
-    assetKey: "006_",
-    shinyAssetKey: "006_"
+    assetKey: "006_infernox",
+    shinyAssetKey: "006_infernox_shiny"
   }),
 
   "007": createManualEntry({
-    name: "",
+    name: "Bubblet",
     rarity: "",
     essence: "",
     ability: "",
@@ -255,12 +255,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "007_",
-    shinyAssetKey: "007_"
+    assetKey: "007_bubblet",
+    shinyAssetKey: "007_bubblet_shiny"
   }),
 
   "008": createManualEntry({
-    name: "",
+    name: "Tideroo",
     rarity: "",
     essence: "",
     ability: "",
@@ -273,12 +273,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #007",
     dropPool: "Not directly hatchable",
 
-    assetKey: "008_",
-    shinyAssetKey: "008_"
+    assetKey: "008_tideroo",
+    shinyAssetKey: "008_tideroo_shiny"
   }),
 
   "009": createManualEntry({
-    name: "",
+    name: "Abyssail",
     rarity: "",
     essence: "",
     ability: "",
@@ -291,12 +291,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #008",
     dropPool: "Not directly hatchable",
 
-    assetKey: "009_",
-    shinyAssetKey: "009_"
+    assetKey: "009_abyssail",
+    shinyAssetKey: "009_abyssail_shiny"
   }),
 
   "010": createManualEntry({
-    name: "",
+    name: "Pebblit",
     rarity: "",
     essence: "",
     ability: "",
@@ -309,12 +309,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "010_",
-    shinyAssetKey: "010_"
+    assetKey: "010_pebblit",
+    shinyAssetKey: "010_pebblit_shiny"
   }),
 
   "011": createManualEntry({
-    name: "",
+    name: "Cragmite",
     rarity: "",
     essence: "",
     ability: "",
@@ -327,12 +327,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #010",
     dropPool: "Not directly hatchable",
 
-    assetKey: "011_",
-    shinyAssetKey: "011_"
+    assetKey: "011_cragmite",
+    shinyAssetKey: "011_cragmite_shiny"
   }),
 
   "012": createManualEntry({
-    name: "",
+    name: "Magmarock",
     rarity: "",
     essence: "",
     ability: "",
@@ -345,12 +345,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #011",
     dropPool: "Not directly hatchable",
 
-    assetKey: "012_",
-    shinyAssetKey: "012_"
+    assetKey: "012_magmarock",
+    shinyAssetKey: "012_magmarock_shiny"
   }),
 
   "013": createManualEntry({
-    name: "",
+    name: "Leafling",
     rarity: "",
     essence: "",
     ability: "",
@@ -363,12 +363,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "013_",
-    shinyAssetKey: "013_"
+    assetKey: "013_leafling",
+    shinyAssetKey: "013_leafling_shiny"
   }),
 
   "014": createManualEntry({
-    name: "",
+    name: "Florabun",
     rarity: "",
     essence: "",
     ability: "",
@@ -381,12 +381,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #013",
     dropPool: "Not directly hatchable",
 
-    assetKey: "014_",
-    shinyAssetKey: "014_"
+    assetKey: "014_florabun",
+    shinyAssetKey: "014_florabun_shiny"
   }),
 
   "015": createManualEntry({
-    name: "",
+    name: "Verdelle",
     rarity: "",
     essence: "",
     ability: "",
@@ -399,12 +399,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #014",
     dropPool: "Not directly hatchable",
 
-    assetKey: "015_",
-    shinyAssetKey: "015_"
+    assetKey: "015_verdelle",
+    shinyAssetKey: "015_verdelle_shiny"
   }),
 
   "016": createManualEntry({
-    name: "",
+    name: "Glowdot",
     rarity: "",
     essence: "",
     ability: "",
@@ -417,12 +417,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "016_",
-    shinyAssetKey: "016_"
+    assetKey: "016_glowdot",
+    shinyAssetKey: "016_glowdot_shiny"
   }),
 
   "017": createManualEntry({
-    name: "",
+    name: "Luminidra",
     rarity: "",
     essence: "",
     ability: "",
@@ -435,12 +435,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #016",
     dropPool: "Not directly hatchable",
 
-    assetKey: "017_",
-    shinyAssetKey: "017_"
+    assetKey: "017_luminidra",
+    shinyAssetKey: "017_luminidra_shiny"
   }),
 
   "018": createManualEntry({
-    name: "",
+    name: "Soluxara",
     rarity: "",
     essence: "",
     ability: "",
@@ -453,12 +453,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #017",
     dropPool: "Not directly hatchable",
 
-    assetKey: "018_",
-    shinyAssetKey: "018_"
+    assetKey: "018_soluxara",
+    shinyAssetKey: "018_soluxara_shiny"
   }),
 
   "019": createManualEntry({
-    name: "",
+    name: "Snuglet",
     rarity: "",
     essence: "",
     ability: "",
@@ -471,12 +471,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "019_",
-    shinyAssetKey: "019_"
+    assetKey: "019_snuglet",
+    shinyAssetKey: "019_snuglet_shiny"
   }),
 
   "020": createManualEntry({
-    name: "",
+    name: "Cushlume",
     rarity: "",
     essence: "",
     ability: "",
@@ -489,12 +489,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #019",
     dropPool: "Not directly hatchable",
 
-    assetKey: "020_",
-    shinyAssetKey: "020_"
+    assetKey: "020_cushlume",
+    shinyAssetKey: "020_cushlume_shiny"
   }),
 
   "021": createManualEntry({
-    name: "",
+    name: "Somnara",
     rarity: "",
     essence: "",
     ability: "",
@@ -507,12 +507,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #020",
     dropPool: "Not directly hatchable",
 
-    assetKey: "021_",
-    shinyAssetKey: "021_"
+    assetKey: "021_somnara",
+    shinyAssetKey: "021_somnara_shiny"
   }),
 
   "022": createManualEntry({
-    name: "",
+    name: "Drifty",
     rarity: "",
     essence: "",
     ability: "",
@@ -525,12 +525,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "022_",
-    shinyAssetKey: "022_"
+    assetKey: "022_drifty",
+    shinyAssetKey: "022_drifty_shiny"
   }),
 
   "023": createManualEntry({
-    name: "",
+    name: "Driftune",
     rarity: "",
     essence: "",
     ability: "",
@@ -543,12 +543,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #022",
     dropPool: "Not directly hatchable",
 
-    assetKey: "023_",
-    shinyAssetKey: "023_"
+    assetKey: "023_driftune",
+    shinyAssetKey: "023_driftune_shiny"
   }),
 
   "024": createManualEntry({
-    name: "",
+    name: "Nimbusara",
     rarity: "",
     essence: "",
     ability: "",
@@ -561,12 +561,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #023",
     dropPool: "Not directly hatchable",
 
-    assetKey: "024_",
-    shinyAssetKey: "024_"
+    assetKey: "024_nimbusara",
+    shinyAssetKey: "024_nimbusara_shiny"
   }),
 
   "025": createManualEntry({
-    name: "",
+    name: "Glowcap",
     rarity: "",
     essence: "",
     ability: "",
@@ -579,12 +579,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "025_",
-    shinyAssetKey: "025_"
+    assetKey: "025_glowcap",
+    shinyAssetKey: "025_glowcap_shiny"
   }),
 
   "026": createManualEntry({
-    name: "",
+    name: "Lumishroom",
     rarity: "",
     essence: "",
     ability: "",
@@ -597,12 +597,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #025",
     dropPool: "Not directly hatchable",
 
-    assetKey: "026_",
-    shinyAssetKey: "026_"
+    assetKey: "026_lumishroom",
+    shinyAssetKey: "026_lumishroom_shiny"
   }),
 
   "027": createManualEntry({
-    name: "",
+    name: "Mycelux",
     rarity: "",
     essence: "",
     ability: "",
@@ -615,12 +615,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #026",
     dropPool: "Not directly hatchable",
 
-    assetKey: "027_",
-    shinyAssetKey: "027_"
+    assetKey: "027_mycelux",
+    shinyAssetKey: "027_mycelux_shiny"
   }),
 
   "028": createManualEntry({
-    name: "",
+    name: "Slimelet",
     rarity: "",
     essence: "",
     ability: "",
@@ -633,12 +633,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "028_",
-    shinyAssetKey: "028_"
+    assetKey: "028_slimelet",
+    shinyAssetKey: "028_slimelet_shiny"
   }),
 
   "029": createManualEntry({
-    name: "",
+    name: "Leaflium",
     rarity: "",
     essence: "",
     ability: "",
@@ -651,12 +651,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #028",
     dropPool: "Not directly hatchable",
 
-    assetKey: "029_",
-    shinyAssetKey: "029_"
+    assetKey: "029_leaflium",
+    shinyAssetKey: "029_leaflium_shiny"
   }),
 
   "030": createManualEntry({
-    name: "",
+    name: "Verdantor",
     rarity: "",
     essence: "",
     ability: "",
@@ -669,12 +669,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #029",
     dropPool: "Not directly hatchable",
 
-    assetKey: "030_",
-    shinyAssetKey: "030_"
+    assetKey: "030_verdantor",
+    shinyAssetKey: "030_verdantor_shiny"
   }),
 
   "031": createManualEntry({
-    name: "",
+    name: "Driftpup",
     rarity: "",
     essence: "",
     ability: "",
@@ -687,12 +687,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "031_",
-    shinyAssetKey: "031_"
+    assetKey: "031_driftpup",
+    shinyAssetKey: "031_driftpup_shiny"
   }),
 
   "032": createManualEntry({
-    name: "",
+    name: "Glacielle",
     rarity: "",
     essence: "",
     ability: "",
@@ -705,12 +705,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #031",
     dropPool: "Not directly hatchable",
 
-    assetKey: "032_",
-    shinyAssetKey: "032_"
+    assetKey: "032_glacielle",
+    shinyAssetKey: "032_glacielle_shiny"
   }),
 
   "033": createManualEntry({
-    name: "",
+    name: "Glaciara",
     rarity: "",
     essence: "",
     ability: "",
@@ -723,12 +723,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #032",
     dropPool: "Not directly hatchable",
 
-    assetKey: "033_",
-    shinyAssetKey: "033_"
+    assetKey: "033_glaciara",
+    shinyAssetKey: "033_glaciara_shiny"
   }),
 
   "034": createManualEntry({
-    name: "",
+    name: "Twiglet",
     rarity: "",
     essence: "",
     ability: "",
@@ -741,12 +741,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "034_",
-    shinyAssetKey: "034_"
+    assetKey: "034_twiglet",
+    shinyAssetKey: "034_twiglet_shiny"
   }),
 
   "035": createManualEntry({
-    name: "",
+    name: "Branchlet",
     rarity: "",
     essence: "",
     ability: "",
@@ -759,12 +759,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #034",
     dropPool: "Not directly hatchable",
 
-    assetKey: "035_",
-    shinyAssetKey: "035_"
+    assetKey: "035_branchlet",
+    shinyAssetKey: "035_branchlet_shiny"
   }),
 
   "036": createManualEntry({
-    name: "",
+    name: "Elderoot",
     rarity: "",
     essence: "",
     ability: "",
@@ -777,12 +777,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #035",
     dropPool: "Not directly hatchable",
 
-    assetKey: "036_",
-    shinyAssetKey: "036_"
+    assetKey: "036_elderoot",
+    shinyAssetKey: "036_elderoot_shiny"
   }),
 
   "037": createManualEntry({
-    name: "",
+    name: "Thorny",
     rarity: "",
     essence: "",
     ability: "",
@@ -795,12 +795,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "037_",
-    shinyAssetKey: "037_"
+    assetKey: "037_thorny",
+    shinyAssetKey: "037_thorny_shiny"
   }),
 
   "038": createManualEntry({
-    name: "",
+    name: "Bramblet",
     rarity: "",
     essence: "",
     ability: "",
@@ -813,12 +813,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #037",
     dropPool: "Not directly hatchable",
 
-    assetKey: "038_",
-    shinyAssetKey: "038_"
+    assetKey: "038_bramblet",
+    shinyAssetKey: "038_bramblet_shiny"
   }),
 
   "039": createManualEntry({
-    name: "",
+    name: "Verdantusk",
     rarity: "",
     essence: "",
     ability: "",
@@ -831,12 +831,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #038",
     dropPool: "Not directly hatchable",
 
-    assetKey: "039_",
-    shinyAssetKey: "039_"
+    assetKey: "039_verdantusk",
+    shinyAssetKey: "039_verdantusk_shiny"
   }),
 
   "040": createManualEntry({
-    name: "",
+    name: "Shellbit",
     rarity: "",
     essence: "",
     ability: "",
@@ -849,12 +849,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "040_",
-    shinyAssetKey: "040_"
+    assetKey: "040_shellbit",
+    shinyAssetKey: "040_shellbit_shiny"
   }),
 
   "041": createManualEntry({
-    name: "",
+    name: "Aqualume",
     rarity: "",
     essence: "",
     ability: "",
@@ -867,12 +867,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #040",
     dropPool: "Not directly hatchable",
 
-    assetKey: "041_",
-    shinyAssetKey: "041_"
+    assetKey: "041_aqualume",
+    shinyAssetKey: "041_aqualume_shiny"
   }),
 
   "042": createManualEntry({
-    name: "",
+    name: "Pyroshell",
     rarity: "",
     essence: "",
     ability: "",
@@ -885,12 +885,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #041",
     dropPool: "Not directly hatchable",
 
-    assetKey: "042_",
-    shinyAssetKey: "042_"
+    assetKey: "042_pyroshell",
+    shinyAssetKey: "042_pyroshell_shiny"
   }),
 
   "043": createManualEntry({
-    name: "",
+    name: "Flicklet",
     rarity: "",
     essence: "",
     ability: "",
@@ -903,12 +903,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "043_",
-    shinyAssetKey: "043_"
+    assetKey: "043_flicklet",
+    shinyAssetKey: "043_flicklet_shiny"
   }),
 
   "044": createManualEntry({
-    name: "",
+    name: "Voltbit",
     rarity: "",
     essence: "",
     ability: "",
@@ -921,12 +921,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #043",
     dropPool: "Not directly hatchable",
 
-    assetKey: "044_",
-    shinyAssetKey: "044_"
+    assetKey: "044_voltbit",
+    shinyAssetKey: "044_voltbit_shiny"
   }),
 
   "045": createManualEntry({
-    name: "",
+    name: "Voltmane",
     rarity: "",
     essence: "",
     ability: "",
@@ -939,12 +939,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #044",
     dropPool: "Not directly hatchable",
 
-    assetKey: "045_",
-    shinyAssetKey: "045_"
+    assetKey: "045_voltmane",
+    shinyAssetKey: "045_voltmane_shiny"
   }),
 
   "046": createManualEntry({
-    name: "",
+    name: "Dustkin",
     rarity: "",
     essence: "",
     ability: "",
@@ -957,12 +957,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "046_",
-    shinyAssetKey: "046_"
+    assetKey: "046_dustkin",
+    shinyAssetKey: "046_dustkin_shiny"
   }),
 
   "047": createManualEntry({
-    name: "",
+    name: "Seraphuff",
     rarity: "",
     essence: "",
     ability: "",
@@ -975,12 +975,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #046",
     dropPool: "Not directly hatchable",
 
-    assetKey: "047_",
-    shinyAssetKey: "047_"
+    assetKey: "047_seraphuff",
+    shinyAssetKey: "047_seraphuff_shiny"
   }),
 
   "048": createManualEntry({
-    name: "",
+    name: "Nimbus",
     rarity: "",
     essence: "",
     ability: "",
@@ -993,12 +993,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #047",
     dropPool: "Not directly hatchable",
 
-    assetKey: "048_",
-    shinyAssetKey: "048_"
+    assetKey: "048_nimbus",
+    shinyAssetKey: "048_nimbus_shiny"
   }),
 
   "049": createManualEntry({
-    name: "",
+    name: "Mossnub",
     rarity: "",
     essence: "",
     ability: "",
@@ -1011,12 +1011,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "049_",
-    shinyAssetKey: "049_"
+    assetKey: "049_mossnub",
+    shinyAssetKey: "049_mossnub_shiny"
   }),
 
   "050": createManualEntry({
-    name: "",
+    name: "Bloomble",
     rarity: "",
     essence: "",
     ability: "",
@@ -1029,12 +1029,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #049",
     dropPool: "Not directly hatchable",
 
-    assetKey: "050_",
-    shinyAssetKey: "050_"
+    assetKey: "050_bloomble",
+    shinyAssetKey: "050_bloomble_shiny"
   }),
 
   "051": createManualEntry({
-    name: "",
+    name: "Terragrove",
     rarity: "",
     essence: "",
     ability: "",
@@ -1047,12 +1047,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #050",
     dropPool: "Not directly hatchable",
 
-    assetKey: "051_",
-    shinyAssetKey: "051_"
+    assetKey: "051_terragrove",
+    shinyAssetKey: "051_terragrove_shiny"
   }),
 
   "052": createManualEntry({
-    name: "",
+    name: "Acornet",
     rarity: "",
     essence: "",
     ability: "",
@@ -1065,12 +1065,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "052_",
-    shinyAssetKey: "052_"
+    assetKey: "052_acornet",
+    shinyAssetKey: "052_acornet_shiny"
   }),
 
   "053": createManualEntry({
-    name: "",
+    name: "Oaklet",
     rarity: "",
     essence: "",
     ability: "",
@@ -1083,12 +1083,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #052",
     dropPool: "Not directly hatchable",
 
-    assetKey: "053_",
-    shinyAssetKey: "053_"
+    assetKey: "053_oaklet",
+    shinyAssetKey: "053_oaklet_shiny"
   }),
 
   "054": createManualEntry({
-    name: "",
+    name: "Bramborn",
     rarity: "",
     essence: "",
     ability: "",
@@ -1101,12 +1101,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #053",
     dropPool: "Not directly hatchable",
 
-    assetKey: "054_",
-    shinyAssetKey: "054_"
+    assetKey: "054_bramborn",
+    shinyAssetKey: "054_bramborn_shiny"
   }),
 
   "055": createManualEntry({
-    name: "",
+    name: "Gravelimp",
     rarity: "",
     essence: "",
     ability: "",
@@ -1119,12 +1119,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "055_",
-    shinyAssetKey: "055_"
+    assetKey: "055_gravelimp",
+    shinyAssetKey: "055_gravelimp_shiny"
   }),
 
   "056": createManualEntry({
-    name: "",
+    name: "Cragor",
     rarity: "",
     essence: "",
     ability: "",
@@ -1137,12 +1137,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #055",
     dropPool: "Not directly hatchable",
 
-    assetKey: "056_",
-    shinyAssetKey: "056_"
+    assetKey: "056_cragor",
+    shinyAssetKey: "056_cragor_shiny"
   }),
 
   "057": createManualEntry({
-    name: "",
+    name: "Volcarok",
     rarity: "",
     essence: "",
     ability: "",
@@ -1155,12 +1155,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #056",
     dropPool: "Not directly hatchable",
 
-    assetKey: "057_",
-    shinyAssetKey: "057_"
+    assetKey: "057_volcarok",
+    shinyAssetKey: "057_volcarok_shiny"
   }),
 
   "058": createManualEntry({
-    name: "",
+    name: "Dewbit",
     rarity: "",
     essence: "",
     ability: "",
@@ -1173,12 +1173,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "058_",
-    shinyAssetKey: "058_"
+    assetKey: "058_dewbit",
+    shinyAssetKey: "058_dewbit_shiny"
   }),
 
   "059": createManualEntry({
-    name: "",
+    name: "Aquarix",
     rarity: "",
     essence: "",
     ability: "",
@@ -1191,12 +1191,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #058",
     dropPool: "Not directly hatchable",
 
-    assetKey: "059_",
-    shinyAssetKey: "059_"
+    assetKey: "059_aquarix",
+    shinyAssetKey: "059_aquarix_shiny"
   }),
 
   "060": createManualEntry({
-    name: "",
+    name: "Tidera",
     rarity: "",
     essence: "",
     ability: "",
@@ -1209,12 +1209,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #059",
     dropPool: "Not directly hatchable",
 
-    assetKey: "060_",
-    shinyAssetKey: "060_"
+    assetKey: "060_tidera",
+    shinyAssetKey: "060_tidera_shiny"
   }),
 
   "061": createManualEntry({
-    name: "",
+    name: "Gloop",
     rarity: "",
     essence: "",
     ability: "",
@@ -1227,12 +1227,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "061_",
-    shinyAssetKey: "061_"
+    assetKey: "061_gloop",
+    shinyAssetKey: "061_gloop_shiny"
   }),
 
   "062": createManualEntry({
-    name: "",
+    name: "Verdooze",
     rarity: "",
     essence: "",
     ability: "",
@@ -1245,12 +1245,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #061",
     dropPool: "Not directly hatchable",
 
-    assetKey: "062_",
-    shinyAssetKey: "062_"
+    assetKey: "062_verdooze",
+    shinyAssetKey: "062_verdooze_shiny"
   }),
 
   "063": createManualEntry({
-    name: "",
+    name: "Floragoo",
     rarity: "",
     essence: "",
     ability: "",
@@ -1263,12 +1263,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #062",
     dropPool: "Not directly hatchable",
 
-    assetKey: "063_",
-    shinyAssetKey: "063_"
+    assetKey: "063_floragoo",
+    shinyAssetKey: "063_floragoo_shiny"
   }),
 
   "064": createManualEntry({
-    name: "",
+    name: "Puffling",
     rarity: "",
     essence: "",
     ability: "",
@@ -1281,12 +1281,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "064_",
-    shinyAssetKey: "064_"
+    assetKey: "064_puffling",
+    shinyAssetKey: "064_puffling_shiny"
   }),
 
   "065": createManualEntry({
-    name: "",
+    name: "Seraphlume",
     rarity: "",
     essence: "",
     ability: "",
@@ -1299,12 +1299,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #064",
     dropPool: "Not directly hatchable",
 
-    assetKey: "065_",
-    shinyAssetKey: "065_"
+    assetKey: "065_seraphlume",
+    shinyAssetKey: "065_seraphlume_shiny"
   }),
 
   "066": createManualEntry({
-    name: "",
+    name: "Aurelo",
     rarity: "",
     essence: "",
     ability: "",
@@ -1317,12 +1317,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #065",
     dropPool: "Not directly hatchable",
 
-    assetKey: "066_",
-    shinyAssetKey: "066_"
+    assetKey: "066_aurelo",
+    shinyAssetKey: "066_aurelo_shiny"
   }),
 
   "067": createManualEntry({
-    name: "",
+    name: "Bouncil",
     rarity: "",
     essence: "",
     ability: "",
@@ -1335,12 +1335,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "067_",
-    shinyAssetKey: "067_"
+    assetKey: "067_bouncil",
+    shinyAssetKey: "067_bouncil_shiny"
   }),
 
   "068": createManualEntry({
-    name: "",
+    name: "Purrcoil",
     rarity: "",
     essence: "",
     ability: "",
@@ -1353,12 +1353,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #067",
     dropPool: "Not directly hatchable",
 
-    assetKey: "068_",
-    shinyAssetKey: "068_"
+    assetKey: "068_purrcoil",
+    shinyAssetKey: "068_purrcoil_shiny"
   }),
 
   "069": createManualEntry({
-    name: "",
+    name: "Springtail",
     rarity: "",
     essence: "",
     ability: "",
@@ -1371,12 +1371,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #068",
     dropPool: "Not directly hatchable",
 
-    assetKey: "069_",
-    shinyAssetKey: "069_"
+    assetKey: "069_springtail",
+    shinyAssetKey: "069_springtail_shiny"
   }),
 
   "070": createManualEntry({
-    name: "",
+    name: "Spagato",
     rarity: "",
     essence: "",
     ability: "",
@@ -1389,12 +1389,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "070_",
-    shinyAssetKey: "070_"
+    assetKey: "070_spagato",
+    shinyAssetKey: "070_spagato_shiny"
   }),
 
   "071": createManualEntry({
-    name: "",
+    name: "Slatlo",
     rarity: "",
     essence: "",
     ability: "",
@@ -1407,12 +1407,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #070",
     dropPool: "Not directly hatchable",
 
-    assetKey: "071_",
-    shinyAssetKey: "071_"
+    assetKey: "071_slatlo",
+    shinyAssetKey: "071_slatlo_shiny"
   }),
 
   "072": createManualEntry({
-    name: "",
+    name: "Salto",
     rarity: "",
     essence: "",
     ability: "",
@@ -1425,12 +1425,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #071",
     dropPool: "Not directly hatchable",
 
-    assetKey: "072_",
-    shinyAssetKey: "072_"
+    assetKey: "072_salto",
+    shinyAssetKey: "072_salto_shiny"
   }),
 
   "073": createManualEntry({
-    name: "",
+    name: "Tanglebud",
     rarity: "",
     essence: "",
     ability: "",
@@ -1443,12 +1443,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "073_",
-    shinyAssetKey: "073_"
+    assetKey: "073_tanglebud",
+    shinyAssetKey: "073_tanglebud_shiny"
   }),
 
   "074": createManualEntry({
-    name: "",
+    name: "Floravine",
     rarity: "",
     essence: "",
     ability: "",
@@ -1461,12 +1461,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #073",
     dropPool: "Not directly hatchable",
 
-    assetKey: "074_",
-    shinyAssetKey: "074_"
+    assetKey: "074_floravine",
+    shinyAssetKey: "074_floravine_shiny"
   }),
 
   "075": createManualEntry({
-    name: "",
+    name: "Florene",
     rarity: "",
     essence: "",
     ability: "",
@@ -1479,12 +1479,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #074",
     dropPool: "Not directly hatchable",
 
-    assetKey: "075_",
-    shinyAssetKey: "075_"
+    assetKey: "075_florene",
+    shinyAssetKey: "075_florene_shiny"
   }),
 
   "076": createManualEntry({
-    name: "",
+    name: "Ambloop",
     rarity: "",
     essence: "",
     ability: "",
@@ -1497,12 +1497,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "076_",
-    shinyAssetKey: "076_"
+    assetKey: "076_ambloop",
+    shinyAssetKey: "076_ambloop_shiny"
   }),
 
   "077": createManualEntry({
-    name: "",
+    name: "Melbee",
     rarity: "",
     essence: "",
     ability: "",
@@ -1515,12 +1515,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #076",
     dropPool: "Not directly hatchable",
 
-    assetKey: "077_",
-    shinyAssetKey: "077_"
+    assetKey: "077_melbee",
+    shinyAssetKey: "077_melbee_shiny"
   }),
 
   "078": createManualEntry({
-    name: "",
+    name: "Hivecore",
     rarity: "",
     essence: "",
     ability: "",
@@ -1533,12 +1533,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #077",
     dropPool: "Not directly hatchable",
 
-    assetKey: "078_",
-    shinyAssetKey: "078_"
+    assetKey: "078_hivecore",
+    shinyAssetKey: "078_hivecore_shiny"
   }),
 
   "079": createManualEntry({
-    name: "",
+    name: "Sporeling",
     rarity: "",
     essence: "",
     ability: "",
@@ -1551,12 +1551,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "079_",
-    shinyAssetKey: "079_"
+    assetKey: "079_sporeling",
+    shinyAssetKey: "079_sporeling_shiny"
   }),
 
   "080": createManualEntry({
-    name: "",
+    name: "Glowshroom",
     rarity: "",
     essence: "",
     ability: "",
@@ -1569,12 +1569,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #079",
     dropPool: "Not directly hatchable",
 
-    assetKey: "080_",
-    shinyAssetKey: "080_"
+    assetKey: "080_glowshroom",
+    shinyAssetKey: "080_glowshroom_shiny"
   }),
 
   "081": createManualEntry({
-    name: "",
+    name: "Lumicrown",
     rarity: "",
     essence: "",
     ability: "",
@@ -1587,12 +1587,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #080",
     dropPool: "Not directly hatchable",
 
-    assetKey: "081_",
-    shinyAssetKey: "081_"
+    assetKey: "081_lumicrown",
+    shinyAssetKey: "081_lumicrown_shiny"
   }),
 
   "082": createManualEntry({
-    name: "",
+    name: "Toofle",
     rarity: "",
     essence: "",
     ability: "",
@@ -1605,12 +1605,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "082_",
-    shinyAssetKey: "082_"
+    assetKey: "082_toofle",
+    shinyAssetKey: "082_toofle_shiny"
   }),
 
   "083": createManualEntry({
-    name: "",
+    name: "Dentra",
     rarity: "",
     essence: "",
     ability: "",
@@ -1623,12 +1623,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #082",
     dropPool: "Not directly hatchable",
 
-    assetKey: "083_",
-    shinyAssetKey: "083_"
+    assetKey: "083_dentra",
+    shinyAssetKey: "083_dentra_shiny"
   }),
 
   "084": createManualEntry({
-    name: "",
+    name: "Crownling",
     rarity: "",
     essence: "",
     ability: "",
@@ -1641,12 +1641,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #083",
     dropPool: "Not directly hatchable",
 
-    assetKey: "084_",
-    shinyAssetKey: "084_"
+    assetKey: "084_crownling",
+    shinyAssetKey: "084_crownling_shiny"
   }),
 
   "085": createManualEntry({
-    name: "",
+    name: "Glowpuff",
     rarity: "",
     essence: "",
     ability: "",
@@ -1659,12 +1659,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "085_",
-    shinyAssetKey: "085_"
+    assetKey: "085_glowpuff",
+    shinyAssetKey: "085_glowpuff_shiny"
   }),
 
   "086": createManualEntry({
-    name: "",
+    name: "Pufflyn",
     rarity: "",
     essence: "",
     ability: "",
@@ -1677,12 +1677,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #085",
     dropPool: "Not directly hatchable",
 
-    assetKey: "086_",
-    shinyAssetKey: "086_"
+    assetKey: "086_pufflyn",
+    shinyAssetKey: "086_pufflyn_shiny"
   }),
 
   "087": createManualEntry({
-    name: "",
+    name: "Flumet",
     rarity: "",
     essence: "",
     ability: "",
@@ -1695,12 +1695,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #086",
     dropPool: "Not directly hatchable",
 
-    assetKey: "087_",
-    shinyAssetKey: "087_"
+    assetKey: "087_flumet",
+    shinyAssetKey: "087_flumet_shiny"
   }),
 
   "088": createManualEntry({
-    name: "",
+    name: "Pebloop",
     rarity: "",
     essence: "",
     ability: "",
@@ -1713,12 +1713,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "088_",
-    shinyAssetKey: "088_"
+    assetKey: "088_pebloop",
+    shinyAssetKey: "088_pebloop_shiny"
   }),
 
   "089": createManualEntry({
-    name: "",
+    name: "Zapplet",
     rarity: "",
     essence: "",
     ability: "",
@@ -1731,12 +1731,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #088",
     dropPool: "Not directly hatchable",
 
-    assetKey: "089_",
-    shinyAssetKey: "089_"
+    assetKey: "089_zapplet",
+    shinyAssetKey: "089_zapplet_shiny"
   }),
 
   "090": createManualEntry({
-    name: "",
+    name: "Thundrop",
     rarity: "",
     essence: "",
     ability: "",
@@ -1749,12 +1749,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #089",
     dropPool: "Not directly hatchable",
 
-    assetKey: "090_",
-    shinyAssetKey: "090_"
+    assetKey: "090_thundrop",
+    shinyAssetKey: "090_thundrop_shiny"
   }),
 
   "091": createManualEntry({
-    name: "",
+    name: "Fluffit",
     rarity: "",
     essence: "",
     ability: "",
@@ -1767,12 +1767,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "",
     dropPool: "",
 
-    assetKey: "091_",
-    shinyAssetKey: "091_"
+    assetKey: "091_fluffit",
+    shinyAssetKey: "091_fluffit_shiny"
   }),
 
   "092": createManualEntry({
-    name: "",
+    name: "Fluffel",
     rarity: "",
     essence: "",
     ability: "",
@@ -1785,12 +1785,12 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #091",
     dropPool: "Not directly hatchable",
 
-    assetKey: "092_",
-    shinyAssetKey: "092_"
+    assetKey: "092_fluffel",
+    shinyAssetKey: "092_fluffel_shiny"
   }),
 
   "093": createManualEntry({
-    name: "",
+    name: "Flommi",
     rarity: "",
     essence: "",
     ability: "",
@@ -1803,14 +1803,14 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Evolve from #092",
     dropPool: "Not directly hatchable",
 
-    assetKey: "093_",
-    shinyAssetKey: "093_"
+    assetKey: "093_flommi",
+    shinyAssetKey: "093_flommi_shiny"
   }),
 
   "094": createManualEntry({
-    name: "",
-    rarity: "",
-    essence: "",
+    name: "Solrael",
+    rarity: "Legendary",
+    essence: "Radiant",
     ability: "",
 
     attack: 0,
@@ -1821,14 +1821,14 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Direct Encounter",
     dropPool: "Standalone Pool",
 
-    assetKey: "094_",
-    shinyAssetKey: "094_"
+    assetKey: "094_solrael",
+    shinyAssetKey: "094_solrael_shiny"
   }),
 
   "095": createManualEntry({
-    name: "",
-    rarity: "",
-    essence: "",
+    name: "Pyrael",
+    rarity: "Legendary",
+    essence: "Ember",
     ability: "",
 
     attack: 0,
@@ -1839,14 +1839,14 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Direct Encounter",
     dropPool: "Standalone Pool",
 
-    assetKey: "095_",
-    shinyAssetKey: "095_"
+    assetKey: "095_pyrael",
+    shinyAssetKey: "095_pyrael_shiny"
   }),
 
   "096": createManualEntry({
-    name: "",
-    rarity: "",
-    essence: "",
+    name: "Tidael",
+    rarity: "Legendary",
+    essence: "Tide",
     ability: "",
 
     attack: 0,
@@ -1857,14 +1857,14 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Direct Encounter",
     dropPool: "Standalone Pool",
 
-    assetKey: "096_",
-    shinyAssetKey: "096_"
+    assetKey: "096_tidael",
+    shinyAssetKey: "096_tidael_shiny"
   }),
 
   "097": createManualEntry({
-    name: "",
-    rarity: "",
-    essence: "",
+    name: "Verdael",
+    rarity: "Legendary",
+    essence: "Verdant",
     ability: "",
 
     attack: 0,
@@ -1875,14 +1875,14 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Direct Encounter",
     dropPool: "Standalone Pool",
 
-    assetKey: "097_",
-    shinyAssetKey: "097_"
+    assetKey: "097_verdael",
+    shinyAssetKey: "097_verdael_shiny"
   }),
 
   "098": createManualEntry({
-    name: "",
-    rarity: "",
-    essence: "",
+    name: "Voltael",
+    rarity: "Legendary",
+    essence: "Volt",
     ability: "",
 
     attack: 0,
@@ -1893,14 +1893,14 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Direct Encounter",
     dropPool: "Standalone Pool",
 
-    assetKey: "098_",
-    shinyAssetKey: "098_"
+    assetKey: "098_voltael",
+    shinyAssetKey: "098_voltael_shiny"
   }),
 
   "099": createManualEntry({
-    name: "",
-    rarity: "",
-    essence: "",
+    name: "Astrael",
+    rarity: "Legendary",
+    essence: "Void",
     ability: "",
 
     attack: 0,
@@ -1911,14 +1911,14 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Direct Encounter",
     dropPool: "Standalone Pool",
 
-    assetKey: "099_",
-    shinyAssetKey: "099_"
+    assetKey: "099_astrael",
+    shinyAssetKey: "099_astrael_shiny"
   }),
 
   "100": createManualEntry({
-    name: "",
-    rarity: "",
-    essence: "",
+    name: "Stellaris",
+    rarity: "Mythical",
+    essence: "Radiant",
     ability: "",
 
     attack: 0,
@@ -1929,8 +1929,8 @@ const CREATURE_MANUAL_DATA = {
     dropSource: "Direct Encounter",
     dropPool: "Standalone Pool",
 
-    assetKey: "100_",
-    shinyAssetKey: "100_"
+    assetKey: "100_stellaris",
+    shinyAssetKey: "100_stellaris_shiny"
   })
 };
 
