@@ -136,6 +136,29 @@ body {
   gap: 12px;
 }
 
+.ios-soon-banner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 230, 170, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
+    rgba(21, 24, 48, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    0 14px 38px rgba(0, 0, 0, 0.28),
+    0 0 26px rgba(255, 194, 92, 0.18);
+  color: #c9b2ff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
 .logo {
   height: 420px;
   max-width: min(90vw, 700px);
@@ -719,13 +742,20 @@ body {
   }
 
   .logo {
-    height: auto;
-    width: min(88vw, 420px);
-  }
+      height: auto;
+      width: min(88vw, 420px);
+    }
 
+  .ios-soon-banner {
+      padding: 8px 14px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      transform: translateY(10px);
+    }
+  
   .subtitle {
-    font-size: 14px;
-    transform: translateY(-54px);
+      font-size: 14px;
+      transform: translateY(-54px);
     text-align: center;
   }
 
